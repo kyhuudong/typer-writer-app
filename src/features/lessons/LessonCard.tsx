@@ -1,4 +1,5 @@
 import type { Lesson } from "../../types/lesson";
+import { LessonImage } from "../media/LessonImage";
 
 type LessonCardProps = {
   lesson: Lesson;
@@ -12,7 +13,7 @@ export function LessonCard({ lesson, onSelect }: LessonCardProps) {
       onClick={() => onSelect?.(lesson)}
       className="group flex h-full w-full flex-col overflow-hidden rounded-3xl border border-zinc-800 bg-surface-900 text-left transition hover:border-accent-400/60 hover:bg-surface-800"
     >
-      <img
+      <LessonImage
         src={lesson.image}
         alt={lesson.title}
         className="h-44 w-full object-cover opacity-90 transition group-hover:opacity-100"

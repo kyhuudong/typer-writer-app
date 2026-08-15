@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { CharacterTape } from "./CharacterTape";
 import { TypingStats } from "./TypingStats";
 import { useTypingSession, type TypingSessionSummary } from "./useTypingSession";
+import { useDictionaryLookup } from "../helpers/useDictionaryLookup";
+import { useTextToSpeech } from "../helpers/useTextToSpeech";
 
 type TypingSessionProps = {
   text: string;
@@ -11,6 +13,9 @@ type TypingSessionProps = {
 
 export function TypingSession({ text, title = "Typing session", onComplete }: TypingSessionProps) {
   const session = useTypingSession(text);
+  const speech = useTextToSpeech();
+  const dictionary = useDictionaryLookup();
+  const words = text.split(/\s+/).filter(Boolean);
 
   useEffect(() => {
     if (session.status === "finished") {
@@ -29,6 +34,64 @@ export function TypingSession({ text, title = "Typing session", onComplete }: Ty
 
       <TypingStats summary={session.summary} />
       <CharacterTape characters={session.characterStates} />
+
+      <div className="space-y-3 rounded-3xl border border-zinc-800 bg-surface-950 p-4">
+        <div className="flex flex-wrap items-center gap-3">
+          <button
+            type="button"
+            onClick={() => speech.speak(text)}
+            className="rounded-full border border-zinc-700 px-4 py-2 text-sm font-medium text-zinc-200 transition hover:border-zinc-500"
+          >
+            Listen
+          </button>
+          <p className="text-sm text-zinc-500">
+            Double-click a word to open a dictionary lookup.
+          </p>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          {words.map((word, index) => (
+            <span
+              key={`${word}-${index}`}
+              onDoubleClick={() => void dictionary.lookupWord(word)}
+              className="cursor-pointer rounded-full border border-zinc-800 bg-surface-900 px-3 py-1 text-sm text-zinc-300 transition hover:border-accent-400/50"
+            >
+              {word}
+            </span>
+          ))}
+        </div>
+        {dictionary.isLoading ? (
+          <p className="text-sm text-zinc-500">Looking up word...</p>
+        ) : null}
+        {dictionary.entry ? (
+          <dl className="grid gap-3 rounded-2xl border border-zinc-800 bg-surface-900 p-4 sm:grid-cols-2">
+            <div>
+              <dt className="text-xs uppercase tracking-[0.25em] text-zinc-500">
+                Word
+              </dt>
+              <dd className="mt-1 text-zinc-100">{dictionary.entry.word}</dd>
+            </div>
+            <div>
+              <dt className="text-xs uppercase tracking-[0.25em] text-zinc-500">
+                Part of speech
+              </dt>
+              <dd className="mt-1 text-zinc-100">{dictionary.entry.partOfSpeech}</dd>
+            </div>
+            <div className="sm:col-span-2">
+              <dt className="text-xs uppercase tracking-[0.25em] text-zinc-500">
+                Definition
+              </dt>
+              <dd className="mt-1 leading-6 text-zinc-300">
+                {dictionary.entry.definition}
+              </dd>
+            </div>
+          </dl>
+        ) : null}
+        {dictionary.error ? (
+          <p role="alert" className="text-sm text-rose-300">
+            {dictionary.error}
+          </p>
+        ) : null}
+      </div>
 
       <label className="block space-y-2">
         <span className="text-sm text-zinc-300">Type here</span>
