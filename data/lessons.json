@@ -1,0 +1,50 @@
+[
+  {
+    "id": "stoic_001",
+    "title": "Control and Perception",
+    "category": "Stoicism",
+    "difficulty": "Easy",
+    "image": "https://images.unsplash.com/photo-1544717305-2782549b5136",
+    "text": "You have power over your mind, not outside events. Realize this, and you will find strength. The world can be noisy and uncertain, but your attention remains yours to guide. Practice returning your mind to what is steady, useful, and within reach."
+  },
+  {
+    "id": "sci_001",
+    "title": "Orbital Mechanics",
+    "category": "Science",
+    "difficulty": "Medium",
+    "image": "/images/space_orbit.jpg",
+    "text": "Gravitational interactions between celestial bodies maintain planetary orbits across billions of years. A small shift in velocity can change the path of a satellite, a moon, or an entire probe mission. Precision matters because even a tiny error becomes a large distance over time."
+  },
+  {
+    "id": "lit_001",
+    "title": "Silent Winter",
+    "category": "Literature",
+    "difficulty": "Hard",
+    "image": "https://images.unsplash.com/photo-1519681393784-d120267933ba",
+    "text": "The snow had folded every sharp edge of the world into a hush that felt both private and endless. Each step across the street sounded distant, as if the city had agreed to speak more softly for the night. In that silence, even small thoughts arrived with unusual clarity."
+  },
+  {
+    "id": "philo_001",
+    "title": "The Shape of Thought",
+    "category": "Philosophy",
+    "difficulty": "Hard",
+    "image": "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620",
+    "text": "A thought is rarely born complete; it begins as a question, then gathers shape through attention and doubt. We learn by revisiting what we think we know, not by defending every first impression. Careful thinking is slow, but it often reveals the hidden structure beneath a simple belief."
+  },
+  {
+    "id": "philo_long_001",
+    "title": "The Long Argument",
+    "category": "Philosophy",
+    "difficulty": "Hard",
+    "image": "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620",
+    "text": "This lesson is generated in code so the catalog stays compact."
+  },
+  {
+    "id": "tech_001",
+    "title": "Reliable Systems",
+    "category": "Science & Tech",
+    "difficulty": "Medium",
+    "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97",
+    "text": "Reliable software does not appear by accident; it is built through small decisions that reduce surprise. Clear inputs, direct feedback, and predictable behavior give users confidence when they return to a system again and again. A calm interface is often a sign that many hidden details have been handled carefully."
+  }
+]
