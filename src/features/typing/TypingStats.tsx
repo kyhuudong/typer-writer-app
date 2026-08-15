@@ -17,11 +17,11 @@ export function TypingStats({ summary }: TypingStatsProps) {
 
 function Stat({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-2xl bg-white/5 px-4 py-3">
-      <dt className="text-xs uppercase tracking-[0.25em] text-zinc-500">
+    <div className="rounded-2xl bg-black/20 px-4 py-3">
+      <dt className="text-[10px] uppercase tracking-[0.28em] text-zinc-500">
         {label}
       </dt>
-      <dd className="mt-2 text-xl font-medium text-zinc-50">{value}</dd>
+      <dd className="mt-2 text-lg font-medium text-zinc-50">{value}</dd>
     </div>
   );
 }

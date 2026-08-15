@@ -1,4 +1,5 @@
 import { fireEvent, render, screen } from "@testing-library/react";
+import { vi } from "vitest";
 import { TypingViewport } from "./TypingViewport";
 
 test("renders a single typing surface", () => {
@@ -37,4 +38,13 @@ test("scrolls the live surface to the bottom as text changes", () => {
   });
 
   expect(viewport.scrollTop).toBe(480);
+});
+
+test("speaks the lesson when the surface is clicked", () => {
+  const onSpeak = vi.fn();
+  render(<TypingViewport text="You have power." onSpeak={onSpeak} />);
+
+  fireEvent.click(screen.getByLabelText(/typing surface/i));
+
+  expect(onSpeak).toHaveBeenCalled();
 });

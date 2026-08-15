@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { vi } from "vitest";
-import { FocusStage } from "./FocusStage";
+import { InputStage } from "./InputStage";
 
 const speak = vi.fn();
 
@@ -21,21 +21,17 @@ const lesson = {
   text: "You have power over your mind."
 };
 
-test("shows a click-to-speak focus stage", () => {
-  render(<FocusStage lesson={lesson} />);
+test("renders the input surface and transparent stats", () => {
+  render(<InputStage lesson={lesson} />);
 
-  expect(
-    screen.getByRole("button", { name: /speak lesson text/i })
-  ).toBeInTheDocument();
   expect(screen.getByLabelText(/typing surface/i)).toBeInTheDocument();
   expect(screen.getByText(/wpm/i)).toBeInTheDocument();
-  expect(screen.getByText(/double-click any word below/i)).toBeInTheDocument();
 });
 
-test("speaks the lesson text when clicked", () => {
-  render(<FocusStage lesson={lesson} />);
+test("speaks the lesson text when the typing surface is clicked", () => {
+  render(<InputStage lesson={lesson} />);
 
-  screen.getByRole("button", { name: /speak lesson text/i }).click();
+  screen.getByLabelText(/typing surface/i).click();
 
   expect(speak).toHaveBeenCalledWith(lesson.text);
 });

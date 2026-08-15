@@ -21,7 +21,7 @@ export function TypingTools({ text }: TypingToolsProps) {
         <p className="text-xs uppercase tracking-[0.35em] text-zinc-500">
           Study tools
         </p>
-        <p className="mt-2 text-sm leading-6 text-zinc-300">
+        <p className="mt-2 text-sm leading-6 text-zinc-400">
           Click the text to hear it. Double-click any word below for a definition.
         </p>
       </button>
@@ -32,7 +32,7 @@ export function TypingTools({ text }: TypingToolsProps) {
             key={`${word}-${index}`}
             type="button"
             onDoubleClick={() => void dictionary.lookupWord(word)}
-            className="rounded-full bg-white/5 px-3 py-1 text-sm text-zinc-300 transition hover:bg-white/10"
+            className="rounded-full bg-black/20 px-3 py-1 text-sm text-zinc-300 transition hover:bg-black/30"
           >
             {word}
           </button>

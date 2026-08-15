@@ -4,6 +4,7 @@ import { CollapsePanel } from "./CollapsePanel";
 import { LoginForm } from "../features/auth/LoginForm";
 import { LessonGrid } from "../features/lessons/LessonGrid";
 import { ProgressSummary } from "./ProgressSummary";
+import { TypingTools } from "../features/typing/TypingTools";
 
 type SessionRailProps = {
   progress: ProgressProfile | null;
@@ -19,17 +20,21 @@ export function SessionRail({
   onSelectLesson
 }: SessionRailProps) {
   return (
-    <section className="space-y-4">
-      <CollapsePanel title="Progress" description="Save or review your local learning file.">
+    <section className="space-y-3">
+      <CollapsePanel title="Progress">
         {progress ? <ProgressSummary progress={progress} /> : <LoginForm />}
       </CollapsePanel>
 
-      <CollapsePanel title="Lessons" description="Open the lesson browser when you want to switch text.">
+      <CollapsePanel title="Lessons">
         <LessonGrid
           lessons={lessons}
           selectedLessonId={selectedLessonId}
           onSelectLesson={(lesson) => onSelectLesson(lesson.id)}
         />
+      </CollapsePanel>
+
+      <CollapsePanel title="Tools">
+        <TypingTools text={lessons.find((lesson) => lesson.id === selectedLessonId)?.text ?? ""} />
       </CollapsePanel>
     </section>
   );

@@ -6,14 +6,17 @@ type TypingViewportProps = {
   text: string;
   onSummaryChange?: (summary: TypingSessionSummary) => void;
   onComplete?: (summary: TypingSessionSummary) => void;
+  onSpeak?: () => void;
 };
 
 export function TypingViewport({
   text,
   onSummaryChange,
-  onComplete
+  onComplete,
+  onSpeak
 }: TypingViewportProps) {
   const viewportRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLTextAreaElement>(null);
   const session = useTypingSession(text);
 
   useEffect(() => {
@@ -43,8 +46,13 @@ export function TypingViewport({
       <div className="relative">
         <CharacterTape characters={session.characterStates} variant="layer" />
         <textarea
+          ref={inputRef}
           value={session.typedText}
           onChange={(event) => session.setTypedText(event.target.value)}
+          onClick={() => {
+            onSpeak?.();
+            inputRef.current?.focus();
+          }}
           onScroll={(event) => {
             const textarea = event.currentTarget;
             const viewport = viewportRef.current;
@@ -57,7 +65,7 @@ export function TypingViewport({
           autoCapitalize="off"
           autoComplete="off"
           autoCorrect="off"
-          className="absolute inset-0 h-full w-full resize-none border-0 bg-transparent p-6 text-transparent caret-accent-400 outline-none"
+          className="absolute inset-0 h-full w-full resize-none border-0 bg-transparent p-6 text-transparent caret-white/80 outline-none"
         />
       </div>
     </div>

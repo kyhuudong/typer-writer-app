@@ -31,4 +31,8 @@ test("keeps secondary sessions collapsed by default", () => {
     "aria-expanded",
     "false"
   );
+  expect(screen.getByRole("button", { name: /tools/i })).toHaveAttribute(
+    "aria-expanded",
+    "false"
+  );
 });

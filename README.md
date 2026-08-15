@@ -1,6 +1,6 @@
 # Minimal Typer
 
-A local-first English typing practice app with a minimalist, focus-first design.
+A local-first English typing practice app with a minimalist, input-first design.
 
 ## Run
 
@@ -30,8 +30,8 @@ npm run build
 
 ## Layout
 
-- The focus stage is the main screen
-- Live stats and study tools stay visible in the focus area
-- Progress and Lessons stay collapsed for a cleaner shell
-- Click the lesson text to hear it, then type in the live scrolling surface
+- The main area is a single live typing input
+- Stats sit in transparent black overlays
+- Progress, Lessons, and Tools live in a left-side menu rail
+- Click the typing text to hear it, then keep typing in the same surface
 - The UI stays black, transparent, and border-light
