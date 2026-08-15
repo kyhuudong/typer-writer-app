@@ -2,6 +2,7 @@ import type { CharacterState } from "../../lib/typingMetrics";
 
 type CharacterTapeProps = {
   characters: Array<{ character: string; state: CharacterState }>;
+  variant?: "surface" | "layer";
 };
 
 const stateClasses: Record<CharacterState, string> = {
@@ -11,9 +12,14 @@ const stateClasses: Record<CharacterState, string> = {
   pending: "text-zinc-600"
 };
 
-export function CharacterTape({ characters }: CharacterTapeProps) {
+export function CharacterTape({ characters, variant = "surface" }: CharacterTapeProps) {
+  const surfaceClassName =
+    variant === "surface"
+      ? "rounded-3xl border border-zinc-800 bg-surface-900 p-6 text-2xl leading-10 tracking-wide text-zinc-200"
+      : "p-6 text-2xl leading-10 tracking-wide text-zinc-200";
+
   return (
-    <p className="rounded-3xl border border-zinc-800 bg-surface-900 p-6 text-2xl leading-10 tracking-wide text-zinc-200">
+    <p className={surfaceClassName}>
       {characters.map(({ character, state }, index) => (
         <span
           key={`${character}-${index}`}
