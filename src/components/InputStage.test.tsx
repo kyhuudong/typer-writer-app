@@ -24,11 +24,7 @@ const lesson = {
 test("renders the input surface and transparent stats", () => {
   render(<InputStage lesson={lesson} />);
 
-  expect(
-    screen.getByText(/wpm/i).compareDocumentPosition(
-      screen.getByLabelText(/typing surface/i)
-    ) & Node.DOCUMENT_POSITION_FOLLOWING
-  ).toBeTruthy();
+  expect(screen.getByText(/finish/i)).toBeInTheDocument();
   expect(screen.getByLabelText(/typing surface/i)).toBeInTheDocument();
   expect(screen.getByText(/wpm/i)).toBeInTheDocument();
 });

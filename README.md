@@ -36,3 +36,9 @@ npm run build
 - Expanded sidebar sections use simple text lists
 - The lesson text is clickable to speak
 - The UI stays black, transparent, and border-light
+
+## Typing stats
+
+- WPM uses standard typing-test math: correct characters / 5 over elapsed minutes
+- Finish shows how much of the current lesson is complete
+- Accuracy still measures exact character matches

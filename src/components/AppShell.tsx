@@ -20,8 +20,8 @@ export function AppShell() {
   return (
     <main className="min-h-screen bg-surface-950 text-zinc-50">
       <TopBar userName={currentUser} />
-      <section className="mx-auto grid max-w-[1520px] gap-5 px-5 py-6 xl:grid-cols-[176px_minmax(0,1fr)]">
-        <aside className="xl:sticky xl:top-5 xl:h-[calc(100vh-2.5rem)] xl:overflow-auto">
+      <section className="mx-auto grid max-w-[1600px] gap-4 px-4 py-5 xl:grid-cols-[152px_minmax(0,1fr)]">
+        <aside className="xl:sticky xl:top-4 xl:h-[calc(100vh-2rem)] xl:overflow-auto">
           <SessionRail
             progress={progress}
             lessons={lessonCatalog}

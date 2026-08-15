@@ -35,13 +35,20 @@ export function TypingViewport({
       return;
     }
 
-    viewport.scrollTop = viewport.scrollHeight;
+    const current = viewport.querySelector<HTMLElement>('[data-state="current"]');
+    if (current && typeof current.scrollIntoView === "function") {
+      current.scrollIntoView({
+        block: "center",
+        inline: "nearest",
+        behavior: "smooth"
+      });
+    }
   }, [session.typedText, text]);
 
   return (
     <div
       ref={viewportRef}
-      className="min-h-[48rem] max-h-[86vh] overflow-auto bg-transparent"
+      className="min-h-[52rem] max-h-[88vh] overflow-auto bg-transparent"
     >
       <div className="relative">
         <CharacterTape characters={session.characterStates} variant="layer" />

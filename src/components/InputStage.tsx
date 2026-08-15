@@ -13,6 +13,7 @@ const emptySummary: TypingSessionSummary = {
   typedWords: 0,
   correctChars: 0,
   totalChars: 0,
+  completionPercent: 0,
   elapsedMs: 0,
   wpm: 0,
   accuracy: 0
@@ -36,7 +37,7 @@ export function InputStage({ lesson }: InputStageProps) {
   }
 
   return (
-    <section className="space-y-4 xl:max-w-[1120px]">
+    <section className="space-y-4 xl:max-w-[1280px]">
       <TypingStats summary={summary} />
       <TypingViewport
         text={lesson.text}

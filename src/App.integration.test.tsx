@@ -12,6 +12,7 @@ test("shows the typing stage first and keeps sessions collapsed by default", () 
       screen.getByLabelText(/typing surface/i)
     ) & Node.DOCUMENT_POSITION_FOLLOWING
   ).toBeTruthy();
+  expect(screen.getByText(/finish/i)).toBeInTheDocument();
   expect(screen.getByLabelText(/typing surface/i)).toBeInTheDocument();
   expect(screen.getByRole("button", { name: /progress/i })).toHaveAttribute(
     "aria-expanded",

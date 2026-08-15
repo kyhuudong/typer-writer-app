@@ -11,12 +11,12 @@ export function countCorrectCharacters(target: string, typed: string) {
   }, 0);
 }
 
-export function calculateWpm(input: { typedWords: number; elapsedMs: number }) {
+export function calculateWpm(input: { correctChars: number; elapsedMs: number }) {
   if (input.elapsedMs <= 0) {
     return 0;
   }
 
-  return Math.round((input.typedWords / input.elapsedMs) * 60000);
+  return Math.round((input.correctChars / 5) / (input.elapsedMs / 60000));
 }
 
 export function calculateAccuracy(input: { correctChars: number; totalChars: number }) {
@@ -25,6 +25,14 @@ export function calculateAccuracy(input: { correctChars: number; totalChars: num
   }
 
   return Math.round((input.correctChars / input.totalChars) * 100);
+}
+
+export function calculateCompletionPercent(input: { typedChars: number; totalChars: number }) {
+  if (input.totalChars <= 0) {
+    return 0;
+  }
+
+  return Math.min(100, Math.round((input.typedChars / input.totalChars) * 100));
 }
 
 export function getCharacterStates(target: string, typed: string) {

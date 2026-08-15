@@ -8,7 +8,8 @@ type CharacterTapeProps = {
 const stateClasses: Record<CharacterState, string> = {
   correct: "text-emerald-400",
   incorrect: "text-rose-400",
-  current: "text-zinc-100 underline decoration-white/20 decoration-2 underline-offset-4",
+  current:
+    "rounded-sm bg-white/20 px-[0.15em] py-[0.02em] text-zinc-50 shadow-[0_0_16px_rgba(255,255,255,0.08)] ring-1 ring-white/20",
   pending: "text-zinc-600"
 };
 

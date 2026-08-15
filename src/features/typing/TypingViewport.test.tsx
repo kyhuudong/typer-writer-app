@@ -20,24 +20,24 @@ test("updates the live text surface as typing changes", () => {
   expect(characters[1]).toHaveAttribute("data-state", "correct");
   expect(characters[2]).toHaveAttribute("data-state", "correct");
   expect(characters[3]).toHaveAttribute("data-state", "current");
+  expect(characters[3]).toHaveClass("bg-white/20");
 });
 
-test("scrolls the live surface to the bottom as text changes", () => {
+test("scrolls the live surface to the active character as text changes", () => {
   render(<TypingViewport text="You have power." />);
 
   const textarea = screen.getByLabelText(/typing surface/i);
-  const viewport = textarea.parentElement?.parentElement as HTMLDivElement;
-
-  Object.defineProperty(viewport, "scrollHeight", {
+  const scrollIntoView = vi.fn();
+  Object.defineProperty(HTMLElement.prototype, "scrollIntoView", {
     configurable: true,
-    value: 480
+    value: scrollIntoView
   });
 
   fireEvent.change(textarea, {
-    target: { value: "You have power." }
+    target: { value: "You" }
   });
 
-  expect(viewport.scrollTop).toBe(480);
+  expect(scrollIntoView).toHaveBeenCalled();
 });
 
 test("speaks the lesson when the surface is clicked", () => {
