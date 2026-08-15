@@ -4,6 +4,7 @@ import { TypingStats } from "./TypingStats";
 import { useTypingSession, type TypingSessionSummary } from "./useTypingSession";
 import { useDictionaryLookup } from "../helpers/useDictionaryLookup";
 import { useTextToSpeech } from "../helpers/useTextToSpeech";
+import { SecondaryButton } from "../../components/SecondaryButton";
 
 type TypingSessionProps = {
   text: string;
@@ -37,13 +38,9 @@ export function TypingSession({ text, title = "Typing session", onComplete }: Ty
 
       <div className="space-y-3 rounded-3xl border border-zinc-800 bg-surface-950 p-4">
         <div className="flex flex-wrap items-center gap-3">
-          <button
-            type="button"
-            onClick={() => speech.speak(text)}
-            className="rounded-full border border-zinc-700 px-4 py-2 text-sm font-medium text-zinc-200 transition hover:border-zinc-500"
-          >
+          <SecondaryButton onClick={() => speech.speak(text)} className="px-4 py-2">
             Listen
-          </button>
+          </SecondaryButton>
           <p className="text-sm text-zinc-500">
             Double-click a word to open a dictionary lookup.
           </p>
@@ -104,13 +101,9 @@ export function TypingSession({ text, title = "Typing session", onComplete }: Ty
       </label>
 
       <div className="flex flex-wrap gap-3">
-        <button
-          type="button"
-          onClick={session.reset}
-          className="rounded-full border border-zinc-700 px-5 py-3 text-sm font-medium text-zinc-200 transition hover:border-zinc-500"
-        >
+        <SecondaryButton onClick={session.reset}>
           Reset
-        </button>
+        </SecondaryButton>
         <p className="text-sm text-zinc-500">
           {session.status === "finished" ? "Completed" : "Keep typing"}
         </p>

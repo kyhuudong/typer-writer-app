@@ -4,14 +4,20 @@ import { LessonImage } from "../media/LessonImage";
 type LessonCardProps = {
   lesson: Lesson;
   onSelect?: (lesson: Lesson) => void;
+  selected?: boolean;
 };
 
-export function LessonCard({ lesson, onSelect }: LessonCardProps) {
+export function LessonCard({ lesson, onSelect, selected = false }: LessonCardProps) {
   return (
     <button
       type="button"
       onClick={() => onSelect?.(lesson)}
-      className="group flex h-full w-full flex-col overflow-hidden rounded-3xl border border-zinc-800 bg-surface-900 text-left transition hover:border-accent-400/60 hover:bg-surface-800"
+      aria-pressed={selected}
+      className={`group flex h-full w-full flex-col overflow-hidden rounded-3xl border text-left transition hover:border-accent-400/60 hover:bg-surface-800 ${
+        selected
+          ? "border-accent-400 bg-surface-900 ring-1 ring-accent-400/30"
+          : "border-zinc-800 bg-surface-900"
+      }`}
     >
       <LessonImage
         src={lesson.image}

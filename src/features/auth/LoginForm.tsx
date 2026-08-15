@@ -1,6 +1,8 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import type { LoginCredentials } from "../../types/progress";
 import { useAppStore } from "../../store/useAppStore";
+import { PrimaryButton } from "../../components/PrimaryButton";
+import { SecondaryButton } from "../../components/SecondaryButton";
 
 type LoginFormProps = {
   onSubmit?: (credentials: LoginCredentials) => void | Promise<void>;
@@ -97,13 +99,9 @@ export function LoginForm({
         </label>
 
         <div className="flex flex-wrap gap-3">
-          <button
-            type="submit"
-            disabled={busy}
-            className="rounded-full bg-accent-500 px-5 py-3 text-sm font-medium text-white transition hover:bg-accent-400 disabled:cursor-not-allowed disabled:opacity-60"
-          >
+          <PrimaryButton type="submit" disabled={busy}>
             Sign in
-          </button>
+          </PrimaryButton>
           <label className="cursor-pointer rounded-full border border-zinc-700 px-5 py-3 text-sm font-medium text-zinc-200 transition hover:border-zinc-500">
             Load JSON
             <input
@@ -113,14 +111,9 @@ export function LoginForm({
               onChange={handleImport}
             />
           </label>
-          <button
-            type="button"
-            onClick={handleExport}
-            disabled={busy}
-            className="rounded-full border border-zinc-700 px-5 py-3 text-sm font-medium text-zinc-200 transition hover:border-zinc-500 disabled:cursor-not-allowed disabled:opacity-60"
-          >
+          <SecondaryButton onClick={handleExport} disabled={busy}>
             Save JSON
-          </button>
+          </SecondaryButton>
         </div>
 
         {message ? (
