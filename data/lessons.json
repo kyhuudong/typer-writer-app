@@ -1,0 +1,26 @@
+[
+  {
+    "id": "stoic_001",
+    "title": "Control and Perception",
+    "category": "Stoicism",
+    "difficulty": "Easy",
+    "image": "https://images.unsplash.com/photo-1544717305-2782549b5136",
+    "text": "You have power over your mind, not outside events. Realize this, and you will find strength."
+  },
+  {
+    "id": "sci_001",
+    "title": "Orbital Mechanics",
+    "category": "Science",
+    "difficulty": "Medium",
+    "image": "/images/space_orbit.jpg",
+    "text": "Gravitational interactions between celestial bodies maintain planetary orbits across billions of years."
+  },
+  {
+    "id": "lit_001",
+    "title": "Silent Winter",
+    "category": "Literature",
+    "difficulty": "Hard",
+    "image": "https://images.unsplash.com/photo-1519681393784-d120267933ba",
+    "text": "The snow had folded every sharp edge of the world into a hush that felt both private and endless."
+  }
+]
