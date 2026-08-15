@@ -22,20 +22,15 @@ export function CollapsePanel({
         type="button"
         aria-expanded={open}
         aria-controls={id}
+        aria-label={title}
         onClick={() => setOpen((value) => !value)}
-        className="flex w-full items-center justify-between gap-3 px-3 py-3 text-left transition hover:bg-white/5"
+        className="flex h-10 w-10 items-center justify-center rounded-2xl text-left transition hover:bg-white/5"
       >
-        <div className="flex items-center gap-2">
-          {icon ? <span className="text-zinc-400">{icon}</span> : null}
-          <h3 className="text-sm font-medium tracking-[0.18em] text-zinc-100 uppercase">
-            {title}
-          </h3>
-        </div>
-        <span className="text-sm text-zinc-500">{open ? "−" : "+"}</span>
+        {icon ? <span className="text-zinc-400">{icon}</span> : <span className="text-zinc-500">{open ? "−" : "+"}</span>}
       </button>
 
       {open ? (
-        <div id={id} className="px-3 pb-3 pt-1">
+        <div id={id} className="px-2 pb-3 pt-2">
           {children}
         </div>
       ) : null}

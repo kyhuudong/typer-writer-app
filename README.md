@@ -32,6 +32,7 @@ npm run build
 
 - Stats sit above the typing surface
 - The main area is a bigger live typing input
-- Progress and Lessons live in a compact left-side menu rail
+- Progress and Lessons live in a compact icon-only left-side menu rail
+- Expanded sidebar sections use simple text lists
 - The lesson text is clickable to speak
 - The UI stays black, transparent, and border-light

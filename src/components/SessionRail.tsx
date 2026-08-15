@@ -19,7 +19,7 @@ export function SessionRail({
   onSelectLesson
 }: SessionRailProps) {
   return (
-    <section className="space-y-2">
+    <section className="flex flex-col gap-2">
       <CollapsePanel title="Progress" icon={<MenuIcon kind="progress" />}>
         {progress ? <ProgressSummary progress={progress} /> : <LoginForm />}
       </CollapsePanel>

@@ -18,7 +18,7 @@ export function LessonGrid({
   const visibleLessons = filters ? filterLessons(lessons, filters) : lessons;
 
   return (
-    <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+    <div className="space-y-1">
       {visibleLessons.map((lesson) => (
         <LessonCard
           key={lesson.id}

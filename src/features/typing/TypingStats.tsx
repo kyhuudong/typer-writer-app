@@ -6,7 +6,7 @@ type TypingStatsProps = {
 
 export function TypingStats({ summary }: TypingStatsProps) {
   return (
-    <dl className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+    <dl className="grid gap-2 sm:grid-cols-2 xl:grid-cols-4">
       <Stat label="WPM" value={summary.wpm.toString()} />
       <Stat label="Accuracy" value={`${summary.accuracy}%`} />
       <Stat label="Words typed" value={summary.typedWords.toString()} />
@@ -17,11 +17,11 @@ export function TypingStats({ summary }: TypingStatsProps) {
 
 function Stat({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-2xl bg-black/20 px-4 py-3">
+    <div className="rounded-2xl bg-black/20 px-4 py-2.5">
       <dt className="text-[10px] uppercase tracking-[0.28em] text-zinc-500">
         {label}
       </dt>
-      <dd className="mt-2 text-lg font-medium text-zinc-50">{value}</dd>
+      <dd className="mt-1.5 text-lg font-medium text-zinc-50">{value}</dd>
     </div>
   );
 }

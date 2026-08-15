@@ -23,12 +23,17 @@ test("keeps menu items collapsed by default", () => {
     />
   );
 
-  expect(screen.getByRole("button", { name: /progress/i })).toHaveAttribute(
+  const progressButton = screen.getByRole("button", { name: /progress/i });
+  const lessonsButton = screen.getByRole("button", { name: /lessons/i });
+
+  expect(progressButton).toHaveAttribute(
     "aria-expanded",
     "false"
   );
-  expect(screen.getByRole("button", { name: /lessons/i })).toHaveAttribute(
+  expect(lessonsButton).toHaveAttribute(
     "aria-expanded",
     "false"
   );
+  expect(progressButton).toHaveTextContent("");
+  expect(lessonsButton).toHaveTextContent("");
 });

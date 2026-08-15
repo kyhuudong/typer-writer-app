@@ -36,7 +36,7 @@ export function InputStage({ lesson }: InputStageProps) {
   }
 
   return (
-    <section className="space-y-5 xl:max-w-5xl">
+    <section className="space-y-6 xl:max-w-6xl">
       <TypingStats summary={summary} />
       <TypingViewport
         text={lesson.text}

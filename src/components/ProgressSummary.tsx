@@ -16,16 +16,16 @@ export function ProgressSummary({ progress }: ProgressSummaryProps) {
   }
 
   return (
-    <div className="space-y-2 text-sm text-zinc-300">
-      <p className="text-xs uppercase tracking-[0.35em] text-zinc-500">
+    <div className="space-y-1 text-sm text-zinc-300">
+      <p className="text-[10px] uppercase tracking-[0.35em] text-zinc-500">
         {progress.username}
       </p>
-      <p>Streak {progress.streak} days</p>
-      <p>Top WPM {progress.highestWpm}</p>
-      <p>Accuracy {progress.averageAccuracy}%</p>
-      <p>Words typed {progress.totalWordsTyped}</p>
-      <p>Completed lessons {progress.completedLessonIds.length}</p>
-      <p>Sessions {progress.history.length}</p>
+      <p>Streak: {progress.streak} days</p>
+      <p>Top WPM: {progress.highestWpm}</p>
+      <p>Accuracy: {progress.averageAccuracy}%</p>
+      <p>Words typed: {progress.totalWordsTyped}</p>
+      <p>Lessons done: {progress.completedLessonIds.length}</p>
+      <p>Sessions: {progress.history.length}</p>
     </div>
   );
 }
