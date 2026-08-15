@@ -16,7 +16,7 @@ export function CharacterTape({ characters, variant = "surface" }: CharacterTape
   const surfaceClassName =
     variant === "surface"
       ? "rounded-3xl bg-transparent p-6 text-2xl leading-10 tracking-wide text-zinc-200"
-      : "p-6 text-2xl leading-10 tracking-wide text-zinc-200";
+      : "p-8 text-3xl leading-[2.25] tracking-tight text-zinc-200";
 
   return (
     <p className={surfaceClassName}>

@@ -30,8 +30,8 @@ npm run build
 
 ## Layout
 
-- The main area is a single live typing input
-- Stats sit in transparent black overlays
-- Progress, Lessons, and Tools live in a left-side menu rail
-- Click the typing text to hear it, then keep typing in the same surface
+- Stats sit above the typing surface
+- The main area is a bigger live typing input
+- Progress and Lessons live in a compact left-side menu rail
+- The lesson text is clickable to speak
 - The UI stays black, transparent, and border-light

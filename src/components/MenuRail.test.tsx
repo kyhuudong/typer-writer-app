@@ -13,7 +13,7 @@ const lessons: Lesson[] = [
   }
 ];
 
-test("keeps secondary sessions collapsed by default", () => {
+test("keeps menu items collapsed by default", () => {
   render(
     <SessionRail
       progress={null}
