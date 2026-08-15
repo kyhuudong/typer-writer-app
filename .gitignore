@@ -2,3 +2,27 @@
 node_modules/
 dist/
 .DS_Store
+
+# Editor & IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build cache
+.vite/
+*.tsbuildinfo
+
+# Env files
+.env
+.env.local
+.env.*.local
+
+# Test coverage
+coverage/
+
+# Local tooling
+.superpowers/
+
+# Project notes / drafts (not part of the app)
+ideas/
