@@ -14,7 +14,7 @@ export function LessonImage({ src, alt, className = "" }: LessonImageProps) {
     return (
       <div
         data-testid="lesson-fallback"
-        className={`flex h-full w-full items-center justify-center bg-surface-800 text-sm uppercase tracking-[0.2em] text-zinc-500 ${className}`}
+        className={`flex h-full w-full items-center justify-center bg-black/30 text-sm uppercase tracking-[0.2em] text-zinc-500 ${className}`}
       >
         Image unavailable
       </div>

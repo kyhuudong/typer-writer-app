@@ -1,7 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { SessionRail } from "./SessionRail";
 import type { Lesson } from "../types/lesson";
-import type { TypingSessionSummary } from "../features/typing/useTypingSession";
 
 const lessons: Lesson[] = [
   {
@@ -14,15 +13,6 @@ const lessons: Lesson[] = [
   }
 ];
 
-const summary: TypingSessionSummary = {
-  typedWords: 0,
-  correctChars: 0,
-  totalChars: 31,
-  elapsedMs: 0,
-  wpm: 0,
-  accuracy: 0
-};
-
 test("keeps secondary sessions collapsed by default", () => {
   render(
     <SessionRail
@@ -30,8 +20,6 @@ test("keeps secondary sessions collapsed by default", () => {
       lessons={lessons}
       selectedLessonId="stoic_001"
       onSelectLesson={() => void 0}
-      typingSummary={summary}
-      lessonText={lessons[0].text}
     />
   );
 
@@ -40,14 +28,6 @@ test("keeps secondary sessions collapsed by default", () => {
     "false"
   );
   expect(screen.getByRole("button", { name: /lessons/i })).toHaveAttribute(
-    "aria-expanded",
-    "false"
-  );
-  expect(screen.getByRole("button", { name: /live stats/i })).toHaveAttribute(
-    "aria-expanded",
-    "false"
-  );
-  expect(screen.getByRole("button", { name: /study tools/i })).toHaveAttribute(
     "aria-expanded",
     "false"
   );

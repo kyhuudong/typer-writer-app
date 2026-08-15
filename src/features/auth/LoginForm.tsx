@@ -65,7 +65,7 @@ export function LoginForm({
   }
 
   return (
-    <section className="rounded-3xl border border-zinc-800 bg-surface-900 p-6">
+    <section className="rounded-3xl bg-white/5 p-6">
       <div className="space-y-2">
         <p className="text-sm uppercase tracking-[0.25em] text-zinc-500">
           Sign in
@@ -83,7 +83,7 @@ export function LoginForm({
             value={username}
             onChange={(event) => setUsername(event.target.value)}
             autoComplete="username"
-            className="w-full rounded-2xl border border-zinc-800 bg-surface-950 px-4 py-3 text-zinc-50 outline-none ring-0 transition focus:border-accent-400/60"
+            className="w-full rounded-2xl bg-black/25 px-4 py-3 text-zinc-50 outline-none ring-1 ring-white/5 transition focus:ring-white/15"
           />
         </label>
 
@@ -94,7 +94,7 @@ export function LoginForm({
             value={password}
             onChange={(event) => setPassword(event.target.value)}
             autoComplete="current-password"
-            className="w-full rounded-2xl border border-zinc-800 bg-surface-950 px-4 py-3 text-zinc-50 outline-none ring-0 transition focus:border-accent-400/60"
+            className="w-full rounded-2xl bg-black/25 px-4 py-3 text-zinc-50 outline-none ring-1 ring-white/5 transition focus:ring-white/15"
           />
         </label>
 
@@ -102,7 +102,7 @@ export function LoginForm({
           <PrimaryButton type="submit" disabled={busy}>
             Sign in
           </PrimaryButton>
-          <label className="cursor-pointer rounded-full border border-zinc-700 px-5 py-3 text-sm font-medium text-zinc-200 transition hover:border-zinc-500">
+          <label className="cursor-pointer rounded-full bg-white/5 px-5 py-3 text-sm font-medium text-zinc-200 transition hover:bg-white/10">
             Load JSON
             <input
               type="file"

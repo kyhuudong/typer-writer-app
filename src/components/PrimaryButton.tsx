@@ -10,7 +10,7 @@ export function PrimaryButton({
   return (
     <button
       type={type}
-      className={`rounded-full bg-accent-500 px-5 py-3 text-sm font-medium text-white transition hover:bg-accent-400 disabled:cursor-not-allowed disabled:opacity-60 ${className}`}
+      className={`rounded-full bg-white/10 px-5 py-3 text-sm font-medium text-zinc-50 transition hover:bg-white/15 disabled:cursor-not-allowed disabled:opacity-60 ${className}`}
       {...props}
     />
   );

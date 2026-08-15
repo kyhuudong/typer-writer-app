@@ -30,6 +30,8 @@ npm run build
 
 ## Layout
 
-- The typing stage is the main screen
-- Lessons, progress, live stats, and study tools live in collapsed panels
-- The typing surface follows the text as you type and keeps the current paragraph in view
+- The focus stage is the main screen
+- Live stats and study tools stay visible in the focus area
+- Progress and Lessons stay collapsed for a cleaner shell
+- Click the lesson text to hear it, then type in the live scrolling surface
+- The UI stays black, transparent, and border-light

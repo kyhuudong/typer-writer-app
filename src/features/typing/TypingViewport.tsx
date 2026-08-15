@@ -38,7 +38,7 @@ export function TypingViewport({
   return (
     <div
       ref={viewportRef}
-      className="max-h-[72vh] overflow-auto rounded-3xl border border-zinc-800 bg-surface-900"
+      className="max-h-[72vh] overflow-auto bg-transparent"
     >
       <div className="relative">
         <CharacterTape characters={session.characterStates} variant="layer" />
@@ -57,7 +57,7 @@ export function TypingViewport({
           autoCapitalize="off"
           autoComplete="off"
           autoCorrect="off"
-          className="absolute inset-0 h-full w-full resize-none rounded-3xl border-0 bg-transparent p-6 text-transparent caret-accent-400 outline-none"
+          className="absolute inset-0 h-full w-full resize-none border-0 bg-transparent p-6 text-transparent caret-accent-400 outline-none"
         />
       </div>
     </div>

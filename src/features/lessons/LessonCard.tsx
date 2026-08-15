@@ -13,10 +13,8 @@ export function LessonCard({ lesson, onSelect, selected = false }: LessonCardPro
       type="button"
       onClick={() => onSelect?.(lesson)}
       aria-pressed={selected}
-      className={`group flex h-full w-full flex-col overflow-hidden rounded-3xl border text-left transition hover:border-accent-400/60 hover:bg-surface-800 ${
-        selected
-          ? "border-accent-400 bg-surface-900 ring-1 ring-accent-400/30"
-          : "border-zinc-800 bg-surface-900"
+      className={`group flex h-full w-full flex-col overflow-hidden rounded-3xl text-left transition hover:bg-white/10 ${
+        selected ? "bg-white/10 ring-1 ring-white/10" : "bg-white/5"
       }`}
     >
       <LessonImage

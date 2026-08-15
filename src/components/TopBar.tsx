@@ -4,7 +4,7 @@ type TopBarProps = {
 
 export function TopBar({ userName }: TopBarProps) {
   return (
-    <div className="flex items-center justify-between border-b border-zinc-800/80 px-6 py-4 backdrop-blur">
+    <div className="flex items-center justify-between bg-black/20 px-6 py-4 backdrop-blur">
       <div className="space-y-1">
         <p className="text-xs uppercase tracking-[0.35em] text-zinc-500">
           Minimalism

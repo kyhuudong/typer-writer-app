@@ -14,7 +14,7 @@ export function EmptyState({
   onAction
 }: EmptyStateProps) {
   return (
-    <section className="rounded-3xl border border-dashed border-zinc-800 bg-surface-900/60 p-6 text-center">
+    <section className="rounded-3xl bg-white/5 p-6 text-center">
       <div className="mx-auto max-w-sm space-y-3">
         <h3 className="text-xl font-medium">{title}</h3>
         <p className="text-sm leading-6 text-zinc-400">{description}</p>

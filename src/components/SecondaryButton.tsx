@@ -10,7 +10,7 @@ export function SecondaryButton({
   return (
     <button
       type={type}
-      className={`rounded-full border border-zinc-700 px-5 py-3 text-sm font-medium text-zinc-200 transition hover:border-zinc-500 disabled:cursor-not-allowed disabled:opacity-60 ${className}`}
+      className={`rounded-full bg-white/5 px-5 py-3 text-sm font-medium text-zinc-200 transition hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-60 ${className}`}
       {...props}
     />
   );

@@ -1,6 +1,5 @@
 import { useDictionaryLookup } from "../helpers/useDictionaryLookup";
 import { useTextToSpeech } from "../helpers/useTextToSpeech";
-import { SecondaryButton } from "../../components/SecondaryButton";
 
 type TypingToolsProps = {
   text: string;
@@ -12,15 +11,20 @@ export function TypingTools({ text }: TypingToolsProps) {
   const words = text.split(/\s+/).filter(Boolean);
 
   return (
-    <div className="space-y-4">
-      <div className="flex flex-wrap items-center gap-3">
-        <SecondaryButton onClick={() => speech.speak(text)} className="px-4 py-2">
-          Listen
-        </SecondaryButton>
-        <p className="text-sm text-zinc-500">
-          Double-click a word to open a dictionary lookup.
+    <div className="space-y-3">
+      <button
+        type="button"
+        onClick={() => speech.speak(text)}
+        className="block w-full rounded-none border-0 bg-transparent p-0 text-left"
+        aria-label="Speak study text"
+      >
+        <p className="text-xs uppercase tracking-[0.35em] text-zinc-500">
+          Study tools
         </p>
-      </div>
+        <p className="mt-2 text-sm leading-6 text-zinc-300">
+          Click the text to hear it. Double-click any word below for a definition.
+        </p>
+      </button>
 
       <div className="flex flex-wrap gap-2">
         {words.map((word, index) => (
@@ -28,7 +32,7 @@ export function TypingTools({ text }: TypingToolsProps) {
             key={`${word}-${index}`}
             type="button"
             onDoubleClick={() => void dictionary.lookupWord(word)}
-            className="rounded-full border border-zinc-800 bg-surface-950 px-3 py-1 text-sm text-zinc-300 transition hover:border-accent-400/50"
+            className="rounded-full bg-white/5 px-3 py-1 text-sm text-zinc-300 transition hover:bg-white/10"
           >
             {word}
           </button>
@@ -40,7 +44,7 @@ export function TypingTools({ text }: TypingToolsProps) {
       ) : null}
 
       {dictionary.entry ? (
-        <dl className="grid gap-3 rounded-2xl border border-zinc-800 bg-surface-950 p-4 sm:grid-cols-2">
+        <dl className="grid gap-3 sm:grid-cols-2">
           <div>
             <dt className="text-xs uppercase tracking-[0.25em] text-zinc-500">
               Word
