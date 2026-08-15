@@ -20,12 +20,12 @@ export function ProgressSummary({ progress }: ProgressSummaryProps) {
       <p className="text-[10px] uppercase tracking-[0.35em] text-zinc-500">
         {progress.username}
       </p>
-      <p>Streak: {progress.streak} days</p>
-      <p>Top WPM: {progress.highestWpm}</p>
-      <p>Accuracy: {progress.averageAccuracy}%</p>
-      <p>Words typed: {progress.totalWordsTyped}</p>
-      <p>Lessons done: {progress.completedLessonIds.length}</p>
-      <p>Sessions: {progress.history.length}</p>
+      <p className="border-l border-white/10 pl-2">Streak: {progress.streak} days</p>
+      <p className="border-l border-white/10 pl-2">Top WPM: {progress.highestWpm}</p>
+      <p className="border-l border-white/10 pl-2">Accuracy: {progress.averageAccuracy}%</p>
+      <p className="border-l border-white/10 pl-2">Words typed: {progress.totalWordsTyped}</p>
+      <p className="border-l border-white/10 pl-2">Lessons done: {progress.completedLessonIds.length}</p>
+      <p className="border-l border-white/10 pl-2">Sessions: {progress.history.length}</p>
     </div>
   );
 }
