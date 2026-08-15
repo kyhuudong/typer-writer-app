@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { ProgressSummary } from "./ProgressSummary";
 import { LessonGrid } from "../features/lessons/LessonGrid";
+import { lessonCatalog } from "../lib/lessonCatalog";
 import type { Lesson } from "../types/lesson";
 
 const lessons: Lesson[] = [
@@ -45,4 +46,21 @@ test("renders lessons as plain text rows", () => {
 
   expect(screen.getByRole("button", { name: /control and perception/i })).toBeInTheDocument();
   expect(screen.getByText(/stoicism/i)).toBeInTheDocument();
+});
+
+test("includes the long philosophy lesson in the catalog and list", () => {
+  const longLesson = lessonCatalog.find((lesson) => lesson.id === "philo_long_001");
+
+  expect(longLesson).toBeDefined();
+  expect(longLesson?.text.split(/\s+/).length).toBeGreaterThan(3000);
+
+  render(
+    <LessonGrid
+      lessons={lessonCatalog}
+      selectedLessonId="philo_long_001"
+      onSelectLesson={() => void 0}
+    />
+  );
+
+  expect(screen.getByRole("button", { name: /the long argument/i })).toBeInTheDocument();
 });

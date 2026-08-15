@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useDeferredValue, useEffect, useRef } from "react";
 import { CharacterTape } from "./CharacterTape";
 import { useTypingSession, type TypingSessionSummary } from "./useTypingSession";
 
@@ -18,6 +18,9 @@ export function TypingViewport({
   const viewportRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const session = useTypingSession(text);
+
+  // Defer the character tape re-render so the textarea stays snappy.
+  const deferredVisible = useDeferredValue(session.visibleCharacters);
 
   useEffect(() => {
     onSummaryChange?.(session.summary);
@@ -51,7 +54,7 @@ export function TypingViewport({
       className="min-h-[52rem] max-h-[88vh] overflow-auto bg-transparent"
     >
       <div className="relative">
-        <CharacterTape characters={session.characterStates} variant="layer" />
+        <CharacterTape characters={deferredVisible} variant="layer" />
         <textarea
           ref={inputRef}
           value={session.typedText}
@@ -59,13 +62,6 @@ export function TypingViewport({
           onClick={() => {
             onSpeak?.();
             inputRef.current?.focus();
-          }}
-          onScroll={(event) => {
-            const textarea = event.currentTarget;
-            const viewport = viewportRef.current;
-            if (viewport) {
-              viewport.scrollTop = textarea.scrollTop;
-            }
           }}
           aria-label="Typing surface"
           spellCheck={false}

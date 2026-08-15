@@ -20,7 +20,7 @@ export function AppShell() {
   return (
     <main className="min-h-screen bg-surface-950 text-zinc-50">
       <TopBar userName={currentUser} />
-      <section className="mx-auto grid max-w-[1600px] gap-4 px-4 py-5 xl:grid-cols-[152px_minmax(0,1fr)]">
+      <section className="mx-auto grid max-w-[1680px] gap-4 px-4 py-5 xl:grid-cols-[132px_minmax(0,1fr)]">
         <aside className="xl:sticky xl:top-4 xl:h-[calc(100vh-2rem)] xl:overflow-auto">
           <SessionRail
             progress={progress}

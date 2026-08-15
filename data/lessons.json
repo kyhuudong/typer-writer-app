@@ -32,6 +32,14 @@
     "text": "A thought is rarely born complete; it begins as a question, then gathers shape through attention and doubt. We learn by revisiting what we think we know, not by defending every first impression. Careful thinking is slow, but it often reveals the hidden structure beneath a simple belief."
   },
   {
+    "id": "philo_long_001",
+    "title": "The Long Argument",
+    "category": "Philosophy",
+    "difficulty": "Hard",
+    "image": "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620",
+    "text": "This lesson is generated in code so the catalog stays compact."
+  },
+  {
     "id": "tech_001",
     "title": "Reliable Systems",
     "category": "Science & Tech",

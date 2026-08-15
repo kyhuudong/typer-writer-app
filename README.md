@@ -32,10 +32,12 @@ npm run build
 
 - Stats sit above the typing surface
 - The main area is a bigger live typing input
+- The active character uses a colorful underline cursor
 - Progress and Lessons live in a compact icon-only left-side menu rail
 - Expanded sidebar sections use simple text lists
 - The lesson text is clickable to speak
 - The UI stays black, transparent, and border-light
+- The lesson set includes one long philosophy passage for extended practice
 
 ## Typing stats
 

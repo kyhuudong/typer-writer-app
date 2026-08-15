@@ -1,5 +1,6 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import App from "./App";
+import { lessonCatalog } from "./lib/lessonCatalog";
 
 test("shows the typing stage first and keeps sessions collapsed by default", () => {
   render(<App />);
@@ -22,4 +23,15 @@ test("shows the typing stage first and keeps sessions collapsed by default", () 
     "aria-expanded",
     "false"
   );
+
+  fireEvent.change(screen.getByLabelText(/typing surface/i), {
+    target: { value: "You" }
+  });
+
+  const activeCharacter = screen.getAllByTestId("typing-char")[3];
+  expect(activeCharacter).toHaveClass("underline");
+  expect(activeCharacter).toHaveClass("decoration-fuchsia-400");
+  expect(
+    lessonCatalog.find((lesson) => lesson.id === "philo_long_001")
+  ).toBeDefined();
 });

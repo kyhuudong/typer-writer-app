@@ -1,7 +1,13 @@
 import type { CharacterState } from "../../lib/typingMetrics";
 
+type CharacterEntry = {
+  character: string;
+  state: CharacterState;
+  absoluteIndex?: number;
+};
+
 type CharacterTapeProps = {
-  characters: Array<{ character: string; state: CharacterState }>;
+  characters: CharacterEntry[];
   variant?: "surface" | "layer";
 };
 
@@ -9,7 +15,7 @@ const stateClasses: Record<CharacterState, string> = {
   correct: "text-emerald-400",
   incorrect: "text-rose-400",
   current:
-    "rounded-sm bg-white/20 px-[0.15em] py-[0.02em] text-zinc-50 shadow-[0_0_16px_rgba(255,255,255,0.08)] ring-1 ring-white/20",
+    "text-cyan-300 underline decoration-fuchsia-400 decoration-[3px] underline-offset-[0.28em] shadow-[0_0_12px_rgba(217,70,239,0.4)]",
   pending: "text-zinc-600"
 };
 
@@ -21,16 +27,24 @@ export function CharacterTape({ characters, variant = "surface" }: CharacterTape
 
   return (
     <p className={surfaceClassName}>
-      {characters.map(({ character, state }, index) => (
-        <span
-          key={`${character}-${index}`}
-          data-testid="typing-char"
-          data-state={state}
-          className={stateClasses[state]}
-        >
-          {character}
-        </span>
-      ))}
+      {characters.map(({ character, state, absoluteIndex }, localIndex) => {
+        const key = absoluteIndex !== undefined ? absoluteIndex : localIndex;
+
+        if (character === "\n") {
+          return <br key={key} />;
+        }
+
+        return (
+          <span
+            key={key}
+            data-testid="typing-char"
+            data-state={state}
+            className={stateClasses[state]}
+          >
+            {character}
+          </span>
+        );
+      })}
     </p>
   );
 }

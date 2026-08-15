@@ -37,9 +37,10 @@ export function InputStage({ lesson }: InputStageProps) {
   }
 
   return (
-    <section className="space-y-4 xl:max-w-[1280px]">
+    <section className="space-y-4 xl:max-w-[1400px]">
       <TypingStats summary={summary} />
       <TypingViewport
+        key={lesson.id}
         text={lesson.text}
         onSummaryChange={setSummary}
         onSpeak={() => speech.speak(lesson.text)}

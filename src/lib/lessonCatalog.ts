@@ -1,10 +1,20 @@
 import lessonsData from "../../data/lessons.json";
+import { buildLongPhilosophyLesson } from "./longPhilosophyLesson";
 import type { Lesson, LessonFilters } from "../types/lesson";
 
 export const lessonCatalog = loadLessons(lessonsData as Lesson[]);
 
 export function loadLessons(input: Lesson[]): Lesson[] {
-  return input.map((lesson) => ({ ...lesson }));
+  return input.map((lesson) => {
+    if (lesson.id === "philo_long_001") {
+      return {
+        ...lesson,
+        text: buildLongPhilosophyLesson()
+      };
+    }
+
+    return { ...lesson };
+  });
 }
 
 export function filterLessons(lessons: Lesson[], filters: LessonFilters) {

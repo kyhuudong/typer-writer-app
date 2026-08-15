@@ -18,6 +18,8 @@ export type TypingSessionSummary = {
   accuracy: number;
 };
 
+const WINDOW_RADIUS = 200;
+
 export function useTypingSession(targetText: string) {
   const [typedText, setTypedText] = useState("");
   const [startedAt, setStartedAt] = useState<number | null>(null);
@@ -73,16 +75,27 @@ export function useTypingSession(targetText: string) {
     setFinishedAt(null);
   }, []);
 
-  const characterStates = useMemo(
+  const allCharacterStates = useMemo(
     () => getCharacterStates(targetText, typedText),
     [targetText, typedText]
+  );
+
+  // Virtual window: render only chars near the cursor to keep DOM size small.
+  const cursorIndex = typedText.length;
+  const windowStart = Math.max(0, cursorIndex - WINDOW_RADIUS);
+  const windowEnd = Math.min(allCharacterStates.length, cursorIndex + WINDOW_RADIUS);
+  const visibleCharacters = allCharacterStates.slice(windowStart, windowEnd).map(
+    (entry, localIndex) => ({ ...entry, absoluteIndex: windowStart + localIndex })
   );
 
   return {
     typedText,
     setTypedText,
     reset,
-    characterStates,
+    // Legacy alias so tests and components that destructure characterStates still work.
+    characterStates: allCharacterStates,
+    visibleCharacters,
+    windowStart,
     summary,
     status: isComplete ? "finished" : startedAt ? "typing" : "idle"
   } as const;
