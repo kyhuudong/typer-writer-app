@@ -6,14 +6,14 @@ export const lessonCatalog = loadLessons(lessonsData as Lesson[]);
 
 export function loadLessons(input: Lesson[]): Lesson[] {
   return input.map((lesson) => {
-    if (lesson.id === "philo_long_001") {
-      return {
-        ...lesson,
-        text: buildLongPhilosophyLesson().trim()
-      };
-    }
-
-    return { ...lesson, text: lesson.text.trim() };
+    const raw =
+      lesson.id === "philo_long_001"
+        ? buildLongPhilosophyLesson()
+        : lesson.text;
+    // Normalize all whitespace to single spaces so users never need to press
+    // Enter and isComplete (typedText === targetText) fires reliably.
+    const text = raw.replace(/\s+/g, " ").trim();
+    return { ...lesson, text };
   });
 }
 

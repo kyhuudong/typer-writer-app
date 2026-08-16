@@ -5,7 +5,7 @@ type TopBarProps = {
 
 export function TopBar({ userName, onMenuClick }: TopBarProps) {
   return (
-    <div className="flex items-center justify-between bg-black/10 px-4 py-3 backdrop-blur">
+    <div className="sticky top-0 z-10 flex items-center justify-between bg-black/40 px-4 py-3 backdrop-blur">
       <div className="flex items-center gap-3">
         <button
           type="button"
