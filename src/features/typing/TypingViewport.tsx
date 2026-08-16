@@ -1,4 +1,4 @@
-import { useDeferredValue, useEffect, useRef, useState } from "react";
+import { useDeferredValue, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { CharacterTape } from "./CharacterTape";
 import { useTypingSession, type TypingSessionSummary } from "./useTypingSession";
 import { useTranslate } from "./useTranslate";
@@ -73,13 +73,16 @@ export function TypingViewport({
 
   const deferredVisible = useDeferredValue(session.visibleCharacters);
 
-  // Move cursor to end of pre-filled text so the first keystroke appends
-  // rather than replacing the selected-all content that autoFocus causes.
-  useEffect(() => {
+  // Move cursor to end of pre-filled text BEFORE the first paint so that
+  // the first keystroke appends rather than replacing selected-all content.
+  // useLayoutEffect runs synchronously after DOM mutations (value is set)
+  // but before the browser paints, ensuring setSelectionRange sees the
+  // correct el.value length.
+  useLayoutEffect(() => {
     const el = inputRef.current;
     if (!el) return;
     const len = el.value.length;
-    el.setSelectionRange(len, len);
+    if (len > 0) el.setSelectionRange(len, len);
   }, []);
 
   useEffect(() => {
@@ -161,6 +164,14 @@ export function TypingViewport({
           ref={inputRef}
           value={session.typedText}
           onChange={(event) => session.setTypedText(event.target.value)}
+          onKeyDown={(e) => {
+            // Explicitly handle Backspace so it reliably removes the last
+            // character regardless of where the browser placed the cursor.
+            if (e.key === "Backspace") {
+              e.preventDefault();
+              session.setTypedText((prev) => prev.slice(0, -1));
+            }
+          }}
           onClick={handleClick}
           aria-label="Typing surface"
           spellCheck={false}
