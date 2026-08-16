@@ -29,8 +29,6 @@ export function InputStage({ lesson }: InputStageProps) {
   const typedTextRef = useRef("");
 
   // Save current lesson's progress when lesson changes or component unmounts.
-  // Capture lessonId directly in the closure so cleanup always saves the
-  // correct lesson (not the "previous" lesson via a ref snapshot).
   useEffect(() => {
     const lessonId = lesson?.id ?? null;
     return () => {
@@ -38,7 +36,32 @@ export function InputStage({ lesson }: InputStageProps) {
         saveLessonProgress(lessonId, typedTextRef.current);
       }
     };
-    // saveLessonProgress is stable (zustand action); lesson?.id drives re-runs.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lesson?.id]);
+
+  // Also save on browser close / F5 — useEffect cleanup is NOT guaranteed
+  // to run on page unload in all browsers.
+  useEffect(() => {
+    function handleUnload() {
+      const lessonId = lesson?.id;
+      if (lessonId && typedTextRef.current) {
+        saveLessonProgress(lessonId, typedTextRef.current);
+      }
+    }
+    window.addEventListener("beforeunload", handleUnload);
+    return () => window.removeEventListener("beforeunload", handleUnload);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lesson?.id]);
+
+  // Periodic auto-save every 3 seconds while the user is actively typing.
+  useEffect(() => {
+    const id = setInterval(() => {
+      const lessonId = lesson?.id;
+      if (lessonId && typedTextRef.current) {
+        saveLessonProgress(lessonId, typedTextRef.current);
+      }
+    }, 3000);
+    return () => clearInterval(id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lesson?.id]);
 

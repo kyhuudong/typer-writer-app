@@ -134,13 +134,43 @@ export const useAppStore = create<AppState>((set, get) => {
     // Remove save state — completed lessons don't need resuming.
     const lessonSaveStates = { ...progress.lessonSaveStates };
     delete lessonSaveStates[lessonId];
+
+    // Streak: compare today's date with the last history entry's date.
+    const now = new Date();
+    const todayStr = now.toISOString().slice(0, 10); // "YYYY-MM-DD"
+    const lastEntry = progress.history.at(-1);
+    const lastDateStr = lastEntry ? lastEntry.timestamp.slice(0, 10) : null;
+    let streak = progress.streak;
+    if (lastDateStr === null) {
+      // First ever session
+      streak = 1;
+    } else if (lastDateStr === todayStr) {
+      // Already logged a session today — streak unchanged
+    } else {
+      const yesterday = new Date(now);
+      yesterday.setDate(yesterday.getDate() - 1);
+      const yesterdayStr = yesterday.toISOString().slice(0, 10);
+      streak = lastDateStr === yesterdayStr ? streak + 1 : 1;
+    }
+
+    const newHistory = [
+      ...progress.history,
+      {
+        lessonId,
+        timestamp: now.toISOString(),
+        wpm: summary.wpm,
+        accuracy: summary.accuracy
+      }
+    ];
+
     const updated: ProgressProfile = {
       ...progress,
       lessonSaveStates,
+      streak,
       totalWordsTyped: progress.totalWordsTyped + summary.typedWords,
       highestWpm: Math.max(progress.highestWpm, summary.wpm),
       averageAccuracy: progress.history.length === 0
-        ? summary.accuracy
+        ? Math.round(summary.accuracy)
         : Math.round(
             (progress.averageAccuracy * progress.history.length + summary.accuracy) /
             (progress.history.length + 1)
@@ -148,15 +178,7 @@ export const useAppStore = create<AppState>((set, get) => {
       completedLessonIds: alreadyDone
         ? progress.completedLessonIds
         : [...progress.completedLessonIds, lessonId],
-      history: [
-        ...progress.history,
-        {
-          lessonId,
-          timestamp: new Date().toISOString(),
-          wpm: summary.wpm,
-          accuracy: summary.accuracy
-        }
-      ]
+      history: newHistory
     };
     saveProgressToLocalStorage(updated);
     set({ progress: updated });
