@@ -1,8 +1,7 @@
 import { create } from "zustand";
-import type { LoginCredentials, ProgressProfile } from "../types/progress";
+import type { ProgressProfile } from "../types/progress";
 import {
-  authenticateProgressProfile,
-  createProgressProfileFromCredentials,
+  createProgressProfile,
   loadProgressFromFileHandle,
   saveProgressFile
 } from "../lib/fileAccess";
@@ -22,7 +21,7 @@ type AppState = {
   isBusy: boolean;
   error: string | null;
   setError: (error: string | null) => void;
-  signIn: (credentials: LoginCredentials) => Promise<void>;
+  signIn: (username: string) => void;
   signOut: () => void;
   loadProgressFile: (handle: FileSystemFileHandle) => Promise<void>;
   importProgressFile: (file: File) => Promise<void>;
@@ -38,44 +37,24 @@ export const useAppStore = create<AppState>((set, get) => ({
   isBusy: false,
   error: null,
   setError: (error) => set({ error }),
-  signIn: async (credentials) => {
-    set({ isBusy: true, error: null });
-    try {
-      const current = get().progress;
-      if (!current) {
-        const progress = await createProgressProfileFromCredentials(credentials);
-        saveProgressToLocalStorage(progress);
-        set({
-          authStatus: "signed-in",
-          currentUser: progress.username,
-          progress
-        });
-        return;
-      }
 
-      const isValid = await authenticateProgressProfile(current, credentials);
-      if (!isValid) {
-        throw new Error("Username or password is invalid.");
-      }
-
-      saveProgressToLocalStorage(current);
-      set({
-        authStatus: "signed-in",
-        currentUser: current.username
-      });
-    } catch (error) {
-      const message = error instanceof Error ? error.message : "Something went wrong.";
-      set({ error: message });
-      throw error;
-    } finally {
-      set({ isBusy: false });
-    }
+  signIn: (username) => {
+    const current = get().progress;
+    const progress = current ?? createProgressProfile(username);
+    saveProgressToLocalStorage(progress);
+    set({
+      authStatus: "signed-in",
+      currentUser: progress.username,
+      progress
+    });
   },
+
   signOut: () =>
     set({
       authStatus: "signed-out",
       currentUser: null
     }),
+
   loadProgressFile: async (handle) => {
     set({ isBusy: true, error: null });
     try {
@@ -93,10 +72,12 @@ export const useAppStore = create<AppState>((set, get) => ({
       set({ isBusy: false });
     }
   },
+
   importProgressFile: async (file) => {
     set({ isBusy: true, error: null });
     try {
       const progress = deserializeProgress(await file.text());
+      saveProgressToLocalStorage(progress);
       set({
         progress,
         currentUser: progress.username
@@ -109,6 +90,7 @@ export const useAppStore = create<AppState>((set, get) => ({
       set({ isBusy: false });
     }
   },
+
   saveProgress: async () => {
     const { progress, progressFileHandle } = get();
     if (!progress) {

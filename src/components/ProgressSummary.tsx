@@ -50,7 +50,7 @@ export function ProgressSummary({ progress }: ProgressSummaryProps) {
           disabled={isBusy}
           className="flex-1 rounded-xl border border-white/10 py-2 text-xs text-zinc-400 transition hover:bg-white/5 disabled:opacity-50"
         >
-          {isBusy ? "Saving…" : "Save"}
+          {isBusy ? "Exporting…" : "Export JSON"}
         </button>
         <button
           type="button"

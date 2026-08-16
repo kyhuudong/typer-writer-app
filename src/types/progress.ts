@@ -7,7 +7,6 @@ export type ProgressHistoryEntry = {
 
 export type ProgressProfile = {
   username: string;
-  passwordHash: string;
   streak: number;
   totalWordsTyped: number;
   highestWpm: number;
@@ -18,5 +17,4 @@ export type ProgressProfile = {
 
 export type LoginCredentials = {
   username: string;
-  password: string;
 };

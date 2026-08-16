@@ -1,14 +1,11 @@
 import type { ProgressProfile } from "../types/progress";
 
-type PartialProgressProfile = Partial<ProgressProfile> & Pick<ProgressProfile, "username" | "passwordHash">;
+// Accept extra fields like passwordHash from old JSON exports — just ignore them.
+type PartialProgressProfile = Partial<ProgressProfile> & Pick<ProgressProfile, "username">;
 
-export function createDefaultProgressProfile(
-  username: string,
-  passwordHash: string
-): ProgressProfile {
+export function createDefaultProgressProfile(username: string): ProgressProfile {
   return {
     username,
-    passwordHash,
     streak: 0,
     totalWordsTyped: 0,
     highestWpm: 0,
@@ -23,7 +20,6 @@ export function normalizeProgressProfile(
 ): ProgressProfile {
   return {
     username: profile.username,
-    passwordHash: profile.passwordHash,
     streak: profile.streak ?? 0,
     totalWordsTyped: profile.totalWordsTyped ?? 0,
     highestWpm: profile.highestWpm ?? 0,
