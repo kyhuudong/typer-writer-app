@@ -7,6 +7,7 @@ export function createDefaultProgressProfile(username: string): ProgressProfile 
   return {
     username,
     lastLessonId: null,
+    lessonSaveStates: {},
     streak: 0,
     totalWordsTyped: 0,
     highestWpm: 0,
@@ -22,6 +23,7 @@ export function normalizeProgressProfile(
   return {
     username: profile.username,
     lastLessonId: profile.lastLessonId ?? null,
+    lessonSaveStates: profile.lessonSaveStates ?? {},
     streak: profile.streak ?? 0,
     totalWordsTyped: profile.totalWordsTyped ?? 0,
     highestWpm: profile.highestWpm ?? 0,

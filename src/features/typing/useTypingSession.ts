@@ -20,15 +20,18 @@ export type TypingSessionSummary = {
 
 const WINDOW_RADIUS = 200; // kept for reference but windowing is disabled — see visibleCharacters
 
-export function useTypingSession(targetText: string) {
-  const [typedText, setTypedText] = useState("");
-  const [startedAt, setStartedAt] = useState<number | null>(null);
+export function useTypingSession(targetText: string, initialTypedText = "") {
+  const [typedText, setTypedText] = useState(initialTypedText);
+  const [startedAt, setStartedAt] = useState<number | null>(
+    initialTypedText.length > 0 ? Date.now() : null
+  );
   const [finishedAt, setFinishedAt] = useState<number | null>(null);
 
   useEffect(() => {
-    setTypedText("");
-    setStartedAt(null);
+    setTypedText(initialTypedText);
+    setStartedAt(initialTypedText.length > 0 ? Date.now() : null);
     setFinishedAt(null);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [targetText]);
 
   const summary = useMemo<TypingSessionSummary>(() => {

@@ -7,8 +7,10 @@ import { speakText } from "../helpers/useTextToSpeech";
 
 type TypingViewportProps = {
   text: string;
+  initialTypedText?: string;
   onSummaryChange?: (summary: TypingSessionSummary) => void;
   onComplete?: (summary: TypingSessionSummary) => void;
+  onTypedTextChange?: (typedText: string) => void;
   onSpeak?: () => void;
 };
 
@@ -53,12 +55,14 @@ function wordFromPoint(
 
 export function TypingViewport({
   text,
+  initialTypedText = "",
   onSummaryChange,
-  onComplete
+  onComplete,
+  onTypedTextChange
 }: TypingViewportProps) {
   const viewportRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
-  const session = useTypingSession(text);
+  const session = useTypingSession(text, initialTypedText);
   const { translation, loading, error, translate, clear } = useTranslate();
 
   const [tooltip, setTooltip] = useState<TooltipState>(null);
@@ -73,6 +77,10 @@ export function TypingViewport({
   useEffect(() => {
     onSummaryChange?.(session.summary);
   }, [onSummaryChange, session.summary]);
+
+  useEffect(() => {
+    onTypedTextChange?.(session.typedText);
+  }, [onTypedTextChange, session.typedText]);
 
   useEffect(() => {
     if (session.status === "finished") {

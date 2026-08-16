@@ -29,6 +29,7 @@ type AppState = {
   saveProgress: () => Promise<void>;
   setLastLesson: (lessonId: string) => void;
   recordLessonComplete: (lessonId: string, summary: TypingSessionSummary) => void;
+  saveLessonProgress: (lessonId: string, typedText: string) => void;
 };
 
 export const useAppStore = create<AppState>((set, get) => ({
@@ -126,8 +127,12 @@ export const useAppStore = create<AppState>((set, get) => ({
     const { progress } = get();
     if (!progress) return;
     const alreadyDone = progress.completedLessonIds.includes(lessonId);
+    // Remove save state — completed lessons don't need resuming.
+    const lessonSaveStates = { ...progress.lessonSaveStates };
+    delete lessonSaveStates[lessonId];
     const updated: ProgressProfile = {
       ...progress,
+      lessonSaveStates,
       totalWordsTyped: progress.totalWordsTyped + summary.typedWords,
       highestWpm: Math.max(progress.highestWpm, summary.wpm),
       averageAccuracy: progress.history.length === 0
@@ -148,6 +153,31 @@ export const useAppStore = create<AppState>((set, get) => ({
           accuracy: summary.accuracy
         }
       ]
+    };
+    saveProgressToLocalStorage(updated);
+    set({ progress: updated });
+  },
+
+  saveLessonProgress: (lessonId, typedText) => {
+    const { progress } = get();
+    if (!progress) return;
+    // Don't save if the lesson is already completed or typed text is trivial.
+    if (progress.completedLessonIds.includes(lessonId)) return;
+    if (!typedText) {
+      // Clear the save state if user hasn't typed anything.
+      const lessonSaveStates = { ...progress.lessonSaveStates };
+      delete lessonSaveStates[lessonId];
+      const updated = { ...progress, lessonSaveStates };
+      saveProgressToLocalStorage(updated);
+      set({ progress: updated });
+      return;
+    }
+    const updated = {
+      ...progress,
+      lessonSaveStates: {
+        ...progress.lessonSaveStates,
+        [lessonId]: { typedText, savedAt: new Date().toISOString() }
+      }
     };
     saveProgressToLocalStorage(updated);
     set({ progress: updated });
