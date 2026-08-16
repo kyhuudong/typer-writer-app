@@ -6,6 +6,14 @@ type LessonCardProps = {
   selected?: boolean;
 };
 
+function lengthLabel(text: string): string {
+  const words = text.trim().split(/\s+/).length;
+  if (words < 80) return "Short";
+  if (words < 200) return "Medium";
+  if (words < 500) return "Long";
+  return "Epic";
+}
+
 export function LessonCard({ lesson, onSelect, selected = false }: LessonCardProps) {
   return (
     <button
@@ -16,15 +24,15 @@ export function LessonCard({ lesson, onSelect, selected = false }: LessonCardPro
         selected ? "bg-white/10" : "bg-transparent"
       }`}
     >
-      <div className="space-y-0.5">
-        <h3 className="text-sm font-medium text-zinc-100">{lesson.title}</h3>
-        <p className="text-[10px] uppercase tracking-[0.22em] text-zinc-500">
-          {lesson.category}
-        </p>
+      <h3 className="text-sm font-medium text-zinc-100">{lesson.title}</h3>
+      <div className="flex shrink-0 items-center gap-2 pl-2">
+        <span className="text-[10px] uppercase tracking-[0.22em] text-zinc-600">
+          {lengthLabel(lesson.text)}
+        </span>
+        <span className="text-[10px] uppercase tracking-[0.22em] text-zinc-500">
+          {lesson.difficulty}
+        </span>
       </div>
-      <p className="text-[10px] uppercase tracking-[0.22em] text-zinc-500">
-        {lesson.difficulty}
-      </p>
     </button>
   );
 }
