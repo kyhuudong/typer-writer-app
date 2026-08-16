@@ -7,7 +7,6 @@ import {
 test("round-trips progress data", () => {
   const original = {
     username: "dong",
-    passwordHash: "hash",
     streak: 5,
     totalWordsTyped: 1200,
     highestWpm: 68,
@@ -26,10 +25,28 @@ test("round-trips progress data", () => {
   expect(deserializeProgress(serializeProgress(original))).toEqual(original);
 });
 
-test("creates a default progress profile", () => {
-  expect(createDefaultProgressProfile("dong", "hash")).toEqual({
+test("old JSON with passwordHash imports cleanly", () => {
+  // Backward compat: passwordHash field in old exports is ignored
+  const oldJson = JSON.stringify({
     username: "dong",
-    passwordHash: "hash",
+    passwordHash: "someoldhash",
+    streak: 3,
+    totalWordsTyped: 0,
+    highestWpm: 0,
+    averageAccuracy: 0,
+    completedLessonIds: [],
+    history: []
+  });
+  const profile = deserializeProgress(oldJson);
+  expect(profile.username).toBe("dong");
+  expect(profile.streak).toBe(3);
+  // passwordHash must not appear in the profile
+  expect("passwordHash" in profile).toBe(false);
+});
+
+test("creates a default progress profile", () => {
+  expect(createDefaultProgressProfile("dong")).toEqual({
+    username: "dong",
     streak: 0,
     totalWordsTyped: 0,
     highestWpm: 0,

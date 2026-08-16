@@ -1,6 +1,5 @@
-import type { LoginCredentials, ProgressProfile } from "../types/progress";
+import type { ProgressProfile } from "../types/progress";
 import { createDefaultProgressProfile, deserializeProgress, serializeProgress } from "./progressFile";
-import { hashPassword, verifyPassword } from "./passwordHash";
 
 type BrowserWindowWithPickers = Window & {
   showOpenFilePicker?: (options?: unknown) => Promise<FileSystemFileHandle[]>;
@@ -81,20 +80,6 @@ export async function loadProgressFromFileHandle(
   return readProgressFile(file);
 }
 
-export async function authenticateProgressProfile(
-  profile: ProgressProfile,
-  credentials: LoginCredentials
-) {
-  if (profile.username !== credentials.username) {
-    return false;
-  }
-
-  return verifyPassword(credentials.password, profile.passwordHash);
-}
-
-export async function createProgressProfileFromCredentials(
-  credentials: LoginCredentials
-) {
-  const passwordHash = await hashPassword(credentials.password);
-  return createDefaultProgressProfile(credentials.username, passwordHash);
+export function createProgressProfile(username: string): ProgressProfile {
+  return createDefaultProgressProfile(username);
 }
