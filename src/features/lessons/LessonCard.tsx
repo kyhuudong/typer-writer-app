@@ -24,6 +24,7 @@ export function LessonCard({
   progressPercent
 }: LessonCardProps) {
   const inProgress = !isCompleted && progressPercent !== undefined && progressPercent > 0;
+  const isFullyTyped = inProgress && progressPercent >= 100;
 
   return (
     <button
@@ -41,7 +42,11 @@ export function LessonCard({
           </svg>
         )}
         {inProgress && (
-          <span className="shrink-0 rounded px-1 py-0.5 text-[9px] font-semibold uppercase tracking-wider bg-amber-500/15 text-amber-400">
+          <span className={`shrink-0 rounded px-1 py-0.5 text-[9px] font-semibold uppercase tracking-wider ${
+            isFullyTyped
+              ? "bg-emerald-500/15 text-emerald-400"
+              : "bg-amber-500/15 text-amber-400"
+          }`}>
             {progressPercent}%
           </span>
         )}

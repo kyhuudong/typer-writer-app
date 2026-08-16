@@ -95,12 +95,18 @@ export function InputStage({ lesson }: InputStageProps) {
   }
 
   const raw = progress?.lessonSaveStates[lesson.id]?.typedText ?? "";
-  // Discard stale saved text (from before whitespace normalisation) that no
-  // longer matches the current lesson text. A valid saved text is always a
-  // prefix of the current target.
-  const isStale = raw.length > 0 && !lesson.text.startsWith(raw);
-  if (isStale) saveLessonProgress(lesson.id, ""); // clear stale entry
-  const savedTypedText = isStale ? "" : raw;
+  // A valid save is always a prefix of the current lesson text.
+  // Compute saved text purely (no side effects) — stale cleanup in useEffect below.
+  const savedTypedText = (raw.length > 0 && lesson.text.startsWith(raw)) ? raw : "";
+
+  // Clear stale save states from the store (side effect goes here, not in render).
+  useEffect(() => {
+    const currentRaw = progress?.lessonSaveStates[lesson.id]?.typedText ?? "";
+    if (currentRaw.length > 0 && !lesson.text.startsWith(currentRaw)) {
+      saveLessonProgress(lesson.id, "");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lesson.id]);
 
   return (
     <section className="space-y-4 xl:max-w-[1400px]">

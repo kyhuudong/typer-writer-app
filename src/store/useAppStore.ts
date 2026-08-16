@@ -11,6 +11,8 @@ import {
   loadProgressFromLocalStorage,
   saveProgressToLocalStorage
 } from "../lib/localStorageProgress";
+import { lessonCatalog } from "../lib/lessonCatalog";
+import { countTypedWords } from "../lib/typingMetrics";
 
 type AppStatus = "signed-out" | "signed-in";
 
@@ -37,10 +39,41 @@ export const useAppStore = create<AppState>((set, get) => {
   // automatically so the user doesn't need to click "Continue" after F5.
   const restoredProfile = loadProgressFromLocalStorage();
 
+  // Auto-complete any lessons where the saved text exactly matches the lesson
+  // text — these were fully typed but the session ended before onComplete fired.
+  // We promote them to completedLessonIds without synthetic stat entries.
+  let startProfile = restoredProfile;
+  if (startProfile && Object.keys(startProfile.lessonSaveStates).length > 0) {
+    const saves = startProfile.lessonSaveStates;
+    const newCompleted = [...startProfile.completedLessonIds];
+    const newSaveStates = { ...saves };
+    let changed = false;
+    for (const lesson of lessonCatalog) {
+      const save = saves[lesson.id];
+      if (save && save.typedText === lesson.text && !newCompleted.includes(lesson.id)) {
+        newCompleted.push(lesson.id);
+        delete newSaveStates[lesson.id];
+        changed = true;
+      }
+    }
+    if (changed) {
+      const extraWords = lessonCatalog
+        .filter(l => newCompleted.includes(l.id) && !startProfile!.completedLessonIds.includes(l.id))
+        .reduce((sum, l) => sum + countTypedWords(l.text), 0);
+      startProfile = {
+        ...startProfile,
+        completedLessonIds: newCompleted,
+        lessonSaveStates: newSaveStates,
+        totalWordsTyped: startProfile.totalWordsTyped + extraWords
+      };
+      saveProgressToLocalStorage(startProfile);
+    }
+  }
+
   return {
-  authStatus: restoredProfile ? "signed-in" : "signed-out",
-  currentUser: restoredProfile?.username ?? null,
-  progress: restoredProfile,
+  authStatus: startProfile ? "signed-in" : "signed-out",
+  currentUser: startProfile?.username ?? null,
+  progress: startProfile,
   progressFileHandle: null,
   isBusy: false,
   error: null,
