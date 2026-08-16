@@ -21,7 +21,14 @@ export type TypingSessionSummary = {
 const WINDOW_RADIUS = 200; // kept for reference but windowing is disabled — see visibleCharacters
 
 export function useTypingSession(targetText: string, initialTypedText = "") {
-  const [typedText, setTypedText] = useState(initialTypedText);
+  // Guard: only restore text that is a valid prefix of the current target.
+  // Any mismatch (stale closure, timing issue) silently falls back to ""
+  // instead of showing every character as red/incorrect.
+  function safeInitial(initial: string) {
+    return initial.length === 0 || targetText.startsWith(initial) ? initial : "";
+  }
+
+  const [typedText, setTypedText] = useState(() => safeInitial(initialTypedText));
   // Always start the timer as null — even when restoring from saved text.
   // The timer begins on the first new keystroke, not on mount.
   // This prevents WPM=0 when resuming a lesson that's close to completion.
@@ -29,7 +36,7 @@ export function useTypingSession(targetText: string, initialTypedText = "") {
   const [finishedAt, setFinishedAt] = useState<number | null>(null);
 
   useEffect(() => {
-    setTypedText(initialTypedText);
+    setTypedText(safeInitial(initialTypedText));
     setStartedAt(null);
     setFinishedAt(null);
   // eslint-disable-next-line react-hooks/exhaustive-deps
