@@ -3,6 +3,7 @@ import { CharacterTape } from "./CharacterTape";
 import { useTypingSession, type TypingSessionSummary } from "./useTypingSession";
 import { useTranslate } from "./useTranslate";
 import { TranslationTooltip } from "./TranslationTooltip";
+import { speakText } from "../helpers/useTextToSpeech";
 
 type TypingViewportProps = {
   text: string;
@@ -26,11 +27,34 @@ function wordAt(text: string, index: number): string {
   return text.slice(Math.max(0, left), end).replace(/[.,;:!?]+$/, "").trim();
 }
 
+/**
+ * Find the word in `text` that the user physically clicked by briefly making
+ * the textarea non-interactive and hit-testing the character span underneath.
+ */
+function wordFromPoint(
+  textarea: HTMLTextAreaElement,
+  clientX: number,
+  clientY: number,
+  text: string
+): string {
+  // Hide the textarea from pointer events so elementFromPoint reaches the span.
+  const prev = textarea.style.pointerEvents;
+  textarea.style.pointerEvents = "none";
+  const el = document.elementFromPoint(clientX, clientY);
+  textarea.style.pointerEvents = prev;
+
+  const rawIndex = el instanceof HTMLElement
+    ? el.getAttribute("data-absolute-index")
+    : null;
+
+  if (rawIndex === null) return "";
+  return wordAt(text, parseInt(rawIndex, 10));
+}
+
 export function TypingViewport({
   text,
   onSummaryChange,
-  onComplete,
-  onSpeak
+  onComplete
 }: TypingViewportProps) {
   const viewportRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -72,19 +96,28 @@ export function TypingViewport({
 
   function handleClick(e: React.MouseEvent<HTMLTextAreaElement>) {
     const textarea = e.currentTarget;
-    const charIndex = textarea.selectionStart ?? 0;
-    const word = wordAt(text, charIndex);
 
-    if (word && word !== tooltip?.word) {
-      setTooltip({ word, x: e.clientX, y: e.clientY });
-      translate(word);
+    // Detect the actual word under the cursor by hit-testing the tape spans.
+    const word = wordFromPoint(textarea, e.clientX, e.clientY, text);
+
+    if (word) {
+      // Speak only the clicked word, not the whole lesson.
+      speakText(word);
+
+      if (word !== tooltip?.word) {
+        setTooltip({ word, x: e.clientX, y: e.clientY });
+        translate(word);
+      } else {
+        // Same word clicked again — dismiss.
+        setTooltip(null);
+        clear();
+      }
     } else {
-      // Second click on the same word or click on whitespace — dismiss.
+      // Clicked on whitespace or outside text — dismiss tooltip.
       setTooltip(null);
       clear();
     }
 
-    onSpeak?.();
     textarea.focus();
   }
 

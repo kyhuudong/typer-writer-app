@@ -1,6 +1,5 @@
 import { useState } from "react";
 import type { Lesson } from "../types/lesson";
-import { useTextToSpeech } from "../features/helpers/useTextToSpeech";
 import { TypingViewport } from "../features/typing/TypingViewport";
 import { TypingStats } from "../features/typing/TypingStats";
 import type { TypingSessionSummary } from "../features/typing/useTypingSession";
@@ -20,7 +19,6 @@ const emptySummary: TypingSessionSummary = {
 };
 
 export function InputStage({ lesson }: InputStageProps) {
-  const speech = useTextToSpeech();
   const [summary, setSummary] = useState<TypingSessionSummary>(emptySummary);
 
   if (!lesson) {
@@ -43,7 +41,6 @@ export function InputStage({ lesson }: InputStageProps) {
         key={lesson.id}
         text={lesson.text}
         onSummaryChange={setSummary}
-        onSpeak={() => speech.speak(lesson.text)}
       />
     </section>
   );

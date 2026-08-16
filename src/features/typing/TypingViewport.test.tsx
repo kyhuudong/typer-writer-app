@@ -2,6 +2,12 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
 import { TypingViewport } from "./TypingViewport";
 
+// Mock speakText so no real speech synthesis fires in tests.
+vi.mock("../helpers/useTextToSpeech", () => ({
+  speakText: vi.fn(),
+  useTextToSpeech: () => ({ speak: vi.fn(), supported: true, cancel: vi.fn() })
+}));
+
 test("renders a single typing surface", () => {
   render(<TypingViewport text="You have power." />);
 
@@ -41,11 +47,11 @@ test("scrolls the live surface to the active character as text changes", () => {
   expect(scrollIntoView).toHaveBeenCalled();
 });
 
-test("speaks the lesson when the surface is clicked", () => {
-  const onSpeak = vi.fn();
-  render(<TypingViewport text="You have power." onSpeak={onSpeak} />);
+test("each character span has a data-absolute-index attribute", () => {
+  render(<TypingViewport text="You have power." />);
 
-  fireEvent.click(screen.getByLabelText(/typing surface/i));
-
-  expect(onSpeak).toHaveBeenCalled();
+  const chars = screen.getAllByTestId("typing-char");
+  chars.forEach((span, i) => {
+    expect(span).toHaveAttribute("data-absolute-index", String(i));
+  });
 });
