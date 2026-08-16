@@ -73,6 +73,15 @@ export function TypingViewport({
 
   const deferredVisible = useDeferredValue(session.visibleCharacters);
 
+  // Move cursor to end of pre-filled text so the first keystroke appends
+  // rather than replacing the selected-all content that autoFocus causes.
+  useEffect(() => {
+    const el = inputRef.current;
+    if (!el) return;
+    const len = el.value.length;
+    el.setSelectionRange(len, len);
+  }, []);
+
   useEffect(() => {
     onSummaryChange?.(session.summary);
   }, [onSummaryChange, session.summary]);
