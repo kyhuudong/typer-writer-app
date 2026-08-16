@@ -28,10 +28,7 @@ export function SessionRail({
     for (const lesson of lessons) {
       const save = progress.lessonSaveStates[lesson.id];
       if (save?.typedText && !completedIds.includes(lesson.id)) {
-        const pct = Math.min(
-          99,
-          Math.round((save.typedText.length / lesson.text.length) * 100)
-        );
+        const pct = Math.round((save.typedText.length / lesson.text.length) * 100);
         if (pct > 0) inProgressMap[lesson.id] = pct;
       }
     }
