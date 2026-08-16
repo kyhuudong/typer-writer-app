@@ -78,7 +78,13 @@ export function InputStage({ lesson }: InputStageProps) {
     );
   }
 
-  const savedTypedText = progress?.lessonSaveStates[lesson.id]?.typedText ?? "";
+  const raw = progress?.lessonSaveStates[lesson.id]?.typedText ?? "";
+  // Discard stale saved text (from before whitespace normalisation) that no
+  // longer matches the current lesson text. A valid saved text is always a
+  // prefix of the current target.
+  const isStale = raw.length > 0 && !lesson.text.startsWith(raw);
+  if (isStale) saveLessonProgress(lesson.id, ""); // clear stale entry
+  const savedTypedText = isStale ? "" : raw;
 
   return (
     <section className="space-y-4 xl:max-w-[1400px]">
