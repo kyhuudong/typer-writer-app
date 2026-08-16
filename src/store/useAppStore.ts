@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import type { ProgressProfile } from "../types/progress";
+import type { TypingSessionSummary } from "../features/typing/useTypingSession";
 import {
   createProgressProfile,
   loadProgressFromFileHandle,
@@ -26,6 +27,8 @@ type AppState = {
   loadProgressFile: (handle: FileSystemFileHandle) => Promise<void>;
   importProgressFile: (file: File) => Promise<void>;
   saveProgress: () => Promise<void>;
+  setLastLesson: (lessonId: string) => void;
+  recordLessonComplete: (lessonId: string, summary: TypingSessionSummary) => void;
 };
 
 export const useAppStore = create<AppState>((set, get) => ({
@@ -109,5 +112,44 @@ export const useAppStore = create<AppState>((set, get) => ({
     } finally {
       set({ isBusy: false });
     }
+  },
+
+  setLastLesson: (lessonId) => {
+    const { progress } = get();
+    if (!progress) return;
+    const updated = { ...progress, lastLessonId: lessonId };
+    saveProgressToLocalStorage(updated);
+    set({ progress: updated });
+  },
+
+  recordLessonComplete: (lessonId, summary) => {
+    const { progress } = get();
+    if (!progress) return;
+    const alreadyDone = progress.completedLessonIds.includes(lessonId);
+    const updated: ProgressProfile = {
+      ...progress,
+      totalWordsTyped: progress.totalWordsTyped + summary.typedWords,
+      highestWpm: Math.max(progress.highestWpm, summary.wpm),
+      averageAccuracy: progress.history.length === 0
+        ? summary.accuracy
+        : Math.round(
+            (progress.averageAccuracy * progress.history.length + summary.accuracy) /
+            (progress.history.length + 1)
+          ),
+      completedLessonIds: alreadyDone
+        ? progress.completedLessonIds
+        : [...progress.completedLessonIds, lessonId],
+      history: [
+        ...progress.history,
+        {
+          lessonId,
+          timestamp: new Date().toISOString(),
+          wpm: summary.wpm,
+          accuracy: summary.accuracy
+        }
+      ]
+    };
+    saveProgressToLocalStorage(updated);
+    set({ progress: updated });
   }
 }));

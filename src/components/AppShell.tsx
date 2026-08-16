@@ -9,15 +9,22 @@ import { InputStage } from "./InputStage";
 export function AppShell() {
   const currentUser = useAppStore((state) => state.currentUser);
   const progress = useAppStore((state) => state.progress);
-  const [selectedLessonId, setSelectedLessonId] = useState(
-    lessonCatalog[0]?.id ?? ""
-  );
+  const setLastLesson = useAppStore((state) => state.setLastLesson);
+
+  const initialLessonId = progress?.lastLessonId ?? lessonCatalog[0]?.id ?? "";
+  const [selectedLessonId, setSelectedLessonId] = useState(initialLessonId);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const selectedLesson =
     lessonCatalog.find((lesson) => lesson.id === selectedLessonId) ??
     lessonCatalog[0] ??
     null;
+
+  function handleSelectLesson(id: string) {
+    setSelectedLessonId(id);
+    setLastLesson(id);
+    setSidebarOpen(false);
+  }
 
   return (
     <main className="min-h-screen bg-surface-950 text-zinc-50">
@@ -29,10 +36,8 @@ export function AppShell() {
           progress={progress}
           lessons={lessonCatalog}
           selectedLessonId={selectedLesson?.id ?? ""}
-          onSelectLesson={(id) => {
-            setSelectedLessonId(id);
-            setSidebarOpen(false);
-          }}
+          onSelectLesson={handleSelectLesson}
+          onResumeLesson={handleSelectLesson}
         />
       </SlideSidebar>
 

@@ -10,24 +10,33 @@ type SessionRailProps = {
   lessons: Lesson[];
   selectedLessonId: string;
   onSelectLesson: (lessonId: string) => void;
+  onResumeLesson: (lessonId: string) => void;
 };
 
 export function SessionRail({
   progress,
   lessons,
   selectedLessonId,
-  onSelectLesson
+  onSelectLesson,
+  onResumeLesson
 }: SessionRailProps) {
+  const completedIds = progress?.completedLessonIds ?? [];
+  const lastLessonId = progress?.lastLessonId ?? null;
+
   return (
     <section className="flex flex-col gap-2">
       <CollapsePanel title="Progress" icon={<MenuIcon kind="progress" />}>
-        {progress ? <ProgressSummary progress={progress} /> : <LoginForm />}
+        {progress
+          ? <ProgressSummary progress={progress} onResumeLesson={onResumeLesson} />
+          : <LoginForm />}
       </CollapsePanel>
 
       <CollapsePanel title="Lessons" icon={<MenuIcon kind="lessons" />}>
         <LessonGrid
           lessons={lessons}
           selectedLessonId={selectedLessonId}
+          completedIds={completedIds}
+          lastLessonId={lastLessonId}
           onSelectLesson={(lesson) => onSelectLesson(lesson.id)}
         />
       </CollapsePanel>

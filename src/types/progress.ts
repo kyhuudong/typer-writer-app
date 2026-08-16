@@ -7,6 +7,7 @@ export type ProgressHistoryEntry = {
 
 export type ProgressProfile = {
   username: string;
+  lastLessonId: string | null;
   streak: number;
   totalWordsTyped: number;
   highestWpm: number;

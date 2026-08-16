@@ -4,6 +4,8 @@ type LessonCardProps = {
   lesson: Lesson;
   onSelect?: (lesson: Lesson) => void;
   selected?: boolean;
+  isCompleted?: boolean;
+  isLastPlayed?: boolean;
 };
 
 function lengthLabel(text: string): string {
@@ -14,7 +16,13 @@ function lengthLabel(text: string): string {
   return "Epic";
 }
 
-export function LessonCard({ lesson, onSelect, selected = false }: LessonCardProps) {
+export function LessonCard({
+  lesson,
+  onSelect,
+  selected = false,
+  isCompleted = false,
+  isLastPlayed = false
+}: LessonCardProps) {
   return (
     <button
       type="button"
@@ -22,9 +30,18 @@ export function LessonCard({ lesson, onSelect, selected = false }: LessonCardPro
       aria-pressed={selected}
       className={`flex w-full items-center justify-between rounded-xl px-3 py-2 text-left transition hover:bg-white/10 ${
         selected ? "bg-white/10" : "bg-transparent"
-      }`}
+      } ${isLastPlayed && !selected ? "ring-1 ring-cyan-500/30" : ""}`}
     >
-      <h3 className="text-sm font-medium text-zinc-100">{lesson.title}</h3>
+      <div className="flex min-w-0 items-center gap-2">
+        {isCompleted && (
+          <svg viewBox="0 0 12 12" width="11" height="11" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 text-emerald-400" aria-label="Completed">
+            <path d="M1.5 6l3 3 6-6" />
+          </svg>
+        )}
+        <h3 className={`truncate text-sm font-medium ${isCompleted ? "text-zinc-300" : "text-zinc-100"}`}>
+          {lesson.title}
+        </h3>
+      </div>
       <div className="flex shrink-0 items-center gap-2 pl-2">
         <span className="text-[10px] uppercase tracking-[0.22em] text-zinc-600">
           {lengthLabel(lesson.text)}

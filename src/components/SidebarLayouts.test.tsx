@@ -20,6 +20,7 @@ test("renders progress as plain text rows", () => {
     <ProgressSummary
       progress={{
         username: "dong",
+        lastLessonId: null,
         streak: 5,
         totalWordsTyped: 1200,
         highestWpm: 68,
