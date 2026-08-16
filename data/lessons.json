@@ -46,5 +46,69 @@
     "difficulty": "Medium",
     "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97",
     "text": "Reliable software does not appear by accident; it is built through small decisions that reduce surprise. Clear inputs, direct feedback, and predictable behavior give users confidence when they return to a system again and again. A calm interface is often a sign that many hidden details have been handled carefully."
+  },
+  {
+    "id": "jung_001",
+    "title": "The Shadow",
+    "category": "Carl Jung",
+    "difficulty": "Medium",
+    "image": "https://images.unsplash.com/photo-1462275646964-a0e3386b89fa",
+    "text": "Everyone carries a shadow, and the less it is embodied in the individual's conscious life, the blacker and denser it is. The shadow is not only the dark side of the personality but also the storehouse of vitality, spontaneity, and creative potential that the persona has rejected. To meet the shadow honestly is to begin the work of wholeness, for what we cannot face in ourselves we will meet in the world as fate."
+  },
+  {
+    "id": "jung_002",
+    "title": "Individuation",
+    "category": "Carl Jung",
+    "difficulty": "Hard",
+    "image": "https://images.unsplash.com/photo-1462275646964-a0e3386b89fa",
+    "text": "Individuation does not shut one out from the world but gathers the world to oneself. It is not a flight from life but a deeper engagement with it, a process by which the person slowly becomes what they always were at the core. The self that emerges is not constructed from ambition or approval but revealed, layer by layer, as the false coverings are stripped away by experience, failure, and honest reflection."
+  },
+  {
+    "id": "jung_003",
+    "title": "The Persona",
+    "category": "Carl Jung",
+    "difficulty": "Easy",
+    "image": "https://images.unsplash.com/photo-1462275646964-a0e3386b89fa",
+    "text": "The persona is the mask we present to the world, shaped by social expectation and the need to belong. It is not false in itself, for every person must find a way to move among others. The danger arises when the mask is mistaken for the face, when a person no longer remembers who they are beneath the role they play. A healthy persona is worn lightly and set aside when the day is done."
+  },
+  {
+    "id": "jung_004",
+    "title": "Archetypes",
+    "category": "Carl Jung",
+    "difficulty": "Medium",
+    "image": "https://images.unsplash.com/photo-1462275646964-a0e3386b89fa",
+    "text": "Archetypes are the inherited patterns of the human psyche, forms without fixed content that repeat across every culture and every age. The hero, the mother, the trickster, the wise old man — these figures appear in dreams and myths not because they were invented by a single storyteller but because they arise from the deep structure of human experience itself. To encounter an archetype is to feel the weight of something far older than your own life."
+  },
+  {
+    "id": "jung_005",
+    "title": "Synchronicity",
+    "category": "Carl Jung",
+    "difficulty": "Hard",
+    "image": "https://images.unsplash.com/photo-1462275646964-a0e3386b89fa",
+    "text": "Synchronicity is the coincidence of an inner event and an outer event that share the same meaning but are connected by no cause. The clock that stops at the moment of death, the dream that names the stranger you meet the following morning — these are not proof of magic but invitations to wonder. They suggest that the boundary between the psyche and the world is thinner than reason prefers to admit, and that meaning sometimes moves in directions that science has not yet learned to measure."
+  },
+  {
+    "id": "jung_006",
+    "title": "The Unconscious",
+    "category": "Carl Jung",
+    "difficulty": "Medium",
+    "image": "https://images.unsplash.com/photo-1462275646964-a0e3386b89fa",
+    "text": "The unconscious is not a basement of repressed wishes but a living, autonomous realm that shapes thought, feeling, and action before consciousness even arrives. Dreams are its natural language, symbol its grammar, and image its preferred currency. To ignore the unconscious is not to escape it but to be directed by it without knowing, to be moved by forces whose names you have never learned and whose faces you have never turned to meet in honest light."
+  },
+  {
+    "id": "jung_007",
+    "title": "The Anima and Animus",
+    "category": "Carl Jung",
+    "difficulty": "Hard",
+    "image": "https://images.unsplash.com/photo-1462275646964-a0e3386b89fa",
+    "text": "In a man, the anima is the inner feminine: the capacity for feeling, for receptivity, for the kind of knowing that comes not through argument but through attunement. In a woman, the animus is the inner masculine: the capacity for direction, for assertion, for the thought that cuts cleanly to its conclusion. Neither is better than the other, and neither can be safely ignored. The person who befriends their inner opposite gains a wholeness that no external relationship can supply, because they no longer need the other person to carry what they have refused to carry themselves."
+  },
+  {
+    "id": "jung_008",
+    "title": "The Self",
+    "category": "Carl Jung",
+    "difficulty": "Hard",
+    "image": "https://images.unsplash.com/photo-1462275646964-a0e3386b89fa",
+    "text": "The self, in Jung's sense, is not the ego that plans and decides but the totality of the psyche, the vast circle that contains both what is known and what has never yet been brought to light. It is the goal toward which individuation moves, not a destination that can be reached once and held, but a center of gravity that the whole person slowly learns to orbit. When a person acts from the self rather than the ego alone, their choices carry a different weight — they feel not only chosen but necessary, not only reasonable but true."
   }
 ]
