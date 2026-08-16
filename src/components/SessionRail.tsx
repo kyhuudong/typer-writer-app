@@ -21,7 +21,21 @@ export function SessionRail({
   onResumeLesson
 }: SessionRailProps) {
   const completedIds = progress?.completedLessonIds ?? [];
-  const lastLessonId = progress?.lastLessonId ?? null;
+
+  // Build inProgressMap: lessonId -> completion% based on saved typed text length.
+  const inProgressMap: Record<string, number> = {};
+  if (progress?.lessonSaveStates) {
+    for (const lesson of lessons) {
+      const save = progress.lessonSaveStates[lesson.id];
+      if (save?.typedText && !completedIds.includes(lesson.id)) {
+        const pct = Math.min(
+          99,
+          Math.round((save.typedText.length / lesson.text.length) * 100)
+        );
+        if (pct > 0) inProgressMap[lesson.id] = pct;
+      }
+    }
+  }
 
   return (
     <section className="flex flex-col gap-2">
@@ -36,7 +50,7 @@ export function SessionRail({
           lessons={lessons}
           selectedLessonId={selectedLessonId}
           completedIds={completedIds}
-          lastLessonId={lastLessonId}
+          inProgressMap={inProgressMap}
           onSelectLesson={(lesson) => onSelectLesson(lesson.id)}
         />
       </CollapsePanel>

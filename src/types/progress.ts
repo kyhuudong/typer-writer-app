@@ -5,9 +5,15 @@ export type ProgressHistoryEntry = {
   accuracy: number;
 };
 
+export type LessonSaveState = {
+  typedText: string;
+  savedAt: string;
+};
+
 export type ProgressProfile = {
   username: string;
   lastLessonId: string | null;
+  lessonSaveStates: Record<string, LessonSaveState>;
   streak: number;
   totalWordsTyped: number;
   highestWpm: number;

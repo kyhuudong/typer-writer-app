@@ -8,6 +8,7 @@ test("round-trips progress data", () => {
   const original = {
     username: "dong",
     lastLessonId: "stoic_001",
+    lessonSaveStates: { stoic_001: { typedText: "You have", savedAt: "2026-08-16T00:00:00.000Z" } },
     streak: 5,
     totalWordsTyped: 1200,
     highestWpm: 68,
@@ -49,6 +50,7 @@ test("creates a default progress profile", () => {
   expect(createDefaultProgressProfile("dong")).toEqual({
     username: "dong",
     lastLessonId: null,
+    lessonSaveStates: {},
     streak: 0,
     totalWordsTyped: 0,
     highestWpm: 0,

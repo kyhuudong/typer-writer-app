@@ -5,7 +5,7 @@ type LessonCardProps = {
   onSelect?: (lesson: Lesson) => void;
   selected?: boolean;
   isCompleted?: boolean;
-  isLastPlayed?: boolean;
+  progressPercent?: number;
 };
 
 function lengthLabel(text: string): string {
@@ -21,8 +21,10 @@ export function LessonCard({
   onSelect,
   selected = false,
   isCompleted = false,
-  isLastPlayed = false
+  progressPercent
 }: LessonCardProps) {
+  const inProgress = !isCompleted && progressPercent !== undefined && progressPercent > 0;
+
   return (
     <button
       type="button"
@@ -30,7 +32,7 @@ export function LessonCard({
       aria-pressed={selected}
       className={`flex w-full items-center justify-between rounded-xl px-3 py-2 text-left transition hover:bg-white/10 ${
         selected ? "bg-white/10" : "bg-transparent"
-      } ${isLastPlayed && !selected ? "ring-1 ring-cyan-500/30" : ""}`}
+      }`}
     >
       <div className="flex min-w-0 items-center gap-2">
         {isCompleted && (
@@ -38,7 +40,12 @@ export function LessonCard({
             <path d="M1.5 6l3 3 6-6" />
           </svg>
         )}
-        <h3 className={`truncate text-sm font-medium ${isCompleted ? "text-zinc-300" : "text-zinc-100"}`}>
+        {inProgress && (
+          <span className="shrink-0 rounded px-1 py-0.5 text-[9px] font-semibold uppercase tracking-wider bg-amber-500/15 text-amber-400">
+            {progressPercent}%
+          </span>
+        )}
+        <h3 className={`truncate text-sm font-medium ${isCompleted ? "text-zinc-400" : "text-zinc-100"}`}>
           {lesson.title}
         </h3>
       </div>

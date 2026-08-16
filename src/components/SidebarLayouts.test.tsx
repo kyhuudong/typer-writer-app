@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { ProgressSummary } from "./ProgressSummary";
 import { LessonGrid } from "../features/lessons/LessonGrid";
 import { lessonCatalog } from "../lib/lessonCatalog";
@@ -21,6 +21,7 @@ test("renders progress as plain text rows", () => {
       progress={{
         username: "dong",
         lastLessonId: null,
+        lessonSaveStates: {},
         streak: 5,
         totalWordsTyped: 1200,
         highestWpm: 68,
@@ -44,8 +45,10 @@ test("renders lessons as plain text rows", () => {
     />
   );
 
-  expect(screen.getByRole("button", { name: /control and perception/i })).toBeInTheDocument();
+  // Category header is always visible; expand it to see lesson cards.
   expect(screen.getAllByText(/stoicism/i).length).toBeGreaterThan(0);
+  fireEvent.click(screen.getByRole("button", { name: /stoicism/i }));
+  expect(screen.getByRole("button", { name: /control and perception/i })).toBeInTheDocument();
 });
 
 test("includes the long philosophy lesson in the catalog and list", () => {
@@ -62,5 +65,7 @@ test("includes the long philosophy lesson in the catalog and list", () => {
     />
   );
 
+  // Expand the Philosophy category to find the lesson card.
+  fireEvent.click(screen.getByRole("button", { name: /philosophy/i }));
   expect(screen.getByRole("button", { name: /the long argument/i })).toBeInTheDocument();
 });
