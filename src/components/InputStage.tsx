@@ -21,47 +21,63 @@ const emptySummary: TypingSessionSummary = {
 
 export function InputStage({ lesson }: InputStageProps) {
   const [summary, setSummary] = useState<TypingSessionSummary>(emptySummary);
+  const [saveStatus, setSaveStatus] = useState<"idle" | "saved">("idle");
   const recordLessonComplete = useAppStore((state) => state.recordLessonComplete);
   const saveLessonProgress = useAppStore((state) => state.saveLessonProgress);
   const progress = useAppStore((state) => state.progress);
 
-  // Keep a ref to the current typed text so we can save it when lesson changes.
   const typedTextRef = useRef("");
+  const lastSavedTextRef = useRef("");
+  const debounceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const savedIndicatorTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Save current lesson's progress when lesson changes or component unmounts.
+  /** Save immediately if text has changed since last save. */
+  function doSave(lessonId: string, text: string) {
+    if (!lessonId || !text || text === lastSavedTextRef.current) return;
+    saveLessonProgress(lessonId, text);
+    lastSavedTextRef.current = text;
+    setSaveStatus("saved");
+    if (savedIndicatorTimerRef.current) clearTimeout(savedIndicatorTimerRef.current);
+    savedIndicatorTimerRef.current = setTimeout(() => setSaveStatus("idle"), 2000);
+  }
+
+  /** Schedule a debounced save 1.5 s after the user stops typing. */
+  function scheduleSave(lessonId: string) {
+    if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
+    debounceTimerRef.current = setTimeout(() => {
+      doSave(lessonId, typedTextRef.current);
+    }, 1500);
+  }
+
+  // Save when lesson changes or component unmounts.
   useEffect(() => {
     const lessonId = lesson?.id ?? null;
+    // Reset tracking when switching lessons.
+    lastSavedTextRef.current = "";
     return () => {
+      if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
       if (lessonId && typedTextRef.current) {
-        saveLessonProgress(lessonId, typedTextRef.current);
+        doSave(lessonId, typedTextRef.current);
       }
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lesson?.id]);
 
-  // Also save on browser close / F5 — useEffect cleanup is NOT guaranteed
-  // to run on page unload in all browsers.
+  // On F5 / tab close: flush pending save AND block accidental navigation.
   useEffect(() => {
-    function handleUnload() {
+    function handleUnload(e: BeforeUnloadEvent) {
       const lessonId = lesson?.id;
       if (lessonId && typedTextRef.current) {
-        saveLessonProgress(lessonId, typedTextRef.current);
+        doSave(lessonId, typedTextRef.current);
+        // Show "Leave site?" dialog only when there's unsaved progress.
+        if (typedTextRef.current !== lastSavedTextRef.current) {
+          e.preventDefault();
+          e.returnValue = "";
+        }
       }
     }
     window.addEventListener("beforeunload", handleUnload);
     return () => window.removeEventListener("beforeunload", handleUnload);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [lesson?.id]);
-
-  // Periodic auto-save every 3 seconds while the user is actively typing.
-  useEffect(() => {
-    const id = setInterval(() => {
-      const lessonId = lesson?.id;
-      if (lessonId && typedTextRef.current) {
-        saveLessonProgress(lessonId, typedTextRef.current);
-      }
-    }, 3000);
-    return () => clearInterval(id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lesson?.id]);
 
@@ -88,15 +104,30 @@ export function InputStage({ lesson }: InputStageProps) {
 
   return (
     <section className="space-y-4 xl:max-w-[1400px]">
-      <TypingStats summary={summary} />
+      <div className="flex items-end justify-between gap-4">
+        <TypingStats summary={summary} />
+        <p
+          className={`shrink-0 pb-2.5 text-[10px] uppercase tracking-[0.28em] transition-opacity duration-500 ${
+            saveStatus === "saved" ? "text-emerald-500 opacity-100" : "opacity-0"
+          }`}
+          aria-live="polite"
+        >
+          Saved ✓
+        </p>
+      </div>
       <TypingViewport
         key={lesson.id}
         text={lesson.text}
         initialTypedText={savedTypedText}
         onSummaryChange={setSummary}
-        onTypedTextChange={(t) => { typedTextRef.current = t; }}
+        onTypedTextChange={(t) => {
+          typedTextRef.current = t;
+          if (lesson.id) scheduleSave(lesson.id);
+        }}
         onComplete={(s) => {
+          if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
           typedTextRef.current = "";
+          lastSavedTextRef.current = "";
           recordLessonComplete(lesson.id, s);
         }}
       />
