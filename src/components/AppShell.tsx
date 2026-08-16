@@ -3,6 +3,7 @@ import { lessonCatalog } from "../lib/lessonCatalog";
 import { useAppStore } from "../store/useAppStore";
 import { TopBar } from "./TopBar";
 import { SessionRail } from "./SessionRail";
+import { SlideSidebar } from "./SlideSidebar";
 import { InputStage } from "./InputStage";
 
 export function AppShell() {
@@ -11,6 +12,7 @@ export function AppShell() {
   const [selectedLessonId, setSelectedLessonId] = useState(
     lessonCatalog[0]?.id ?? ""
   );
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const selectedLesson =
     lessonCatalog.find((lesson) => lesson.id === selectedLessonId) ??
@@ -20,19 +22,35 @@ export function AppShell() {
   return (
     <main className="min-h-screen bg-surface-950 text-zinc-50">
       <TopBar userName={currentUser} />
-      <section className="mx-auto grid max-w-[1680px] gap-4 px-4 py-5 xl:grid-cols-[132px_minmax(0,1fr)]">
-        <aside className="xl:sticky xl:top-4 xl:h-[calc(100vh-2rem)] xl:overflow-auto">
-          <SessionRail
-            progress={progress}
-            lessons={lessonCatalog}
-            selectedLessonId={selectedLesson?.id ?? ""}
-            onSelectLesson={setSelectedLessonId}
-          />
-        </aside>
 
-        <div className="space-y-5">
-          <InputStage lesson={selectedLesson} />
-        </div>
+      {/* Hamburger toggle — always visible top-left */}
+      <button
+        type="button"
+        onClick={() => setSidebarOpen(true)}
+        aria-label="Open sidebar"
+        className="fixed left-4 top-4 z-30 rounded-lg p-2 text-zinc-500 hover:bg-white/10 hover:text-zinc-200 transition"
+      >
+        <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+          <path d="M3 5h14M3 10h14M3 15h14" />
+        </svg>
+      </button>
+
+      {/* Slide-over sidebar */}
+      <SlideSidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)}>
+        <SessionRail
+          progress={progress}
+          lessons={lessonCatalog}
+          selectedLessonId={selectedLesson?.id ?? ""}
+          onSelectLesson={(id) => {
+            setSelectedLessonId(id);
+            setSidebarOpen(false);
+          }}
+        />
+      </SlideSidebar>
+
+      {/* Full-width typing area */}
+      <section className="mx-auto max-w-[1400px] px-6 py-5">
+        <InputStage lesson={selectedLesson} />
       </section>
     </main>
   );
