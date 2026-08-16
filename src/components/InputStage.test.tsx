@@ -1,16 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { vi } from "vitest";
 import { InputStage } from "./InputStage";
-
-const speak = vi.fn();
-
-vi.mock("../features/helpers/useTextToSpeech", () => ({
-  useTextToSpeech: () => ({
-    speak,
-    supported: true,
-    cancel: vi.fn()
-  })
-}));
 
 const lesson = {
   id: "stoic_001",
@@ -29,10 +18,8 @@ test("renders the input surface and transparent stats", () => {
   expect(screen.getByText(/wpm/i)).toBeInTheDocument();
 });
 
-test("speaks the lesson text when the typing surface is clicked", () => {
-  render(<InputStage lesson={lesson} />);
+test("renders an empty state when no lesson is provided", () => {
+  render(<InputStage lesson={null} />);
 
-  screen.getByLabelText(/typing surface/i).click();
-
-  expect(speak).toHaveBeenCalledWith(lesson.text);
+  expect(screen.getByText(/choose a lesson to begin/i)).toBeInTheDocument();
 });

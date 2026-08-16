@@ -39,6 +39,7 @@ export function CharacterTape({ characters, variant = "surface" }: CharacterTape
             key={key}
             data-testid="typing-char"
             data-state={state}
+            data-absolute-index={key}
             className={stateClasses[state]}
           >
             {character}
