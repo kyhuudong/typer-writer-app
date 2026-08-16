@@ -3,6 +3,7 @@ import type { Lesson } from "../types/lesson";
 import { TypingViewport } from "../features/typing/TypingViewport";
 import { TypingStats } from "../features/typing/TypingStats";
 import type { TypingSessionSummary } from "../features/typing/useTypingSession";
+import { useAppStore } from "../store/useAppStore";
 
 type InputStageProps = {
   lesson: Lesson | null;
@@ -20,6 +21,7 @@ const emptySummary: TypingSessionSummary = {
 
 export function InputStage({ lesson }: InputStageProps) {
   const [summary, setSummary] = useState<TypingSessionSummary>(emptySummary);
+  const recordLessonComplete = useAppStore((state) => state.recordLessonComplete);
 
   if (!lesson) {
     return (
@@ -41,6 +43,7 @@ export function InputStage({ lesson }: InputStageProps) {
         key={lesson.id}
         text={lesson.text}
         onSummaryChange={setSummary}
+        onComplete={(s) => recordLessonComplete(lesson.id, s)}
       />
     </section>
   );

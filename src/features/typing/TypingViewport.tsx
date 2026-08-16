@@ -62,6 +62,10 @@ export function TypingViewport({
   const { translation, loading, error, translate, clear } = useTranslate();
 
   const [tooltip, setTooltip] = useState<TooltipState>(null);
+  // Snapshot of typedText.length at the moment the tooltip was last shown.
+  // We only auto-dismiss the tooltip when the user types NEW characters after
+  // opening it — not just because tooltip state changed.
+  const tooltipOpenAtLength = useRef<number | null>(null);
 
   // Defer the character tape re-render so the textarea stays snappy.
   const deferredVisible = useDeferredValue(session.visibleCharacters);
@@ -86,11 +90,14 @@ export function TypingViewport({
     }
   }, [session.typedText, text]);
 
-  // Dismiss tooltip when the user starts typing.
+  // Dismiss tooltip only when the user types NEW characters after opening it.
   useEffect(() => {
-    if (session.typedText && tooltip) {
-      setTooltip(null);
-      clear();
+    if (tooltipOpenAtLength.current !== null && tooltip) {
+      if (session.typedText.length > tooltipOpenAtLength.current) {
+        setTooltip(null);
+        clear();
+        tooltipOpenAtLength.current = null;
+      }
     }
   }, [session.typedText, tooltip, clear]);
 
@@ -105,15 +112,18 @@ export function TypingViewport({
       speakText(word);
 
       if (word !== tooltip?.word) {
+        tooltipOpenAtLength.current = session.typedText.length;
         setTooltip({ word, x: e.clientX, y: e.clientY });
         translate(word);
       } else {
         // Same word clicked again — dismiss.
+        tooltipOpenAtLength.current = null;
         setTooltip(null);
         clear();
       }
     } else {
       // Clicked on whitespace or outside text — dismiss tooltip.
+      tooltipOpenAtLength.current = null;
       setTooltip(null);
       clear();
     }

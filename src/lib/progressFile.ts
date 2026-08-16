@@ -6,6 +6,7 @@ type PartialProgressProfile = Partial<ProgressProfile> & Pick<ProgressProfile, "
 export function createDefaultProgressProfile(username: string): ProgressProfile {
   return {
     username,
+    lastLessonId: null,
     streak: 0,
     totalWordsTyped: 0,
     highestWpm: 0,
@@ -20,6 +21,7 @@ export function normalizeProgressProfile(
 ): ProgressProfile {
   return {
     username: profile.username,
+    lastLessonId: profile.lastLessonId ?? null,
     streak: profile.streak ?? 0,
     totalWordsTyped: profile.totalWordsTyped ?? 0,
     highestWpm: profile.highestWpm ?? 0,

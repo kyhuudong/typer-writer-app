@@ -7,13 +7,17 @@ type LessonGridProps = {
   filters?: LessonFilters;
   onSelectLesson?: (lesson: Lesson) => void;
   selectedLessonId?: string;
+  completedIds?: string[];
+  lastLessonId?: string | null;
 };
 
 export function LessonGrid({
   lessons,
   filters,
   onSelectLesson,
-  selectedLessonId
+  selectedLessonId,
+  completedIds = [],
+  lastLessonId = null
 }: LessonGridProps) {
   const visibleLessons = filters ? filterLessons(lessons, filters) : lessons;
   const categories = getLessonCategories(visibleLessons);
@@ -34,6 +38,8 @@ export function LessonGrid({
                   lesson={lesson}
                   onSelect={onSelectLesson}
                   selected={lesson.id === selectedLessonId}
+                  isCompleted={completedIds.includes(lesson.id)}
+                  isLastPlayed={lesson.id === lastLessonId}
                 />
               ))}
             </div>

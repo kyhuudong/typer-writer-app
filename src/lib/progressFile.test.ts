@@ -7,6 +7,7 @@ import {
 test("round-trips progress data", () => {
   const original = {
     username: "dong",
+    lastLessonId: "stoic_001",
     streak: 5,
     totalWordsTyped: 1200,
     highestWpm: 68,
@@ -47,6 +48,7 @@ test("old JSON with passwordHash imports cleanly", () => {
 test("creates a default progress profile", () => {
   expect(createDefaultProgressProfile("dong")).toEqual({
     username: "dong",
+    lastLessonId: null,
     streak: 0,
     totalWordsTyped: 0,
     highestWpm: 0,
