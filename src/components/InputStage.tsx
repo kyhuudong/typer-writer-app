@@ -97,16 +97,18 @@ export function InputStage({ lesson }: InputStageProps) {
   }
 
   const raw = progress?.lessonSaveStates[lesson.id]?.typedText ?? "";
-  // Completed lessons show pre-filled text so the user can review their work.
-  // In-progress lessons restore from the last save (if it's a valid prefix).
-  const savedTypedText = isCompleted
-    ? lesson.text
-    : (raw.length > 0 && lesson.text.startsWith(raw)) ? raw : "";
+  // A valid save has no \n (post-normalization all lesson texts are \n-free;
+  // any \n in saved text means it's pre-normalization stale data) and is not
+  // longer than the lesson. Wrong characters are fine — we restore them and
+  // show them as red so the user can continue or backspace to fix.
+  const isValidSave = raw.length > 0 && raw.length <= lesson.text.length && !raw.includes("\n");
+  const savedTypedText = isCompleted ? lesson.text : isValidSave ? raw : "";
 
   // Clear stale save states from the store (side effect goes here, not in render).
   useEffect(() => {
     const currentRaw = progress?.lessonSaveStates[lesson.id]?.typedText ?? "";
-    if (currentRaw.length > 0 && !lesson.text.startsWith(currentRaw)) {
+    const valid = currentRaw.length > 0 && currentRaw.length <= lesson.text.length && !currentRaw.includes("\n");
+    if (currentRaw.length > 0 && !valid) {
       saveLessonProgress(lesson.id, "");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

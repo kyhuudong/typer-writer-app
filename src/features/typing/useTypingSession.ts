@@ -21,11 +21,14 @@ export type TypingSessionSummary = {
 const WINDOW_RADIUS = 200; // kept for reference but windowing is disabled — see visibleCharacters
 
 export function useTypingSession(targetText: string, initialTypedText = "") {
-  // Guard: only restore text that is a valid prefix of the current target.
-  // Any mismatch (stale closure, timing issue) silently falls back to ""
-  // instead of showing every character as red/incorrect.
+  // Guard: discard pre-normalization stale text (has \n) or text longer than
+  // the target. Wrong characters from user mistakes are fine — we restore them
+  // as-is (shown red) rather than wiping the user's progress.
   function safeInitial(initial: string) {
-    return initial.length === 0 || targetText.startsWith(initial) ? initial : "";
+    if (initial.length === 0) return initial;
+    if (initial.length > targetText.length) return "";
+    if (initial.includes("\n")) return "";
+    return initial;
   }
 
   const [typedText, setTypedText] = useState(() => safeInitial(initialTypedText));
