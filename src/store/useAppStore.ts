@@ -7,6 +7,10 @@ import {
   saveProgressFile
 } from "../lib/fileAccess";
 import { deserializeProgress } from "../lib/progressFile";
+import {
+  loadProgressFromLocalStorage,
+  saveProgressToLocalStorage
+} from "../lib/localStorageProgress";
 
 type AppStatus = "signed-out" | "signed-in";
 
@@ -28,7 +32,8 @@ type AppState = {
 export const useAppStore = create<AppState>((set, get) => ({
   authStatus: "signed-out",
   currentUser: null,
-  progress: null,
+  // Pre-load progress from localStorage so returning users don't need to re-load a file.
+  progress: loadProgressFromLocalStorage(),
   progressFileHandle: null,
   isBusy: false,
   error: null,
@@ -39,6 +44,7 @@ export const useAppStore = create<AppState>((set, get) => ({
       const current = get().progress;
       if (!current) {
         const progress = await createProgressProfileFromCredentials(credentials);
+        saveProgressToLocalStorage(progress);
         set({
           authStatus: "signed-in",
           currentUser: progress.username,
@@ -52,6 +58,7 @@ export const useAppStore = create<AppState>((set, get) => ({
         throw new Error("Username or password is invalid.");
       }
 
+      saveProgressToLocalStorage(current);
       set({
         authStatus: "signed-in",
         currentUser: current.username
@@ -110,6 +117,7 @@ export const useAppStore = create<AppState>((set, get) => ({
 
     set({ isBusy: true, error: null });
     try {
+      saveProgressToLocalStorage(progress);
       const handle = await saveProgressFile(progress, progressFileHandle);
       set({ progressFileHandle: handle });
     } catch (error) {

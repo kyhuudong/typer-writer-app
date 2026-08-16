@@ -26,14 +26,9 @@ test("keeps menu items collapsed by default", () => {
   const progressButton = screen.getByRole("button", { name: /progress/i });
   const lessonsButton = screen.getByRole("button", { name: /lessons/i });
 
-  expect(progressButton).toHaveAttribute(
-    "aria-expanded",
-    "false"
-  );
-  expect(lessonsButton).toHaveAttribute(
-    "aria-expanded",
-    "false"
-  );
-  expect(progressButton).toHaveTextContent("");
-  expect(lessonsButton).toHaveTextContent("");
+  expect(progressButton).toHaveAttribute("aria-expanded", "false");
+  expect(lessonsButton).toHaveAttribute("aria-expanded", "false");
+  // Buttons now show their title as text labels.
+  expect(progressButton).toHaveTextContent(/progress/i);
+  expect(lessonsButton).toHaveTextContent(/lessons/i);
 });
