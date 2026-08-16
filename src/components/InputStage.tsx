@@ -97,22 +97,9 @@ export function InputStage({ lesson }: InputStageProps) {
   }
 
   const raw = progress?.lessonSaveStates[lesson.id]?.typedText ?? "";
-  // A valid save has no \n (post-normalization all lesson texts are \n-free;
-  // any \n in saved text means it's pre-normalization stale data) and is not
-  // longer than the lesson. Wrong characters are fine — we restore them and
-  // show them as red so the user can continue or backspace to fix.
-  const isValidSave = raw.length > 0 && raw.length <= lesson.text.length && !raw.includes("\n");
-  const savedTypedText = isCompleted ? lesson.text : isValidSave ? raw : "";
-
-  // Clear stale save states from the store (side effect goes here, not in render).
-  useEffect(() => {
-    const currentRaw = progress?.lessonSaveStates[lesson.id]?.typedText ?? "";
-    const valid = currentRaw.length > 0 && currentRaw.length <= lesson.text.length && !currentRaw.includes("\n");
-    if (currentRaw.length > 0 && !valid) {
-      saveLessonProgress(lesson.id, "");
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [lesson.id]);
+  // Restore saved text capped to lesson length. Wrong chars show as red —
+  // that is intentional. No content-based validation to avoid false discards.
+  const savedTypedText = isCompleted ? lesson.text : raw.slice(0, lesson.text.length);
 
   return (
     <section className="space-y-4 xl:max-w-[1400px]">

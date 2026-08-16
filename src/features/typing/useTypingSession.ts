@@ -21,29 +21,17 @@ export type TypingSessionSummary = {
 const WINDOW_RADIUS = 200; // kept for reference but windowing is disabled — see visibleCharacters
 
 export function useTypingSession(targetText: string, initialTypedText = "") {
-  // Guard: discard pre-normalization stale text (has \n) or text longer than
-  // the target. Wrong characters from user mistakes are fine — we restore them
-  // as-is (shown red) rather than wiping the user's progress.
-  function safeInitial(initial: string) {
-    if (initial.length === 0) return initial;
-    if (initial.length > targetText.length) return "";
-    if (initial.includes("\n")) return "";
-    return initial;
-  }
-
-  const [typedText, setTypedText] = useState(() => safeInitial(initialTypedText));
+  // Cap to target length only — never discard based on content.
+  // Wrong characters are preserved and shown red; that is correct behavior.
+  // key={lesson.id} on TypingViewport guarantees remount on lesson change,
+  // so a reset useEffect([targetText]) is not needed and was causing races.
+  const [typedText, setTypedText] = useState(() =>
+    initialTypedText.slice(0, targetText.length)
+  );
   // Always start the timer as null — even when restoring from saved text.
   // The timer begins on the first new keystroke, not on mount.
-  // This prevents WPM=0 when resuming a lesson that's close to completion.
   const [startedAt, setStartedAt] = useState<number | null>(null);
   const [finishedAt, setFinishedAt] = useState<number | null>(null);
-
-  useEffect(() => {
-    setTypedText(safeInitial(initialTypedText));
-    setStartedAt(null);
-    setFinishedAt(null);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [targetText]);
 
   const summary = useMemo<TypingSessionSummary>(() => {
     const elapsedMs =
