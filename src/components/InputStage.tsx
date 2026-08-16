@@ -24,7 +24,9 @@ export function InputStage({ lesson }: InputStageProps) {
   const [saveStatus, setSaveStatus] = useState<"idle" | "saved">("idle");
   const recordLessonComplete = useAppStore((state) => state.recordLessonComplete);
   const saveLessonProgress = useAppStore((state) => state.saveLessonProgress);
+  const completedLessonIds = useAppStore((state) => state.progress?.completedLessonIds ?? []);
   const progress = useAppStore((state) => state.progress);
+  const isCompleted = lesson ? completedLessonIds.includes(lesson.id) : false;
 
   const typedTextRef = useRef("");
   const lastSavedTextRef = useRef("");
@@ -95,9 +97,11 @@ export function InputStage({ lesson }: InputStageProps) {
   }
 
   const raw = progress?.lessonSaveStates[lesson.id]?.typedText ?? "";
-  // A valid save is always a prefix of the current lesson text.
-  // Compute saved text purely (no side effects) — stale cleanup in useEffect below.
-  const savedTypedText = (raw.length > 0 && lesson.text.startsWith(raw)) ? raw : "";
+  // Completed lessons show pre-filled text so the user can review their work.
+  // In-progress lessons restore from the last save (if it's a valid prefix).
+  const savedTypedText = isCompleted
+    ? lesson.text
+    : (raw.length > 0 && lesson.text.startsWith(raw)) ? raw : "";
 
   // Clear stale save states from the store (side effect goes here, not in render).
   useEffect(() => {

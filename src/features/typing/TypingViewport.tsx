@@ -84,7 +84,7 @@ export function TypingViewport({
   // Fire onComplete exactly once — regardless of how many times the effect
   // re-runs (e.g. because onComplete is an inline function that changes each render).
   useEffect(() => {
-    if (session.status === "finished" && !completionFiredRef.current) {
+    if (session.status === "finished" && !completionFiredRef.current && session.summary.elapsedMs > 0) {
       completionFiredRef.current = true;
       onComplete?.(session.summary);
     }
