@@ -17,11 +17,11 @@ export function TopBar({ userName, onMenuClick }: TopBarProps) {
             <path d="M3 5h14M3 10h14M3 15h14" />
           </svg>
         </button>
-        <h1 className="text-base font-medium text-zinc-100">Minimal Typer</h1>
+        <h1 className="text-base font-medium text-zinc-100">Typer</h1>
       </div>
-      <p className="text-sm text-zinc-400">
-        {userName ? `Signed in as ${userName}` : "Local file mode"}
-      </p>
+      {userName && (
+        <p className="text-sm text-zinc-500">{userName}</p>
+      )}
     </div>
   );
 }

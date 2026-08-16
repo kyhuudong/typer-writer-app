@@ -28,20 +28,18 @@ export function InputStage({ lesson }: InputStageProps) {
   // Keep a ref to the current typed text so we can save it when lesson changes.
   const typedTextRef = useRef("");
 
-  // Save progress when lesson changes or component unmounts.
-  const lessonIdRef = useRef<string | null>(null);
+  // Save current lesson's progress when lesson changes or component unmounts.
+  // Capture lessonId directly in the closure so cleanup always saves the
+  // correct lesson (not the "previous" lesson via a ref snapshot).
   useEffect(() => {
-    const prevLessonId = lessonIdRef.current;
-    lessonIdRef.current = lesson?.id ?? null;
-
-    // When switching away from a lesson, save whatever was typed.
+    const lessonId = lesson?.id ?? null;
     return () => {
-      if (prevLessonId && typedTextRef.current) {
-        saveLessonProgress(prevLessonId, typedTextRef.current);
+      if (lessonId && typedTextRef.current) {
+        saveLessonProgress(lessonId, typedTextRef.current);
       }
     };
-  // Only re-run when lesson changes (not saveLessonProgress which is stable).
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // saveLessonProgress is stable (zustand action); lesson?.id drives re-runs.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lesson?.id]);
 
   if (!lesson) {

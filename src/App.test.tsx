@@ -3,5 +3,5 @@ import App from "./App";
 
 test("renders the app title", () => {
   render(<App />);
-  expect(screen.getByRole("heading", { name: /minimal typer/i })).toBeInTheDocument();
+  expect(screen.getByRole("heading", { name: /^typer$/i })).toBeInTheDocument();
 });
