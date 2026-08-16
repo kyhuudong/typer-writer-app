@@ -21,19 +21,7 @@ export function AppShell() {
 
   return (
     <main className="min-h-screen bg-surface-950 text-zinc-50">
-      <TopBar userName={currentUser} />
-
-      {/* Hamburger toggle — always visible top-left */}
-      <button
-        type="button"
-        onClick={() => setSidebarOpen(true)}
-        aria-label="Open sidebar"
-        className="fixed left-4 top-4 z-30 rounded-lg p-2 text-zinc-500 hover:bg-white/10 hover:text-zinc-200 transition"
-      >
-        <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
-          <path d="M3 5h14M3 10h14M3 15h14" />
-        </svg>
-      </button>
+      <TopBar userName={currentUser} onMenuClick={() => setSidebarOpen(true)} />
 
       {/* Slide-over sidebar */}
       <SlideSidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)}>

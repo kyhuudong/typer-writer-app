@@ -45,7 +45,7 @@ test("renders lessons as plain text rows", () => {
   );
 
   expect(screen.getByRole("button", { name: /control and perception/i })).toBeInTheDocument();
-  expect(screen.getByText(/stoicism/i)).toBeInTheDocument();
+  expect(screen.getAllByText(/stoicism/i).length).toBeGreaterThan(0);
 });
 
 test("includes the long philosophy lesson in the catalog and list", () => {

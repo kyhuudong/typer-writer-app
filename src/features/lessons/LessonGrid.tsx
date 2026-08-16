@@ -1,5 +1,5 @@
 import type { Lesson, LessonFilters } from "../../types/lesson";
-import { filterLessons } from "../../lib/lessonCatalog";
+import { filterLessons, getLessonCategories } from "../../lib/lessonCatalog";
 import { LessonCard } from "./LessonCard";
 
 type LessonGridProps = {
@@ -16,17 +16,30 @@ export function LessonGrid({
   selectedLessonId
 }: LessonGridProps) {
   const visibleLessons = filters ? filterLessons(lessons, filters) : lessons;
+  const categories = getLessonCategories(visibleLessons);
 
   return (
-    <div className="space-y-1">
-      {visibleLessons.map((lesson) => (
-        <LessonCard
-          key={lesson.id}
-          lesson={lesson}
-          onSelect={onSelectLesson}
-          selected={lesson.id === selectedLessonId}
-        />
-      ))}
+    <div className="space-y-4">
+      {categories.map((category) => {
+        const group = visibleLessons.filter((l) => l.category === category);
+        return (
+          <div key={category}>
+            <p className="mb-1.5 px-1 text-[10px] uppercase tracking-[0.28em] text-zinc-500">
+              {category}
+            </p>
+            <div className="space-y-0.5">
+              {group.map((lesson) => (
+                <LessonCard
+                  key={lesson.id}
+                  lesson={lesson}
+                  onSelect={onSelectLesson}
+                  selected={lesson.id === selectedLessonId}
+                />
+              ))}
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 }

@@ -18,7 +18,7 @@ export type TypingSessionSummary = {
   accuracy: number;
 };
 
-const WINDOW_RADIUS = 200;
+const WINDOW_RADIUS = 200; // kept for reference but windowing is disabled — see visibleCharacters
 
 export function useTypingSession(targetText: string) {
   const [typedText, setTypedText] = useState("");
@@ -80,22 +80,20 @@ export function useTypingSession(targetText: string) {
     [targetText, typedText]
   );
 
-  // Virtual window: render only chars near the cursor to keep DOM size small.
-  const cursorIndex = typedText.length;
-  const windowStart = Math.max(0, cursorIndex - WINDOW_RADIUS);
-  const windowEnd = Math.min(allCharacterStates.length, cursorIndex + WINDOW_RADIUS);
-  const visibleCharacters = allCharacterStates.slice(windowStart, windowEnd).map(
-    (entry, localIndex) => ({ ...entry, absoluteIndex: windowStart + localIndex })
+  // Always expose the full array so CharacterTape never drops chars from the
+  // top of the text — that caused line-count jumps during typing.
+  // absoluteIndex equals the array index directly.
+  const visibleCharacters = useMemo(
+    () => allCharacterStates.map((entry, i) => ({ ...entry, absoluteIndex: i })),
+    [allCharacterStates]
   );
 
   return {
     typedText,
     setTypedText,
     reset,
-    // Legacy alias so tests and components that destructure characterStates still work.
     characterStates: allCharacterStates,
     visibleCharacters,
-    windowStart,
     summary,
     status: isComplete ? "finished" : startedAt ? "typing" : "idle"
   } as const;
