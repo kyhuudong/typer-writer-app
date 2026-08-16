@@ -7,7 +7,7 @@ test("shows the typing stage first with slide sidebar hidden by default", () => 
 
   // Heading and typing surface are visible immediately.
   expect(
-    screen.getByRole("heading", { name: /minimal typer/i })
+    screen.getByRole("heading", { name: /^typer$/i })
   ).toBeInTheDocument();
   expect(screen.getByText(/finish/i)).toBeInTheDocument();
   expect(screen.getByLabelText(/typing surface/i)).toBeInTheDocument();

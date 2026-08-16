@@ -32,11 +32,15 @@ type AppState = {
   saveLessonProgress: (lessonId: string, typedText: string) => void;
 };
 
-export const useAppStore = create<AppState>((set, get) => ({
-  authStatus: "signed-out",
-  currentUser: null,
-  // Pre-load progress from localStorage so returning users don't need to re-load a file.
-  progress: loadProgressFromLocalStorage(),
+export const useAppStore = create<AppState>((set, get) => {
+  // If a profile is already in localStorage, restore the signed-in state
+  // automatically so the user doesn't need to click "Continue" after F5.
+  const restoredProfile = loadProgressFromLocalStorage();
+
+  return {
+  authStatus: restoredProfile ? "signed-in" : "signed-out",
+  currentUser: restoredProfile?.username ?? null,
+  progress: restoredProfile,
   progressFileHandle: null,
   isBusy: false,
   error: null,
@@ -182,4 +186,5 @@ export const useAppStore = create<AppState>((set, get) => ({
     saveProgressToLocalStorage(updated);
     set({ progress: updated });
   }
-}));
+  };
+});
