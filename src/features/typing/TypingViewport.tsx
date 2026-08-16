@@ -66,12 +66,11 @@ export function TypingViewport({
   const { translation, loading, error, translate, clear } = useTranslate();
 
   const [tooltip, setTooltip] = useState<TooltipState>(null);
-  // Snapshot of typedText.length at the moment the tooltip was last shown.
-  // We only auto-dismiss the tooltip when the user types NEW characters after
-  // opening it — not just because tooltip state changed.
   const tooltipOpenAtLength = useRef<number | null>(null);
+  // Ensure onComplete fires exactly once per session lifecycle.
+  // Resets automatically when TypingViewport remounts (key={lesson.id}).
+  const completionFiredRef = useRef(false);
 
-  // Defer the character tape re-render so the textarea stays snappy.
   const deferredVisible = useDeferredValue(session.visibleCharacters);
 
   useEffect(() => {
@@ -82,8 +81,11 @@ export function TypingViewport({
     onTypedTextChange?.(session.typedText);
   }, [onTypedTextChange, session.typedText]);
 
+  // Fire onComplete exactly once — regardless of how many times the effect
+  // re-runs (e.g. because onComplete is an inline function that changes each render).
   useEffect(() => {
-    if (session.status === "finished") {
+    if (session.status === "finished" && !completionFiredRef.current) {
+      completionFiredRef.current = true;
       onComplete?.(session.summary);
     }
   }, [onComplete, session.status, session.summary]);

@@ -22,14 +22,15 @@ const WINDOW_RADIUS = 200; // kept for reference but windowing is disabled — s
 
 export function useTypingSession(targetText: string, initialTypedText = "") {
   const [typedText, setTypedText] = useState(initialTypedText);
-  const [startedAt, setStartedAt] = useState<number | null>(
-    initialTypedText.length > 0 ? Date.now() : null
-  );
+  // Always start the timer as null — even when restoring from saved text.
+  // The timer begins on the first new keystroke, not on mount.
+  // This prevents WPM=0 when resuming a lesson that's close to completion.
+  const [startedAt, setStartedAt] = useState<number | null>(null);
   const [finishedAt, setFinishedAt] = useState<number | null>(null);
 
   useEffect(() => {
     setTypedText(initialTypedText);
-    setStartedAt(initialTypedText.length > 0 ? Date.now() : null);
+    setStartedAt(null);
     setFinishedAt(null);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [targetText]);
