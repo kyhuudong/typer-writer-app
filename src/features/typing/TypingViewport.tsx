@@ -98,7 +98,17 @@ export function TypingViewport({
     const viewport = viewportRef.current;
     if (!viewport) return;
     const current = viewport.querySelector<HTMLElement>('[data-state="current"]');
-    if (current && typeof current.scrollIntoView === "function") {
+    if (!current || typeof current.scrollIntoView !== "function") return;
+    // Only scroll when the current char is near the edge of the visible area.
+    // Firing scrollIntoView on every keystroke (even "instant") re-centers the
+    // viewport constantly, causing visible up/down jitter.
+    const rect = current.getBoundingClientRect();
+    const containerRect = viewport.getBoundingClientRect();
+    const margin = 120;
+    const isVisible =
+      rect.top >= containerRect.top + margin &&
+      rect.bottom <= containerRect.bottom - margin;
+    if (!isVisible) {
       current.scrollIntoView({ block: "center", inline: "nearest", behavior: "instant" });
     }
   }, [session.typedText, text]);
