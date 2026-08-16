@@ -9,6 +9,7 @@ type CharacterEntry = {
 type CharacterTapeProps = {
   characters: CharacterEntry[];
   variant?: "surface" | "layer";
+  selectionRange?: { start: number; end: number } | null;
 };
 
 const stateClasses: Record<CharacterState, string> = {
@@ -19,7 +20,7 @@ const stateClasses: Record<CharacterState, string> = {
   pending: "text-zinc-600"
 };
 
-export function CharacterTape({ characters, variant = "surface" }: CharacterTapeProps) {
+export function CharacterTape({ characters, variant = "surface", selectionRange }: CharacterTapeProps) {
   const surfaceClassName =
     variant === "surface"
       ? "rounded-3xl bg-transparent p-6 text-2xl leading-10 tracking-wide text-zinc-200"
@@ -29,6 +30,12 @@ export function CharacterTape({ characters, variant = "surface" }: CharacterTape
     <p className={surfaceClassName}>
       {characters.map(({ character, state, absoluteIndex }, localIndex) => {
         const key = absoluteIndex !== undefined ? absoluteIndex : localIndex;
+        const idx = absoluteIndex !== undefined ? absoluteIndex : localIndex;
+        const isSelected =
+          selectionRange !== null &&
+          selectionRange !== undefined &&
+          idx >= selectionRange.start &&
+          idx <= selectionRange.end;
 
         if (character === "\n") {
           return <br key={key} />;
@@ -40,7 +47,7 @@ export function CharacterTape({ characters, variant = "surface" }: CharacterTape
             data-testid="typing-char"
             data-state={state}
             data-absolute-index={key}
-            className={stateClasses[state]}
+            className={`${stateClasses[state]} ${isSelected ? "rounded bg-fuchsia-500/30" : ""}`}
           >
             {character}
           </span>

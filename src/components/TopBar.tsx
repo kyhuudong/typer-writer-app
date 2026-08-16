@@ -1,9 +1,10 @@
 type TopBarProps = {
   userName?: string | null;
+  lessonTitle?: string | null;
   onMenuClick?: () => void;
 };
 
-export function TopBar({ userName, onMenuClick }: TopBarProps) {
+export function TopBar({ userName, lessonTitle, onMenuClick }: TopBarProps) {
   return (
     <div className="sticky top-0 z-10 flex items-center justify-between bg-black/40 px-4 py-3 backdrop-blur">
       <div className="flex items-center gap-3">
@@ -17,7 +18,12 @@ export function TopBar({ userName, onMenuClick }: TopBarProps) {
             <path d="M3 5h14M3 10h14M3 15h14" />
           </svg>
         </button>
-        <h1 className="text-base font-medium text-zinc-100">Typer</h1>
+        <div className="flex flex-col leading-tight">
+          <h1 className="text-sm font-semibold text-zinc-100">Typer</h1>
+          {lessonTitle && (
+            <p className="max-w-[220px] truncate text-[11px] text-zinc-500">{lessonTitle}</p>
+          )}
+        </div>
       </div>
       {userName && (
         <p className="text-sm text-zinc-500">{userName}</p>
