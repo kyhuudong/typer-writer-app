@@ -158,6 +158,8 @@ export function TypingViewport({
           autoCapitalize="off"
           autoComplete="off"
           autoCorrect="off"
+          // eslint-disable-next-line jsx-a11y/no-autofocus
+          autoFocus
           className="absolute inset-0 h-full w-full resize-none border-0 bg-transparent p-10 text-transparent caret-transparent outline-none"
         />
       </div>

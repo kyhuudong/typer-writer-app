@@ -111,6 +111,10 @@ export const useAppStore = create<AppState>((set, get) => {
       const handle = await saveProgressFile(progress, progressFileHandle);
       set({ progressFileHandle: handle });
     } catch (error) {
+      if (error instanceof Error && error.name === "AbortError") {
+        // User cancelled the save picker — not an error
+        return;
+      }
       const message = error instanceof Error ? error.message : "Something went wrong.";
       set({ error: message });
       throw error;
