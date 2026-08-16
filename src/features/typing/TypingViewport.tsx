@@ -20,6 +20,8 @@ type TooltipState = {
   y: number;
 } | null;
 
+type SelectionRange = { start: number; end: number } | null;
+
 /** Extract the word at a given character index (expands to word boundaries). */
 function wordAt(text: string, index: number): string {
   if (index < 0 || index >= text.length) return "";
@@ -30,27 +32,21 @@ function wordAt(text: string, index: number): string {
 }
 
 /**
- * Find the word in `text` that the user physically clicked by briefly making
- * the textarea non-interactive and hit-testing the character span underneath.
+ * Get the absolute char index of the span under (clientX, clientY) by
+ * briefly disabling pointer-events on the textarea overlay.
  */
-function wordFromPoint(
+function indexFromPoint(
   textarea: HTMLTextAreaElement,
   clientX: number,
-  clientY: number,
-  text: string
-): string {
-  // Hide the textarea from pointer events so elementFromPoint reaches the span.
+  clientY: number
+): number | null {
   const prev = textarea.style.pointerEvents;
   textarea.style.pointerEvents = "none";
   const el = document.elementFromPoint(clientX, clientY);
   textarea.style.pointerEvents = prev;
-
-  const rawIndex = el instanceof HTMLElement
-    ? el.getAttribute("data-absolute-index")
-    : null;
-
-  if (rawIndex === null) return "";
-  return wordAt(text, parseInt(rawIndex, 10));
+  if (!(el instanceof HTMLElement)) return null;
+  const raw = el.getAttribute("data-absolute-index");
+  return raw !== null ? parseInt(raw, 10) : null;
 }
 
 export function TypingViewport({
@@ -66,18 +62,16 @@ export function TypingViewport({
   const { translation, loading, error, translate, clear } = useTranslate();
 
   const [tooltip, setTooltip] = useState<TooltipState>(null);
+  const [selectionRange, setSelectionRange] = useState<SelectionRange>(null);
   const tooltipOpenAtLength = useRef<number | null>(null);
+  const mousedownIndexRef = useRef<number | null>(null);
+  const mousedownPosRef = useRef<{ x: number; y: number } | null>(null);
   // Ensure onComplete fires exactly once per session lifecycle.
-  // Resets automatically when TypingViewport remounts (key={lesson.id}).
   const completionFiredRef = useRef(false);
 
   const deferredVisible = useDeferredValue(session.visibleCharacters);
 
-  // Move cursor to end of pre-filled text BEFORE the first paint so that
-  // the first keystroke appends rather than replacing selected-all content.
-  // useLayoutEffect runs synchronously after DOM mutations (value is set)
-  // but before the browser paints, ensuring setSelectionRange sees the
-  // correct el.value length.
+  // Move cursor to end of pre-filled text before first paint.
   useLayoutEffect(() => {
     const el = inputRef.current;
     if (!el) return;
@@ -93,8 +87,6 @@ export function TypingViewport({
     onTypedTextChange?.(session.typedText);
   }, [onTypedTextChange, session.typedText]);
 
-  // Fire onComplete exactly once — regardless of how many times the effect
-  // re-runs (e.g. because onComplete is an inline function that changes each render).
   useEffect(() => {
     if (session.status === "finished" && !completionFiredRef.current && session.summary.elapsedMs > 0) {
       completionFiredRef.current = true;
@@ -105,14 +97,13 @@ export function TypingViewport({
   useEffect(() => {
     const viewport = viewportRef.current;
     if (!viewport) return;
-
     const current = viewport.querySelector<HTMLElement>('[data-state="current"]');
     if (current && typeof current.scrollIntoView === "function") {
-      current.scrollIntoView({ block: "center", inline: "nearest", behavior: "smooth" });
+      current.scrollIntoView({ block: "center", inline: "nearest", behavior: "instant" });
     }
   }, [session.typedText, text]);
 
-  // Dismiss tooltip only when the user types NEW characters after opening it.
+  // Dismiss tooltip when user types new characters.
   useEffect(() => {
     if (tooltipOpenAtLength.current !== null && tooltip) {
       if (session.typedText.length > tooltipOpenAtLength.current) {
@@ -123,33 +114,75 @@ export function TypingViewport({
     }
   }, [session.typedText, tooltip, clear]);
 
-  function handleClick(e: React.MouseEvent<HTMLTextAreaElement>) {
+  // Clear selection when user starts typing.
+  useEffect(() => {
+    if (selectionRange !== null) setSelectionRange(null);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [session.typedText]);
+
+  function handleMouseDown(e: React.MouseEvent<HTMLTextAreaElement>) {
+    const idx = indexFromPoint(e.currentTarget, e.clientX, e.clientY);
+    mousedownIndexRef.current = idx;
+    mousedownPosRef.current = { x: e.clientX, y: e.clientY };
+  }
+
+  function handleMouseUp(e: React.MouseEvent<HTMLTextAreaElement>) {
     const textarea = e.currentTarget;
+    const upIdx = indexFromPoint(textarea, e.clientX, e.clientY);
+    const downIdx = mousedownIndexRef.current;
+    const downPos = mousedownPosRef.current;
+    mousedownIndexRef.current = null;
+    mousedownPosRef.current = null;
 
-    // Detect the actual word under the cursor by hit-testing the tape spans.
-    const word = wordFromPoint(textarea, e.clientX, e.clientY, text);
+    // Determine if this was a drag (moved ≥4px) or a click.
+    const isDrag =
+      downPos !== null &&
+      (Math.abs(e.clientX - downPos.x) >= 4 || Math.abs(e.clientY - downPos.y) >= 4);
 
+    if (isDrag && downIdx !== null && upIdx !== null && downIdx !== upIdx) {
+      // Selection: translate the dragged phrase.
+      const start = Math.min(downIdx, upIdx);
+      const end = Math.max(downIdx, upIdx) + 1;
+      const phrase = text.slice(start, end).trim();
+      if (phrase) {
+        setSelectionRange({ start, end: end - 1 });
+        tooltipOpenAtLength.current = session.typedText.length;
+        setTooltip({ word: phrase, x: e.clientX, y: e.clientY });
+        translate(phrase);
+        speakText(phrase);
+      }
+      textarea.focus();
+      return;
+    }
+
+    // Single click: word lookup.
+    if (upIdx === null) {
+      tooltipOpenAtLength.current = null;
+      setTooltip(null);
+      setSelectionRange(null);
+      clear();
+      textarea.focus();
+      return;
+    }
+    const word = wordAt(text, upIdx);
     if (word) {
-      // Speak only the clicked word, not the whole lesson.
       speakText(word);
-
       if (word !== tooltip?.word) {
         tooltipOpenAtLength.current = session.typedText.length;
         setTooltip({ word, x: e.clientX, y: e.clientY });
         translate(word);
       } else {
-        // Same word clicked again — dismiss.
         tooltipOpenAtLength.current = null;
         setTooltip(null);
+        setSelectionRange(null);
         clear();
       }
     } else {
-      // Clicked on whitespace or outside text — dismiss tooltip.
       tooltipOpenAtLength.current = null;
       setTooltip(null);
+      setSelectionRange(null);
       clear();
     }
-
     textarea.focus();
   }
 
@@ -159,20 +192,19 @@ export function TypingViewport({
       className="min-h-[52rem] max-h-[88vh] overflow-auto bg-transparent"
     >
       <div className="relative">
-        <CharacterTape characters={deferredVisible} variant="layer" />
+        <CharacterTape characters={deferredVisible} variant="layer" selectionRange={selectionRange} />
         <textarea
           ref={inputRef}
           value={session.typedText}
           onChange={(event) => session.setTypedText(event.target.value)}
           onKeyDown={(e) => {
-            // Explicitly handle Backspace so it reliably removes the last
-            // character regardless of where the browser placed the cursor.
             if (e.key === "Backspace") {
               e.preventDefault();
               session.setTypedText((prev) => prev.slice(0, -1));
             }
           }}
-          onClick={handleClick}
+          onMouseDown={handleMouseDown}
+          onMouseUp={handleMouseUp}
           aria-label="Typing surface"
           spellCheck={false}
           autoCapitalize="off"
@@ -180,7 +212,7 @@ export function TypingViewport({
           autoCorrect="off"
           // eslint-disable-next-line jsx-a11y/no-autofocus
           autoFocus
-          className="absolute inset-0 h-full w-full resize-none border-0 bg-transparent p-10 text-transparent caret-transparent outline-none"
+          className="absolute inset-0 h-full w-full resize-none border-0 bg-transparent p-10 text-transparent caret-transparent outline-none select-none"
         />
       </div>
 
@@ -192,7 +224,7 @@ export function TypingViewport({
           error={error}
           x={tooltip.x}
           y={tooltip.y}
-          onDismiss={() => { setTooltip(null); clear(); }}
+          onDismiss={() => { setTooltip(null); setSelectionRange(null); clear(); }}
         />
       )}
     </div>

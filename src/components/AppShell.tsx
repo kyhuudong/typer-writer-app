@@ -28,7 +28,7 @@ export function AppShell() {
 
   return (
     <main className="min-h-screen bg-surface-950 text-zinc-50">
-      <TopBar userName={currentUser} onMenuClick={() => setSidebarOpen(true)} />
+      <TopBar userName={currentUser} lessonTitle={selectedLesson?.title ?? null} onMenuClick={() => setSidebarOpen(true)} />
 
       {/* Slide-over sidebar */}
       <SlideSidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)}>
