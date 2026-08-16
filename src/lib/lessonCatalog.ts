@@ -9,11 +9,11 @@ export function loadLessons(input: Lesson[]): Lesson[] {
     if (lesson.id === "philo_long_001") {
       return {
         ...lesson,
-        text: buildLongPhilosophyLesson()
+        text: buildLongPhilosophyLesson().trim()
       };
     }
 
-    return { ...lesson };
+    return { ...lesson, text: lesson.text.trim() };
   });
 }
 

@@ -12,6 +12,7 @@ export function ProgressSummary({ progress, onResumeLesson }: ProgressSummaryPro
   const signOut = useAppStore((state) => state.signOut);
   const saveProgress = useAppStore((state) => state.saveProgress);
   const isBusy = useAppStore((state) => state.isBusy);
+  const storeError = useAppStore((state) => state.error);
 
   if (!progress) {
     return (
@@ -83,6 +84,9 @@ export function ProgressSummary({ progress, onResumeLesson }: ProgressSummaryPro
           Sign out
         </button>
       </div>
+      {storeError && (
+        <p className="text-xs text-rose-400">{storeError}</p>
+      )}
     </div>
   );
 }

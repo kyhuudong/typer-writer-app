@@ -49,7 +49,9 @@ export async function saveProgressFile(
   const link = document.createElement("a");
   link.href = url;
   link.download = "user_progress.json";
+  document.body.appendChild(link);
   link.click();
+  document.body.removeChild(link);
   URL.revokeObjectURL(url);
   return null;
 }
