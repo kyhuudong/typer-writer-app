@@ -1,0 +1,466 @@
+[
+  {
+    "id": "stoic_001",
+    "title": "Control and Perception",
+    "category": "Stoicism",
+    "difficulty": "Easy",
+    "image": "https://images.unsplash.com/photo-1544717305-2782549b5136",
+    "text": "You have power over your mind, not outside events. Realize this, and you will find strength. The world can be noisy and uncertain, but your attention remains yours to guide. Practice returning your mind to what is steady, useful, and within reach."
+  },
+  {
+    "id": "stoic_002",
+    "title": "The Dichotomy of Control",
+    "category": "Stoicism",
+    "difficulty": "Easy",
+    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+    "text": "Some things are in our control and others not. Things in our control are opinion, pursuit, desire, aversion, and whatever are our own actions. Things not in our control are body, property, reputation, command, and whatever are not our own actions. Focus your energy solely where your influence resides."
+  },
+  {
+    "id": "stoic_003",
+    "title": "Amor Fati: Loving Your Fate",
+    "category": "Stoicism",
+    "difficulty": "Medium",
+    "image": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05",
+    "text": "Do not seek for things to happen the way you want them to; rather, wish that what happens happens the way it happens: then you will be happy. Embrace every unexpected turn and setback not merely as tolerable, but as necessary fuel for your personal growth."
+  },
+  {
+    "id": "stoic_004",
+    "title": "The Obstacle Is the Way",
+    "category": "Stoicism",
+    "difficulty": "Medium",
+    "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b",
+    "text": "The impediment to action advances action. What stands in the way becomes the way. When a wall appears before you, turn it into the stepping stone that elevates your character rather than a barrier that halts your progress."
+  },
+  {
+    "id": "stoic_005",
+    "title": "Memento Mori: Remember Death",
+    "category": "Stoicism",
+    "difficulty": "Hard",
+    "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23",
+    "text": "You could leave life right now. Let that determine what you do and say and think. Remembering your mortality strips away petty anxieties, humbles the ego, and grounds you deeply in the preciousness of the present moment."
+  },
+  {
+    "id": "stoic_006",
+    "title": "The Inner Citadel",
+    "category": "Stoicism",
+    "difficulty": "Medium",
+    "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab",
+    "text": "Nowhere can man find a quieter or more untroubled retreat than in his own soul. Build an unassailable fortress within yourself through virtue, logic, and self-restraint so that external storms cannot disturb your inner harmony."
+  },
+  {
+    "id": "stoic_007",
+    "title": "Premeditatio Malorum: Visualizing Hardship",
+    "category": "Stoicism",
+    "difficulty": "Hard",
+    "image": "https://images.unsplash.com/photo-1519681393784-d120267933ba",
+    "text": "Rehearse potential adversity in your mind before it occurs. By expecting rain, you are never caught without cover. Disarming surprise renders future misfortune far less damaging when reality arrives."
+  },
+  {
+    "id": "stoic_008",
+    "title": "The Discipline of Desire",
+    "category": "Stoicism",
+    "difficulty": "Easy",
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+    "text": "Wealth consists not in having great possessions, but in having few wants. True freedom comes when you stop chasing endless external validation and find complete abundance in quiet simplicity."
+  },
+  {
+    "id": "stoic_009",
+    "title": "Responding, Not Reacting",
+    "category": "Stoicism",
+    "difficulty": "Easy",
+    "image": "https://images.unsplash.com/photo-1499209974431-9dddcece7f88",
+    "text": "Between stimulus and response there is a space. In that space lies our power to choose our response. Pause before replying in anger; grant yourself the brief gift of clarity to respond with wisdom rather than blind impulse."
+  },
+  {
+    "id": "stoic_010",
+    "title": "Sympatheia: Universal Connection",
+    "category": "Stoicism",
+    "difficulty": "Medium",
+    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa",
+    "text": "What harms the beehive harms the bee. We are made for cooperation, like feet, hands, and rows of lower and upper teeth. Treat everyone you meet as part of the same human family, understanding that their errors stem from ignorance."
+  },
+  {
+    "id": "stoic_011",
+    "title": "Voluntary Discomfort",
+    "category": "Stoicism",
+    "difficulty": "Hard",
+    "image": "https://images.unsplash.com/photo-1469474968028-56623f02e42e",
+    "text": "Set aside a certain number of days during which you shall be content with the scantiest and cheapest fare and rough dress, saying to yourself: 'Is this the condition that I feared?' Comfort is a wonderful servant, but a cruel master."
+  },
+  {
+    "id": "stoic_012",
+    "title": "The View from Above",
+    "category": "Stoicism",
+    "difficulty": "Medium",
+    "image": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa",
+    "text": "Step back and view your life from high above the earth. See how vast the cosmos is and how temporary our daily worries are. Expanding your perspective shrinks massive obstacles down to manageable specks."
+  },
+  {
+    "id": "stoic_013",
+    "title": "Mastery Over Time",
+    "category": "Stoicism",
+    "difficulty": "Easy",
+    "image": "https://images.unsplash.com/photo-1501139083538-0139583c060f",
+    "text": "It is not that we have a short time to live, but that we waste a lot of it. Life is long enough if you know how to use it properly. Direct your fleeting moments toward what truly aligns with your core values."
+  },
+  {
+    "id": "stoic_014",
+    "title": "Silence and Mindful Listening",
+    "category": "Stoicism",
+    "difficulty": "Easy",
+    "image": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05",
+    "text": "We have two ears and one mouth so that we can listen twice as much as we speak. Practice quiet observation before offering quick judgment, for a disciplined tongue reflects an ordered mind."
+  },
+  {
+    "id": "stoic_015",
+    "title": "The Fickle Nature of Fame",
+    "category": "Stoicism",
+    "difficulty": "Medium",
+    "image": "https://images.unsplash.com/photo-1513694203232-719a280e022f",
+    "text": "How fast forgotten are all who sought short-lived glory! Approval from the crowd is fleeting, unpredictable, and outside your control. Seek instead the lasting approval of your own conscience."
+  },
+  {
+    "id": "stoic_016",
+    "title": "Unshaken Tranquility",
+    "category": "Stoicism",
+    "difficulty": "Medium",
+    "image": "https://images.unsplash.com/photo-1518837695005-2083093ee35b",
+    "text": "Be like the rocky promontory against which the waves continually break, but it stands firm while the fury of the water calms down around it. Maintain steady composure no matter how chaotic your surroundings become."
+  },
+  {
+    "id": "stoic_017",
+    "title": "Duty and Unconditional Virtue",
+    "category": "Stoicism",
+    "difficulty": "Medium",
+    "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a",
+    "text": "Just ensure that you do the right thing. The rest does not matter. Cold or warm, tired or well-rested, criticized or honored. Perform your duty faithfully without expecting applause or reward."
+  },
+  {
+    "id": "stoic_018",
+    "title": "Guarding Your Mental Sovereign",
+    "category": "Stoicism",
+    "difficulty": "Easy",
+    "image": "https://images.unsplash.com/photo-1507499739999-097706ad8914",
+    "text": "If someone handed your physical body over to a random stranger, you would be furious. Yet you hand over your mind to anyone who insults you, leaving yourself upset and distressed. Protect your peace as your most precious treasure."
+  },
+  {
+    "id": "stoic_019",
+    "title": "Continuous Self-Improvement",
+    "category": "Stoicism",
+    "difficulty": "Hard",
+    "image": "https://images.unsplash.com/photo-1461360370896-922624d12aa1",
+    "text": "As long as you live, keep learning how to live. Philosophy is not an idle theoretical exercise, but a active daily practice of refining your character, sharpening your reason, and correcting your habits."
+  },
+  {
+    "id": "stoic_020",
+    "title": "Forgiving Others' Ignorance",
+    "category": "Stoicism",
+    "difficulty": "Medium",
+    "image": "https://images.unsplash.com/photo-1516979187457-637abb4f9353",
+    "text": "When you wake up in the morning, tell yourself: The people I deal with today will be meddling, ungrateful, arrogant, dishonest, and surly. They act this way because they cannot distinguish good from evil. Do not respond with anger, but with understanding."
+  },
+  {
+    "id": "stoic_021",
+    "title": "The Essential Self",
+    "category": "Stoicism",
+    "difficulty": "Easy",
+    "image": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3",
+    "text": "Strip away your titles, your material possessions, and your public reputation. What remains is your core character. Cultivate that internal self above all else, for it is the only real wealth that stays with you."
+  },
+  {
+    "id": "sci_001",
+    "title": "Orbital Mechanics",
+    "category": "Science",
+    "difficulty": "Medium",
+    "image": "/images/space_orbit.jpg",
+    "text": "Gravitational interactions between celestial bodies maintain planetary orbits across billions of years. A small shift in velocity can change the path of a satellite, a moon, or an entire probe mission. Precision matters because even a tiny error becomes a large distance over time."
+  },
+  {
+    "id": "lit_001",
+    "title": "Silent Winter",
+    "category": "Literature",
+    "difficulty": "Hard",
+    "image": "https://images.unsplash.com/photo-1519681393784-d120267933ba",
+    "text": "The snow had folded every sharp edge of the world into a hush that felt both private and endless. Each step across the street sounded distant, as if the city had agreed to speak more softly for the night. In that silence, even small thoughts arrived with unusual clarity."
+  },
+  {
+    "id": "philo_001",
+    "title": "The Shape of Thought",
+    "category": "Philosophy",
+    "difficulty": "Hard",
+    "image": "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620",
+    "text": "A thought is rarely born complete; it begins as a question, then gathers shape through attention and doubt. We learn by revisiting what we think we know, not by defending every first impression. Careful thinking is slow, but it often reveals the hidden structure beneath a simple belief."
+  },
+  {
+    "id": "philo_long_001",
+    "title": "The Long Argument",
+    "category": "Philosophy",
+    "difficulty": "Hard",
+    "image": "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620",
+    "text": "This lesson is generated in code so the catalog stays compact."
+  },
+  {
+    "id": "tech_001",
+    "title": "Reliable Systems",
+    "category": "Science & Tech",
+    "difficulty": "Medium",
+    "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97",
+    "text": "Reliable software does not appear by accident; it is built through small decisions that reduce surprise. Clear inputs, direct feedback, and predictable behavior give users confidence when they return to a system again and again. A calm interface is often a sign that many hidden details have been handled carefully."
+  },
+  {
+    "id": "jung_001",
+    "title": "The Shadow",
+    "category": "Carl Jung",
+    "difficulty": "Medium",
+    "image": "https://images.unsplash.com/photo-1462275646964-a0e3386b89fa",
+    "text": "Everyone carries a shadow, and the less it is embodied in the individual's conscious life, the blacker and denser it is. The shadow is not only the dark side of the personality but also the storehouse of vitality, spontaneity, and creative potential that the persona has rejected. To meet the shadow honestly is to begin the work of wholeness, for what we cannot face in ourselves we will meet in the world as fate."
+  },
+  {
+    "id": "jung_002",
+    "title": "Individuation",
+    "category": "Carl Jung",
+    "difficulty": "Hard",
+    "image": "https://images.unsplash.com/photo-1462275646964-a0e3386b89fa",
+    "text": "Individuation does not shut one out from the world but gathers the world to oneself. It is not a flight from life but a deeper engagement with it, a process by which the person slowly becomes what they always were at the core. The self that emerges is not constructed from ambition or approval but revealed, layer by layer, as the false coverings are stripped away by experience, failure, and honest reflection."
+  },
+  {
+    "id": "jung_003",
+    "title": "The Persona",
+    "category": "Carl Jung",
+    "difficulty": "Easy",
+    "image": "https://images.unsplash.com/photo-1462275646964-a0e3386b89fa",
+    "text": "The persona is the mask we present to the world, shaped by social expectation and the need to belong. It is not false in itself, for every person must find a way to move among others. The danger arises when the mask is mistaken for the face, when a person no longer remembers who they are beneath the role they play. A healthy persona is worn lightly and set aside when the day is done."
+  },
+  {
+    "id": "jung_004",
+    "title": "Archetypes",
+    "category": "Carl Jung",
+    "difficulty": "Medium",
+    "image": "https://images.unsplash.com/photo-1462275646964-a0e3386b89fa",
+    "text": "Archetypes are the inherited patterns of the human psyche, forms without fixed content that repeat across every culture and every age. The hero, the mother, the trickster, the wise old man - these figures appear in dreams and myths not because they were invented by a single storyteller but because they arise from the deep structure of human experience itself. To encounter an archetype is to feel the weight of something far older than your own life."
+  },
+  {
+    "id": "jung_005",
+    "title": "Synchronicity",
+    "category": "Carl Jung",
+    "difficulty": "Hard",
+    "image": "https://images.unsplash.com/photo-1462275646964-a0e3386b89fa",
+    "text": "Synchronicity is the coincidence of an inner event and an outer event that share the same meaning but are connected by no cause. The clock that stops at the moment of death, the dream that names the stranger you meet the following morning — these are not proof of magic but invitations to wonder. They suggest that the boundary between the psyche and the world is thinner than reason prefers to admit, and that meaning sometimes moves in directions that science has not yet learned to measure."
+  },
+  {
+    "id": "jung_006",
+    "title": "The Unconscious",
+    "category": "Carl Jung",
+    "difficulty": "Medium",
+    "image": "https://images.unsplash.com/photo-1462275646964-a0e3386b89fa",
+    "text": "The unconscious is not a basement of repressed wishes but a living, autonomous realm that shapes thought, feeling, and action before consciousness even arrives. Dreams are its natural language, symbol its grammar, and image its preferred currency. To ignore the unconscious is not to escape it but to be directed by it without knowing, to be moved by forces whose names you have never learned and whose faces you have never turned to meet in honest light."
+  },
+  {
+    "id": "jung_007",
+    "title": "The Anima and Animus",
+    "category": "Carl Jung",
+    "difficulty": "Hard",
+    "image": "https://images.unsplash.com/photo-1462275646964-a0e3386b89fa",
+    "text": "In a man, the anima is the inner feminine: the capacity for feeling, for receptivity, for the kind of knowing that comes not through argument but through attunement. In a woman, the animus is the inner masculine: the capacity for direction, for assertion, for the thought that cuts cleanly to its conclusion. Neither is better than the other, and neither can be safely ignored. The person who befriends their inner opposite gains a wholeness that no external relationship can supply, because they no longer need the other person to carry what they have refused to carry themselves."
+  },
+  {
+    "id": "jung_008",
+    "title": "The Self",
+    "category": "Carl Jung",
+    "difficulty": "Hard",
+    "image": "https://images.unsplash.com/photo-1462275646964-a0e3386b89fa",
+    "text": "The self, in Jung's sense, is not the ego that plans and decides but the totality of the psyche, the vast circle that contains both what is known and what has never yet been brought to light. It is the goal toward which individuation moves, not a destination that can be reached once and held, but a center of gravity that the whole person slowly learns to orbit. When a person acts from the self rather than the ego alone, their choices carry a different weight — they feel not only chosen but necessary, not only reasonable but true."
+  },
+  {
+    "id": "eng_001",
+    "title": "Mastering Present Tenses: World Facts & Current Realities",
+    "category": "English",
+    "difficulty": "Easy",
+    "image": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8",
+    "text": "Understanding present tenses becomes easy when you connect them to how the world works.\n\n1. SIMPLE PRESENT (Facts & Habits)\n- Formula: [Subject] + [Base Verb (-s/-es)]\n- Memory Trick: The Timeless Truth Machine. Use this for permanent facts, scientific laws, and daily routines.\n- Fact Example: Honey never spoils; archaeologists once found 3,000-year-old honey in Egyptian tombs that was still edible. (Spoils = Simple Present fact).\n- Daily Example: Light travels at 186,282 miles per second.\n\n2. PRESENT CONTINUOUS (Happening Right Now)\n- Formula: [Subject] + [am / is / are] + [Verb-ing]\n- Memory Trick: The Live Camera. Use this for actions in progress right at this exact moment.\n- Fact Example: Right now, Earth is orbiting the Sun at roughly 67,000 miles per hour. (Is orbiting = happening live).\n- Daily Example: You are reading this sentence right now.\n\n3. PRESENT PERFECT (Life Experience & Present Impact)\n- Formula: [Subject] + [have / has] + [Past Participle]\n- Memory Trick: The Life Bridge. Connects a past action to your current life without needing a specific date.\n- Fact Example: Humans have explored less than twenty percent of the ocean floor. (Have explored = experience up to now).\n- Daily Example: She has lived in three different countries.\n\n4. PRESENT PERFECT CONTINUOUS (Duration From Past to Now)\n- Formula: [Subject] + [have / has been] + [Verb-ing]\n- Memory Trick: The Stopwatch. Measures how long an activity has been running continuous up to this moment.\n- Fact Example: The Sun has been fusing hydrogen into helium in its core for over four billion years. (Has been fusing = ongoing duration).\n- Daily Example: I have been studying English for two hours today."
+  },
+  {
+    "id": "eng_002",
+    "title": "Mastering Past Tenses: History, Stories & Time Travel",
+    "category": "English",
+    "difficulty": "Medium",
+    "image": "https://images.unsplash.com/photo-1461360370896-922624d12aa1",
+    "text": "Mastering past tenses allows you to tell compelling stories and explain historical events clearly.\n\n1. SIMPLE PAST (Finished Action in Finished Time)\n- Formula: [Subject] + [Past Verb (-ed or Irregular)]\n- Memory Trick: The Closed Door. The action is completely finished in a specific past time frame.\n- Fact Example: In 1912, the Titanic struck an iceberg on its maiden voyage across the Atlantic. (Struck = finished past action).\n- Daily Example: I drank coffee at seven o'clock this morning.\n\n2. PAST CONTINUOUS (Background Action Interrupted)\n- Formula: [Subject] + [was / were] + [Verb-ing]\n- Memory Trick: The Movie Background. Sets the scene when a sudden event interrupted an ongoing action.\n- Fact Example: Alexander Fleming was examining bacteria plates in 1928 when he unexpectedly discovered penicillin. (Was examining = ongoing scene; discovered = interruption).\n- Daily Example: We were walking home when it suddenly started to rain.\n\n3. PAST PERFECT (The 'First' Past)\n- Formula: [Subject] + [had] + [Past Participle]\n- Memory Trick: Time Travel Step-Back. Use this when you have TWO past events and need to show which one happened FIRST.\n- Fact Example: Dinosaurs had ruled the Earth for over 150 million years before a massive asteroid struck Mexico. (Had ruled = happened before the asteroid struck).\n- Daily Example: By the time I arrived at the station, the train had already left.\n\n4. PAST PERFECT CONTINUOUS (Past Duration Before an Event)\n- Formula: [Subject] + [had been] + [Verb-ing]\n- Memory Trick: The Pre-Event Countdown. Shows how long an ongoing action lasted right up until another past moment.\n- Fact Example: Scientists had been searching for the Higgs Boson particle for nearly forty years before CERN confirmed its discovery in 2012. (Had been searching = continuous effort before discovery).\n- Daily Example: She had been practicing piano for months before her big recital."
+  },
+  {
+    "id": "eng_003",
+    "title": "Mastering Future Tenses: Horizons, Predictions & Deadlines",
+    "category": "English",
+    "difficulty": "Medium",
+    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa",
+    "text": "Future tenses let you share dreams, make predictions, and set clear goals.\n\n1. SIMPLE FUTURE (Predictions & Spontaneous Choices)\n- Formula: [Subject] + [will] + [Base Verb]\n- Memory Trick: The Crystal Ball. Used for predictions, promises, or instant decisions made right now.\n- Fact Example: In roughly five billion years, our Sun will expand into a Red Giant star and engulf Mercury and Venus. (Will expand = scientific prediction).\n- Daily Example: Don't worry about dinner; I will cook tonight.\n\n2. FUTURE CONTINUOUS (Action in Progress Later)\n- Formula: [Subject] + [will be] + [Verb-ing]\n- Memory Trick: The Future Snapshot. Picture what you will be actively doing at a specific time tomorrow or next year.\n- Fact Example: At this time tomorrow, the International Space Station will be orbiting Earth at 17,500 miles per hour, completing its sixteenth lap of the day. (Will be orbiting = action in progress in future).\n- Daily Example: At eight o'clock tomorrow evening, I will be watching a movie.\n\n3. FUTURE PERFECT (The Future Deadline)\n- Formula: [Subject] + [will have] + [Past Participle]\n- Memory Trick: Looking Back From The Future. Pretend you stand in the future and look back at a goal that is ALREADY completed before a specific deadline.\n- Fact Example: By the year 2030, space agencies will have established permanent human habitats on the Moon. (Will have established = completed before 2030).\n- Daily Example: By ten o'clock tonight, I will have finished writing this essay.\n\n4. FUTURE PERFECT CONTINUOUS (Future Duration Landmark)\n- Formula: [Subject] + [will have been] + [Verb-ing]\n- Memory Trick: The Anniversary Marker. Measures how long an ongoing effort will total when a future point arrives.\n- Fact Example: By 2077, Voyager 1 will have been flying through interstellar space for a full century without stopping. (Will have been flying = 100 years of continuous movement calculated in 2077).\n- Daily Example: By next month, I will have been working at this company for five years."
+  },
+  {
+    "id": "eng_004",
+    "title": "Mastering Conditionals: Parallel Universes & Scientific Laws",
+    "category": "English",
+    "difficulty": "Medium",
+    "image": "https://images.unsplash.com/photo-1507499739999-097706ad8914",
+    "text": "Conditionals allow you to express scientific guarantees, future possibilities, hypothetical dreams, and past regrets.\n\n1. ZERO CONDITIONAL (Universal Laws & Facts)\n- Formula: [If / When + Simple Present], [Simple Present]\n- Memory Trick: The Fact Switch. If condition A happens, reaction B automatically and always follows.\n- Fact Example: If pure water reaches 100 degrees Celsius at sea level, it boils and turns into vapor. (Boils = guaranteed scientific truth).\n- Daily Example: If you freeze water, it expands.\n\n2. FIRST CONDITIONAL (Real Future Possibilities)\n- Formula: [If + Simple Present], [will + Base Verb]\n- Memory Trick: The Realistic Domino. A real condition in the present that creates a likely future outcome.\n- Fact Example: If global temperatures continue to rise, polar ice caps will melt at an accelerated pace. (Will melt = probable future consequence).\n- Daily Example: If it rains tomorrow, we will stay indoors.\n\n3. SECOND CONDITIONAL (Unreal Present / Dreams)\n- Formula: [If + Simple Past], [would + Base Verb]\n- Memory Trick: The Dream Machine. Use this to imagine alternate realities right now or impossible truths.\n- Fact Example: If Earth had no moon, a single day on our planet would last only six hours because there would be no lunar tides to slow our rotation. (Had/Would last = hypothetical physics scenario).\n- Daily Example: If I had a flying car, I would fly to work every morning.\n\n4. THIRD CONDITIONAL (Past Regrets & Alternate History)\n- Formula: [If + Past Perfect], [would have + Past Participle]\n- Memory Trick: The Time Travel Machine. Change a past fact to imagine how history would have turned out differently.\n- Fact Example: If the Chicxulub asteroid had missed Earth 66 million years ago, dinosaurs would not have gone extinct, and humans might never have evolved. (Had missed / Would not have gone extinct = alternate past history).\n- Daily Example: If I had studied harder, I would have passed the exam."
+  },
+  {
+    "id": "eng_005",
+    "title": "Mastering Modal Verbs: Certainty, Deduction & Mysteries",
+    "category": "English",
+    "difficulty": "Medium",
+    "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23",
+    "text": "Modal verbs alter the mood of a sentence, showing how certain, obligated, or capable you feel about an event.\n\n1. MODALS OF CERTAINTY (Must / Can't)\n- Formula: [Subject] + [must / can't] + [Base Verb]\n- Memory Trick: The Logic Sherlock. Use 'must' when logic points to 99% certainty, and 'can't' when something is logically impossible.\n- Fact Example: Light from Alpha Centauri takes four years to reach us, so the star light we see tonight must be four years old. (Must be = logical certainty).\n- Daily Example: You have been working for twelve hours; you must be exhausted.\n\n2. MODALS OF POSSIBILITY (May / Might / Could)\n- Formula: [Subject] + [may / might / could] + [Base Verb]\n- Memory Trick: The Open Door. Expresses a 30% to 50% chance that something is true or will happen.\n- Fact Example: Deep beneath the icy shell of Jupiter's moon Europa, a vast liquid ocean might harbor extraterrestrial life. (Might harbor = plausible scientific possibility).\n- Daily Example: Bring an umbrella; it might rain later.\n\n3. PAST MODALS OF SPECULATION (Must have / Could have / Should have)\n- Formula: [Subject] + [modal + have] + [Past Participle]\n- Memory Trick: The Forensic Detective. Reconstructing past events based on clues left behind.\n- Fact Example: Ancient builders at Göbekli Tepe must have organized hundreds of workers 11,000 years ago, long before the invention of the wheel. (Must have organized = strong deduction about the past).\n- Daily Example: I lost my keys; I must have dropped them in the car."
+  },
+  {
+    "id": "eng_006",
+    "title": "Mastering Active vs. Passive Voice: Focus & Perspective",
+    "category": "English",
+    "difficulty": "Hard",
+    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa",
+    "text": "Changing voice shifts the focus of your sentence between WHO did the action and WHAT happened.\n\n1. ACTIVE VOICE (Agent in Focus)\n- Formula: [Doer of Action] + [Verb] + [Receiver of Action]\n- Memory Trick: The Spotlight on the Actor. Use active voice when the person or thing performing the action is the most important element.\n- Fact Example: Alexander Fleming discovered penicillin inside a messy Petri dish in 1928. (Focus is on Fleming, the discoverer).\n- Daily Example: The chef prepared a delicious dinner.\n\n2. PASSIVE VOICE (Action or Result in Focus)\n- Formula: [Receiver of Action] + [be verb in correct tense] + [Past Participle] + (by Doer)\n- Memory Trick: The Spotlight on the Result. Use passive voice when the result matters more than who performed it, or when the doer is unknown.\n- Fact Example: The Great Pyramid of Giza was constructed using over two million limestone blocks over four thousand years ago. (Focus is on the pyramid, not the individual builders).\n- Daily Example: The window was broken during the storm.\n\n3. SCIENTIFIC PASSIVE (Objective Truth)\n- Formula: [Object/Data] + [was / were + Past Participle]\n- Memory Trick: The Neutral Lab Coat. Science uses passive voice to show that results are objective and reproducible by anyone.\n- Fact Example: Radioactivity was first observed by Henri Becquerel, but its full nature was decoded by Marie Curie. (Focus stays on the scientific phenomena)."
+  },
+  {
+    "id": "eng_007",
+    "title": "Mastering Relative Clauses: Connecting Ideas & Flow",
+    "category": "English",
+    "difficulty": "Medium",
+    "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a",
+    "text": "Relative clauses combine separate thoughts into smooth, sophisticated sentences using who, which, that, where, and whose.\n\n1. DEFINING RELATIVE CLAUSES (Essential Information)\n- Formula: [Noun] + [who / that / which] + [Rest of Clause]\n- Memory Trick: The Key Identifier. Without this clause, the sentence loses its core meaning. No commas needed!\n- Fact Example: Stars that contain high amounts of heavy elements are more likely to form rocky planets around them. ('That contain high amounts...' identifies WHICH stars).\n- Daily Example: The person who called you earlier left a message.\n\n2. NON-DEFINING RELATIVE CLAUSES (Extra Bonus Information)\n- Formula: [Noun] + , [who / which] + [Extra Detail] , + [Verb]\n- Memory Trick: The Side Note. The main sentence makes complete sense on its own; the clause is just extra interesting detail trapped between commas.\n- Fact Example: Albert Einstein, who failed his first college entrance exam, went on to revolutionize modern physics with his theory of relativity. ('Who failed...' adds bonus context; commas are required).\n- Daily Example: My brother, who lives in New York, is visiting this weekend.\n\n3. RELATIVE ADVERBS (Time & Place Anchors)\n- Formula: [Place/Time Noun] + [where / when / whose]\n- Memory Trick: The GPS Tag. Connects actions directly to moments in time or physical locations.\n- Fact Example: 1969 was the historic year when Neil Armstrong became the first human to walk on the Moon. ('When Neil Armstrong...' anchors the year 1969)."
+  },
+  {
+    "id": "eng_008",
+    "title": "Mastering Reported Speech: Historical Quotes & Communication",
+    "category": "English",
+    "difficulty": "Medium",
+    "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a",
+    "text": "Reported speech lets you relay messages, scientific discoveries, and historical statements accurately across time.\n\n1. TENSE BACKSHIFTING (The Time Slide)\n- Formula: Direct Present -> Reported Past\n- Memory Trick: The Echo Machine. When reporting past statements, shift the verb tense one step into the past to match the new perspective.\n- Fact Example: In 1969, Neil Armstrong announced, 'That's one small step for man.' In reported speech: Neil Armstrong announced that it was one small step for man. (Is -> Was).\n- Daily Example: 'I am tired,' he said. -> He said that he was tired.\n\n2. REPORTING QUESTIONS (Statement Order)\n- Formula: [Asked + Subject + Verb] (No 'do/did' auxiliary verbs!)\n- Memory Trick: The Question Flip. Turn the question back into a normal declarative sentence order (Subject before Verb).\n- Fact Example: Journalists asked NASA whether astronauts would return to the Moon by the end of the decade. (Not 'would astronauts return').\n- Daily Example: 'Where do you live?' -> She asked me where I lived.\n\n3. UNCHANGING TRUTHS (The Fact Exception)\n- Formula: [Reported Verb] + [Simple Present for Universal Truths]\n- Memory Trick: The Immutable Law. If the statement is a permanent law of nature, you do not backshift the tense.\n- Fact Example: Galileo argued in 1632 that the Earth revolves around the Sun. (Revolves remains Simple Present because it remains true today)."
+  },
+  {
+    "id": "eng_009",
+    "title": "Mastering Gerunds & Infinitives: Actions, Intentions & Habits",
+    "category": "English",
+    "difficulty": "Medium",
+    "image": "https://images.unsplash.com/photo-1516979187457-637abb4f9353",
+    "text": "Choosing between a gerund (verb-ing) and an infinitive (to + verb) changes whether an action is treated as a real experience or a future goal.\n\n1. GERUNDS AS EXPERIENCES (-ING)\n- Formula: [Verb] + [Verb-ing]\n- Memory Trick: The Movie Reel. Use gerunds when referring to ongoing activities, real habits, or past experiences you enjoy.\n- Fact Example: Blue whales spend their entire lives roaming icy polar oceans, consuming up to four tons of tiny krill every day. (Roaming / consuming = actual continuous actions).\n- Daily Example: I enjoy reading classical literature in the morning.\n\n2. INFINITIVES AS GOALS (TO + VERB)\n- Formula: [Verb] + [to + Base Verb]\n- Memory Trick: The Target Arrow. Use infinitives when aiming toward a future objective, intention, or decision.\n- Fact Example: International space agencies aim to establish permanent human outposts on Mars before mid-century. (To establish = future goal).\n- Daily Example: She decided to study computer science.\n\n3. MEANING-SHIFT VERBS (Remember / Stop)\n- Formula: [Verb + -ing = Past Memory] vs. [Verb + to = Future Duty]\n- Memory Trick: The Timeline Fork. Gerunds look backward to past events; infinitives look forward to tasks to complete.\n- Fact Example: Scientists remembered discovering ancient bacterial fossils in meteorites, prompting humanity to stop viewing Earth as isolated. (Remembered discovering = past memory; Stop viewing = cease action)."
+  },
+  {
+    "id": "eng_010",
+    "title": "Mastering Articles & Nouns: Precision, Specificity & Scope",
+    "category": "English",
+    "difficulty": "Easy",
+    "image": "https://images.unsplash.com/photo-1507499739999-097706ad8914",
+    "text": "Articles (A, An, The) act as navigational signs, telling your reader whether an idea is brand new, specific, or universal.\n\n1. INDEFINITE ARTICLES (A / An - Any Single One)\n- Formula: [a + consonant sound] / [an + vowel sound]\n- Memory Trick: The First Encounter. Use 'a/an' when introducing a singular item for the first time without pointing to a specific one.\n- Fact Example: An astronomer discovering a new asteroid must calculate its orbit immediately to verify its path. (An astronomer / a new asteroid = any single instance).\n- Daily Example: I bought a new laptop yesterday.\n\n2. DEFINITE ARTICLE (The - The Unique or Specific One)\n- Formula: [the + Specific Noun]\n- Memory Trick: The Laser Pointer. Use 'the' when both speaker and listener know precisely which unique object is being discussed.\n- Fact Example: The Pacific Ocean contains the Mariana Trench, which is the deepest point on Earth. (The Pacific Ocean / The Mariana Trench = specific, unique geographical landmarks).\n- Daily Example: Please pass the salt from the counter.\n\n3. ZERO ARTICLE (General Universals & Uncountables)\n- Formula: [No Article] + [Plural or Uncountable Noun]\n- Memory Trick: The Universal Concept. Drop articles completely when referring to whole concepts or materials in general.\n- Fact Example: Water is essential for organic life to flourish across galaxy systems. (Water / life = general substances, no articles needed)."
+  },
+  {
+    "id": "eng_011",
+    "title": "Mastering Inversion: Rhetorical Power & Dramatic Flair",
+    "category": "English",
+    "difficulty": "Hard",
+    "image": "https://images.unsplash.com/photo-1461360370896-922624d12aa1",
+    "text": "Inversion flips normal word order to create dramatic emphasis, formal elegance, and persuasive authority.\n\n1. NEGATIVE ADVERB INVERSION (Rarely, Seldom, Never)\n- Formula: [Negative Adverb] + [Auxiliary Verb] + [Subject] + [Main Verb]\n- Memory Trick: The Stage Spotlight. Placing a negative word first forces the helper verb before the subject, demanding immediate attention.\n- Fact Example: Rarely have scientists observed a celestial collision as energetic as two merging black holes. (Rarely have scientists observed... = powerful emphasis).\n- Daily Example: Never have I heard such an inspiring presentation.\n\n2. HARDLY... WHEN (Immediate Sequence)\n- Formula: [Hardly + had + Subject + Past Participle] + [when + Subject + Past Verb]\n- Memory Trick: The Domino Snap. Use this to describe two events happening almost simultaneously with high suspense.\n- Fact Example: Hardly had the space shuttle cleared the atmosphere when ground command confirmed stable orbital trajectory.\n- Daily Example: Hardly had I stepped outside when the thunder erupted.\n\n3. NOT ONLY... BUT ALSO (Amplified Dual Impact)\n- Formula: [Not only + Auxiliary + Subject + Verb], [but Subject + also + Verb]\n- Memory Trick: The Double Impact. Inverting the first clause elevates both parts of your sentence equally.\n- Fact Example: Not only does the Sun illuminate our solar system, but it also generates the gravitational pull that holds every planet in orbit."
+  },
+  {
+    "id": "str_006",
+    "title": "The Last Leaf",
+    "category": "Short Story",
+    "difficulty": "Easy",
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+    "text": "1. THE ILLNESS\nIn a Greenwich Village artists' colony, a young painter named Johnsy catches pneumonia. Looking out her window at an ivy vine losing its leaves, she becomes convinced she will die when the last remaining leaf falls.\n\n2. THE DESPERATE EFFORT\nHer roommate Sue tries to cheer her up and confides in their downstairs neighbor, Old Behrman, an elderly painter who has dreamed for decades of painting a masterpiece. Behrman is fiercely protective of the young women and angered by Johnsy's morbid fantasy.\n\n3. THE MASTERPIECE\nAfter a night of severe wind and rain, the last leaf amazingly remains attached to the vine day after day. Inspiring Johnsy to regain her will to live, she recovers. Sue later reveals that Behrman died in the hospital: he went out into the cold storm to paint a realistic leaf on the wall, saving Johnsy's life with his true masterpiece."
+  },
+  {
+    "id": "str_007",
+    "title": "The Cask of Amontillado",
+    "category": "Short Story",
+    "difficulty": "Hard",
+    "image": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3",
+    "text": "1. THE ENTRAPMENT\nSeeking vengeance against Fortunato for an unspecified insult, Montresor encounters his rival intoxicated during carnival season. Montresor lures Fortunato to his damp family catacombs by claiming to have acquired a rare cask of Amontillado wine.\n\n2. THE JOURNEY DOWN\nMontresor leads Fortunato deeper into the dark, bone-lined catacombs, using Fortunato's pride as a wine connoisseur and offering him drinks to keep him intoxicated.\n\n3. THE ENTOMBMENT\nReaching the furthest niche, Montresor chains Fortunato to the wall. He then systematically lays brick and mortar to wall up the entrance. Ignoring Fortunato's screams and eventual silence, Montresor finishes the wall. Fifty years pass, and Montresor notes that the secret remains untouched."
+  },
+  {
+    "id": "str_008",
+    "title": "The Lottery",
+    "category": "Short Story",
+    "difficulty": "Medium",
+    "image": "https://images.unsplash.com/photo-1516979187457-637abb4f9353",
+    "text": "1. THE GATHERING\nOn a warm summer morning, residents of a small American village gather in the square for an annual June ritual known as 'the lottery.' Children collect smooth stones while families chat nervously around a worn black wooden box.\n\n2. THE DRAWING\nMr. Summers conducts the drawing where the head of each household selects a folded slip of paper. Bill Hutchinson draws the slip with a black central mark. His wife, Tessie, begins shouting that the draw was unfair, but the family is subjected to a second drawing.\n\n3. THE UNTHINKABLE RITUAL\nEach family member draws a slip, and Tessie receives the paper with the black spot. The townsfolk, including her friends and young children, grab the gathered stones and surround her. Tessie screams 'It isn't fair, it isn't right!' as the town stones her to death to ensure a good harvest."
+  },
+  {
+    "id": "str_009",
+    "title": "An Occurrence at Owl Creek Bridge",
+    "category": "Short Story",
+    "difficulty": "Hard",
+    "image": "https://images.unsplash.com/photo-1461360370896-922624d12aa1",
+    "text": "1. THE EXECUTION\nPeyton Farquhar, a wealthy Southern plantation owner during the Civil War, stands on a railroad bridge in Alabama with a noose around his neck, about to be hanged by Union soldiers for attempting to destroy the bridge.\n\n2. THE IMPOSSIBLE ESCAPE\nAs the trap door drops, the rope snaps. Farquhar falls into the swift river, frees his tied hands, swims to safety under rifle fire, and flees into the dense forest. He walks all day and night through the wilderness toward his home.\n\n3. THE REVELATION\nHe reaches his property and sees his wife stepping out to greet him with open arms. As he reaches to embrace her, a blinding white light flashes and a sharp shock hits his neck. Farquhar is dead, his neck broken below Owl Creek Bridge—his entire escape was an instant illusion before death."
+  },
+  {
+    "id": "str_010",
+    "title": "The Open Window",
+    "category": "Short Story",
+    "difficulty": "Easy",
+    "image": "https://images.unsplash.com/photo-1513694203232-719a280e022f",
+    "text": "1. THE STORY BEGINS\nFramton Nuttel, a man suffering from severe anxiety, arrives at a rural estate to rest his nerves. While waiting for the homeowner, Mrs. Sappleton, he is entertained by her 15-year-old niece, Vera.\n\n2. THE TRAGIC TALE\nVera points to a large open French window and tells Framton that three years ago, Mrs. Sappleton's husband, brothers, and dog went hunting and drowned in a bog. She claims her aunt keeps the window open expecting them to walk back in.\n\n3. THE PRANK\nMrs. Sappleton enters and mentions her husband will return soon. Moments later, three men with a dog walk across the lawn toward the window. Terrified that he is seeing ghosts, Framton flees the house in panic. Vera casually explains to her family that Framton ran off due to a phobia of dogs, showing her talent for tall tales on short notice."
+  },
+  {
+    "id": "str_011",
+    "title": "Don Quixote: Part 1 - The First Sally & The Innkeeper's Knighthood",
+    "category": "Donkihote",
+    "difficulty": "Medium",
+    "image": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c",
+    "text": "1. THE MADNESS OF ALONSO QUIJANO\nIn a quiet village of La Mancha, Spain, lived Alonso Quijano, an impoverished hidalgo nearing fifty years of age. Consumed by an unquenchable passion for ancient tales of chivalry, he spent his days and nights reading of gallant knights, giant monsters, and enchanted castles. So completely did these stories fill his imagination that he abandoned his estate, slept little, and eventually lost his mind. Believing it was his sacred duty to revive the lost order of knight-errantry, he scoured his attic for his grandfather's rusty suit of armor. He polished the corroded metal, fashioned a visor out of cardboard, and bestowed high-sounding titles upon his world: his gaunt, aging horse became 'Rocinante,' and he transformed himself into 'Don Quixote de La Mancha.' To complete his transformation, he chose a local farm girl named Aldonza Lorenzo as the lady of his heart, renaming her 'Dulcinea del Toboso.'\n\n2. THE FIRST SALLY ALONE\nOn a scorching July morning, Don Quixote secretly equipped himself and rode out into the plains of La Mancha. As he journeyed under the blazing sun, he panicked upon realizing he had never been officially dubbed a knight, rendering his quest unlawful according to chivalric code. Determined to remedy this, he pressed forward until evening, when he spotted a modest roadside inn. In his fevered imagination, the humble tavern transformed into a majestic castle with drawbridges, turrets, and silver moats. The two women standing at the entrance—impoverished prostitutes—appeared to him as highborn maidens resting outside the fortress walls. Though bewildered by his archaic speech and absurd outfit, the innkeeper humored the knight, offering him food and a bed while privately assessing Quixote's obvious lunacy.\n\n3. THE VIGIL OF ARMS & DUBBING\nDon Quixote fell to his knees before the innkeeper, begging to be dubbed a knight at dawn so he could legally defend the oppressed. Playfully indulging the madness, the innkeeper agreed and instructed Quixote to spend the night keeping a vigil over his armor. Quixote laid his gear inside a stone trough in the inn yard and paced proudly under the moonlight. Chaos erupted when a muleteer attempted to move the armor to water his mules; Quixote struck him over the head with his lance, knocking him unconscious. When a second muleteer approached, Quixote smashed his helmet as well. Fearing further violence and eager to rid his establishment of the lunatic, the innkeeper hastily staged a fake dubbing ceremony. Reading nonsense from his ledger book and striking Quixote's shoulders with a flat sword, he proclaimed him an official knight. Delighted, Don Quixote set off for home to gather money, clean shirts, and a faithful squire."
+  },
+  {
+    "id": "str_012",
+    "title": "Don Quixote: Part 2 - Sancho Panza & The Giant Windmills",
+    "category": "Donkihote",
+    "difficulty": "Medium",
+    "image": "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9",
+    "text": "1. RECRUITING SANCHO PANZA\nUpon returning to his village, Don Quixote approached a nearby peasant named Sancho Panza—a simple, honest man with a heavy belly, little education, and a pragmatic mind. Quixote lured Sancho into his service as a squire by dangling lavish promises, most notably the pledge that Sancho would one day be granted the governorship of an conquered island ('Insula'). Enticed by visions of wealth and status, Sancho agreed to leave his wife and children behind, riding alongside his master upon his trusted donkey, Dapple. Under cover of night, without informing Quixote's housekeeper or his niece, the duo slipped away into the countryside, setting off on one of the most iconic partnerships in world literature.\n\n2. THE TILT AT WINDMILLS\nAs they traversed the vast, dry plain of Campo de Montiel, Don Quixote suddenly halted, pointing into the distance where thirty or forty large windmills stood against the horizon. In his delusional vision, Quixote did not see agricultural structures; he saw a horde of monstrous giants with sprawling thirty-foot arms. Ignoring Sancho's frantic shouts that they were merely windmills powered by the breeze, Quixote spurred Rocinante forward, lowered his lance, and shouted a challenge to the 'monsters.' As he struck a spinning wooden sail, the powerful wind swept his lance, shattered the wooden shaft, and lifted both knight and horse high into the air before throwing them violently onto the hard earth. Battered and bleeding, Quixote insisted that his arch-enemy, the wicked sorcerer Friston, had transformed the giants into windmills at the last second to deny him the glory of victory.\n\n3. THE BASQUE DUEL & FRIARS\nContinuing along the highway, the pair encountered two Benedictine monks riding mules, followed by a carriage containing a Biscayan (Basque) noblewoman traveling to Seville. Quixote immediately assumed the monks were dark sorcerers who had kidnapped a highborn princess. Charging without hesitation, Quixote knocked one monk off his mule while Sancho tried to strip the fallen monk of his robes, claiming them as lawful spoils of war—earning Sancho a severe beating from the monk's servants. Quixote then rode up to the carriage and confronted the lady's Basque squire. A fierce argument erupted, and both men drew their swords in rage. The Basque squire grabbed a cushion from the carriage to use as a shield, while Quixote raised his broadsword to strike a fatal blow, leaving the scene suspended in dramatic tension before Quixote delivered a crushing strike that forced the squire to yield."
+  },
+  {
+    "id": "str_013",
+    "title": "Don Quixote: Part 3 - Pastoral Tragedy & Mambrino's Helmet",
+    "category": "Donkihote",
+    "difficulty": "Medium",
+    "image": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3",
+    "text": "1. THE TRAGEDY OF MARCELA\nSeeking rest, Don Quixote and Sancho joined a peaceful group of goatherds in the mountains. There, they learned of the tragic death of Grisóstomo, a wealthy young scholar who had given up his fortune to live as a shepherd out of heartbroken obsession with Marcela, a beautiful independent woman. At Grisóstomo’s funeral, Marcela suddenly appeared atop a high crag, boldly defending herself against accusations of murder. She passionately argued that her beauty did not obligate her to love every man who admired her, declaring her right to personal freedom and a solitary life in nature. Deeply moved by her logic, Don Quixote forbade anyone from pursuing her, affirming his duty to protect the autonomy of virtuous maidens.\n\n2. THE INN OF CHAOS & BLANKET TOSSING\nShortly after, Rocinante wandered toward a group of mares belonging to Yanguesian pony-drivers, who beat the horse mercilessly. When Quixote and Sancho intervened, they were severely thrashed by over twenty men. Painfully bruised, they stumbled into another roadside inn, which Quixote once again mistook for a magical castle. That night, a hunchbacked maid named Maritornes crept across the dark dormitory to meet a muleteer. Quixote, believing she was the castle lord's daughter dying of love for him, reached out to embrace her. A chaotic brawl broke out in total darkness involving the muleteer, the innkeeper, Sancho, and Quixote. The following morning, when Quixote refused to pay for their room—claiming knights never pay in castles—the angry innkeeper locked the gates and had his guests toss poor Sancho Panza repeatedly into the air using a bed blanket like a bouncing ball.\n\n3. THE FLOCKS & MAMBRINO'S HELMET\nResuming their travels, Quixote saw two vast clouds of dust rising on the road and declared that two massive armies—led by Emperor Alifanfaron and King Pentapolin—were locked in mortal combat. In truth, they were two large flocks of sheep. Quixote charged into the midst of the animals, spearing sheep left and right until the infuriated shepherds hurled heavy stones at him, knocking out several of his teeth and breaking his ribs. Days later, under a light rain, Quixote spotted a travelling barber riding a donkey while wearing a shiny brass basin on his head to protect his hat. Quixote immediately declared the basin to be the legendary, impenetrable 'Golden Helmet of Mambrino.' He charged the terrified barber, who abandoned his basin and fled, leaving Quixote to wear the brass bowl proudly on his head as proof of his knightly triumph."
+  },
+  {
+    "id": "str_014",
+    "title": "Don Quixote: Part 4 - Freeing the Slaves & The Penance",
+    "category": "Donkihote",
+    "difficulty": "Hard",
+    "image": "https://images.unsplash.com/photo-1461360370896-922624d12aa1",
+    "text": "1. THE GALLEY SLAVES\nWhile traveling along the royal highway, Don Quixote and Sancho encountered twelve heavy-hearted criminals chained together by the neck, escorted by armed guards on horseback. They were galley slaves being forced to row in the King's galleys as punishment for their crimes. Quixote questioned each prisoner individually; among them was Ginés de Pasamonte, a notorious and cunning thief writing his own autobiography. Concluding that these men were being coerced against their free will, Quixote attacked the guards, creating enough confusion for the convicts to break their chains and overpower the officers. However, when Quixote demanded that the freed men travel to El Toboso to pay homage to Dulcinea, Pasamonte and the criminals refused, showered Quixote and Sancho with rocks, stole Sancho's coat, and fled into the hills.\n\n2. THE WILDERNESS OF SIERRA MORENA\nFearing swift retribution from the Holy Brotherhood (the local police force), Sancho convinced Quixote to take refuge deep within the rugged mountains of Sierra Morena. In the desolate wilderness, Sancho's beloved donkey Dapple was stolen in the middle of the night by the escaped convict Ginés de Pasamonte. Exploring further into the cliffs, they discovered an abandoned leather suitcase containing gold coins and a fine notebook detailing the heartbreaking tale of Cardenio, a young nobleman driven mad by the betrayal of his friend Don Fernando, who had stolen his beloved fiancée, Luscinda. Don Quixote soon encountered the wild, ragged Cardenio himself, leading to a fiery exchange about knightly honor before Cardenio vanished back into the mountain thickets.\n\n3. THE PENANCE OF QUIXOTE\nInspired by classic romances where knights suffer heartbreak for their ladies, Don Quixote decided to perform a solemn penance in the wilderness to prove his devotion to Dulcinea. He stripped to his underwear, performed acrobatic somersaults, banged his head against sharp rocks, and composed mournful poetry on tree bark. He dispatched Sancho on Rocinante to deliver a passionate letter to Dulcinea in El Toboso. Along the way, Sancho bumped into the Priest and Barber from their hometown, who were searching for Quixote. Realizing the knight's madness had peaked, they devised a clever plot: they enlisted a wronged young woman named Dorotea—who was searching for her unfaithful lover Don Fernando—to disguise herself as 'Princess Micomicona,' a royal maiden whose kingdom was usurped by a terrifying giant, begging Quixote for his protection."
+  },
+  {
+    "id": "str_015",
+    "title": "Don Quixote: Part 5 - The Battle with Wineskins & The Caged Knight",
+    "category": "Donkihote",
+    "difficulty": "Hard",
+    "image": "https://images.unsplash.com/photo-1513694203232-719a280e022f",
+    "text": "1. THE BATTLE WITH THE WINESKINS\nDorotea, playing her role as Princess Micomicona flawlessly, persuaded Don Quixote to leave his mountain penance and escort her back to her fictional kingdom. The entire party convened at the familiar roadside inn. While Quixote slept in a back room, Sancho ran out screaming that his master was locked in furious combat with the giant Pandafilando. The innkeeper rushed inside to find Quixote sleepwalking in his nightshirt, slashing wildly with his broadsword at huge skin bags filled with red wine hanging on the walls. Believing the spurting red liquid was giant blood, Quixote had thoroughly flooded the room with wine, driving the innkeeper into a rage until the Priest compensated him for the damage.\n\n2. RECONCILIATIONS AND BACIYELMO\nAs fate would have it, various travellers arrived at the inn, leading to dramatic reunions. Don Fernando arrived with Luscinda, but upon confronting Dorotea and seeing her true grief, Fernando repented and returned to Dorotea, allowing Cardenio to reunite happily with Luscinda. Shortly after, the travelling barber whose brass basin Quixote had stolen arrived at the inn and demanded his property back. A hilarious, chaotic debate ensued among the guests: Quixote insisted the basin was the legendary Golden Helmet of Mambrino, while Sancho hilariously claimed it was a hybrid creation—a 'baciyelmo' (basin-helmet). To keep the peace, the Priest secretly paid the barber for the basin while everyone humored Quixote's insistence.\n\n3. THE CAGED RETURN\nTo transport the stubborn knight safely back to his home without further bloodshed, the Priest, Barber, and local officers concocted a grand illusion. Disguising themselves with terrifying wooden masks, they crept upon Don Quixote while he slept, bound his hands and feet, and locked him inside a sturdy wooden cage mounted on an ox-cart. They convinced him that he was under a powerful enchantment necessary to fulfill a prophecy involving Dulcinea. For days, the ox-cart lumbered slowly across the dusty roads of La Mancha, with Quixote sitting patiently inside his cage, accepting his humiliating fate as a mark of true knightly martyrdom until they finally delivered him to his household."
+  },
+  {
+    "id": "str_016",
+    "title": "Don Quixote: Part 6 - The Knight of the Mirrors & The Lions",
+    "category": "Donkihote",
+    "difficulty": "Medium",
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+    "text": "1. RECOVERY & THE PUBLISHED BOOK\nDon Quixote spent weeks bedridden under the care of his niece and housekeeper, who tried to burn his books and keep him calm. However, a brilliant university graduate named Samson Carrasco visited Quixote and revealed astonishing news: a book detailing the exact adventures of Don Quixote and Sancho Panza had been published and was being read by thousands across Spain. Energized by his fame and eager to defend his honor, Quixote immediately planned a second expedition (Part II of his saga) directed toward the city of El Toboso to seek a formal blessing from his beloved lady, Dulcinea.\n\n2. THE ENCHANTED DULCINEA\nSancho Panza, who had never actually met Dulcinea and had lied about delivering Quixote's letter, faced severe panic when Quixote demanded to be taken to her grand palace in El Toboso. Thinking quickly as three rough, coarse peasant women rode past on donkeys, Sancho pointed at them and claimed that one was the radiant Lady Dulcinea accompanied by her handmaidens. Quixote stared in utter horror, seeing only an ugly, bad-smelling farm girl who smelled of raw garlic. Sancho insisted that malicious sorcerers had placed a foul spell upon Quixote's eyes to transform the heavenly beauty into a hideous peasant, leaving Quixote heartbroken over his lady's cruel enchantment.\n\n3. THE KNIGHT OF THE MIRRORS & THE LIONS\nContinuing their journey, they met a mysterious warrior calling himself the 'Knight of the Mirrors,' who claimed to have previously defeated Don Quixote in combat. Infuriated, Quixote challenged him to a duel. Through sheer luck, Carrasco—who was actually the Knight of the Mirrors in disguise, attempting to defeat Quixote to force him to return home—was thrown from his horse and defeated. Quixote held his sword to Carrasco's throat, forcing him to admit that Dulcinea was the most beautiful woman in the world. Days later, Quixote encountered a wagon transporting two fierce, hungry royal lions in cages. Demanding the keeper open the cage door, Quixote stood before the terrifying beast with drawn sword. The giant lion merely stretched, yawned, turned its backside to Quixote, and lay back down in its cage, prompting Quixote to proudly adopt the new title: 'The Knight of the Lions.'"
+  },
+  {
+    "id": "str_017",
+    "title": "Don Quixote: Part 7 - The Duke's Castle & Governor Sancho",
+    "category": "Donkihote",
+    "difficulty": "Medium",
+    "image": "https://images.unsplash.com/photo-1516979187457-637abb4f9353",
+    "text": "1. THE DUKE AND DUCHESS\nDuring their travels near the Ebro River, Quixote and Sancho met a wealthy Duke and Duchess who had read the published book about their adventures. Eager for entertainment, the nobles invited them to their grand palace, lavishing them with extravagant knightly honors while secretly organizing elaborate, cruel pranks. They staged elaborate theatrical spectacles with actors disguised as devils and enchanters, claiming that to disenchant Dulcinea, Sancho Panza must willingly endure 3,300 lashes upon his bare buttocks. They also tricked Quixote and Sancho into mounting 'Clavileño,' a wooden horse packed with firecrackers, blindfolding them and blowing bellows in their faces to make them believe they were flying through the clouds to fight a giant.\n\n2. GOVERNOR SANCHO OF BARATARIA\nTo fulfill Quixote's long-standing promise, the Duke appointed Sancho as the Governor of a small walled town under his domain, mockingly named the 'Island of Barataria.' The nobles expected the uneducated peasant to make a fool of himself. Instead, when presented with complex legal disputes between citizens, Sancho utilized shrewd common sense, innate fairness, and quick wit to render brilliant, highly praised judicial rulings. His wisdom astonished the entire town, proving that wisdom and justice do not depend on formal nobility or academic education.\n\n3. SANCHO'S RESIGNATION\nDespite his judicial success, Sancho's reign as governor quickly became a nightmare. The Duke appointed a draconian royal physician who forbade Sancho from eating any delicious food placed before him, claiming it was bad for his health, leaving the governor starving. Days later, a staged midnight enemy attack plunged the town into chaos; Sancho was tied between two heavy shields, trampled by panicked citizens, and thoroughly terrified. Realizing that power and leadership brought only anxiety, hunger, and danger, Sancho voluntarily resigned his post. He embraced his donkey Dapple, declared that he preferred peaceful poverty to stressful governance, and happily returned to Quixote's side."
+  },
+  {
+    "id": "str_018",
+    "title": "Don Quixote: Part 8 - The White Moon & The Death of Alonso Quijano",
+    "category": "Donkihote",
+    "difficulty": "Hard",
+    "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a",
+    "text": "1. BARCELONA & THE BANDIT\nLeaving the Duke's castle, Don Quixote and Sancho set off for Barcelona. Along the road, they were captured by Roque Guinart, a famous and surprisingly honorable highway bandit who treated them with great respect and escorted them safely to the coast. Reaching Barcelona, Quixote saw the vast, gleaming ocean for the first time in his life, marveling at the warships in the harbor. He was hosted by a wealthy gentleman who showed him a 'magic talking head' and took him to visit a local printing shop, where Quixote was furious to discover a spurious, unauthorized sequel to his life written by a rival author, which he publicly denounced.\n\n2. THE KNIGHT OF THE WHITE MOON\nWhile riding along the sandy beach of Barcelona, Quixote was confronted by a formidable knight clad in shining armor decorated with a silver moon. Calling himself the 'Knight of the White Moon,' the stranger declared that his lady was incomparably more beautiful than Dulcinea, challenging Quixote to combat. The conditions were strict: if Quixote lost, he had to give up knight-errantry and return to his home village for one full year. The Knight of the White Moon was actually Samson Carrasco once again, heavily armed and determined to cure Quixote. Charging across the sand, Carrasco's superior warhorse slammed into Rocinante, knocking horse and rider heavily to the ground. Though battered and defeated, Quixote bravely declared from the sand: 'Dulcinea is the most beautiful woman in the world, and I am the most unfortunate knight. Pierce me with your lance, for my honor shall not die!' Carrasco spared his life but enforced the condition that Quixote return home.\n\n3. THE RESTORATION OF SANITY & DEATH\nHeartbroken and stripped of his knightly identity, Quixote returned to his village alongside the faithful Sancho, briefly contemplating becoming a peaceful shepherd. Upon arriving home, Quixote was struck by a severe, violent fever that confined him to bed for six days. Upon waking from a deep sleep, his fever broke, and his mind suddenly cleared completely. He announced to his weeping niece, housekeeper, Priest, and Sancho that his madness was gone. He declared: 'I was Don Quixote de La Mancha, but now I am Alonso Quijano the Good.' He cursed the toxic fantasy of knight-errantry books, wrote his last will and testament ensuring Sancho was provided for, and peacefully passed away surrounded by his loving friends, leaving behind an immortal legacy of nobility, noble idealism, and unforgettable friendship."
+  }
+]
