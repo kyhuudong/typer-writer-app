@@ -20,7 +20,11 @@ export type TypingSessionSummary = {
 
 const WINDOW_RADIUS = 200; // kept for reference but windowing is disabled — see visibleCharacters
 
-export function useTypingSession(targetText: string, initialTypedText = "") {
+export function useTypingSession(
+  targetText: string,
+  initialTypedText = "",
+  displayText = targetText
+) {
   // Cap to target length only — never discard based on content.
   // Wrong characters are preserved and shown red; that is correct behavior.
   // key={lesson.id} on TypingViewport guarantees remount on lesson change,
@@ -78,8 +82,12 @@ export function useTypingSession(targetText: string, initialTypedText = "") {
   }, []);
 
   const allCharacterStates = useMemo(
-    () => getCharacterStates(targetText, typedText),
-    [targetText, typedText]
+    () =>
+      getCharacterStates(targetText, typedText).map((entry, index) => ({
+        ...entry,
+        character: displayText[index] ?? entry.character
+      })),
+    [displayText, targetText, typedText]
   );
 
   // Always expose the full array so CharacterTape never drops chars from the

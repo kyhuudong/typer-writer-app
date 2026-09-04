@@ -7,6 +7,7 @@ import { speakText } from "../helpers/useTextToSpeech";
 
 type TypingViewportProps = {
   text: string;
+  displayText?: string;
   initialTypedText?: string;
   onSummaryChange?: (summary: TypingSessionSummary) => void;
   onComplete?: (summary: TypingSessionSummary) => void;
@@ -55,6 +56,7 @@ function indexFromPoint(
 
 export function TypingViewport({
   text,
+  displayText,
   initialTypedText = "",
   onSummaryChange,
   onComplete,
@@ -62,7 +64,7 @@ export function TypingViewport({
 }: TypingViewportProps) {
   const viewportRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
-  const session = useTypingSession(text, initialTypedText);
+  const session = useTypingSession(text, initialTypedText, displayText);
   const { translation, loading, error, translate, clear } = useTranslate();
 
   const [tooltip, setTooltip] = useState<TooltipState>(null);

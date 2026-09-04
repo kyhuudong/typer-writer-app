@@ -30,6 +30,37 @@ test("updates the live text surface as typing changes", () => {
   expect(characters[3]).toHaveClass("decoration-fuchsia-400");
 });
 
+test("renders a visual line break while a normal space advances typing", () => {
+  const { container } = render(
+    <TypingViewport text="First Second" displayText={"First\nSecond"} />
+  );
+
+  expect(container.querySelector("br")).toBeInTheDocument();
+
+  fireEvent.change(screen.getByLabelText(/typing surface/i), {
+    target: { value: "First " }
+  });
+
+  expect(
+    container.querySelector('[data-absolute-index="6"]')
+  ).toHaveAttribute("data-state", "current");
+});
+
+test("restores a space-only saved session at a visual line break", () => {
+  const { container } = render(
+    <TypingViewport
+      text="First Second"
+      displayText={"First\nSecond"}
+      initialTypedText="First "
+    />
+  );
+
+  expect(container.querySelector("br")).toBeInTheDocument();
+  expect(
+    container.querySelector('[data-absolute-index="6"]')
+  ).toHaveAttribute("data-state", "current");
+});
+
 test("scrolls the live surface to the active character as text changes", () => {
   render(<TypingViewport text="You have power." />);
 

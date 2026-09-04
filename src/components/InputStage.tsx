@@ -117,6 +117,7 @@ export function InputStage({ lesson }: InputStageProps) {
       <TypingViewport
         key={lesson.id}
         text={lesson.text}
+        displayText={lesson.displayText}
         initialTypedText={savedTypedText}
         onSummaryChange={setSummary}
         onTypedTextChange={(t) => {
