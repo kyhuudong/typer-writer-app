@@ -75,11 +75,11 @@ test("shows selection feedback before pointer release while dragging across text
   fireEvent.pointerDown(textarea, { button: 0, clientX: 10, clientY: 10, pointerId: 1 });
   fireEvent.pointerMove(textarea, { clientX: 40, clientY: 10, pointerId: 1 });
 
-  expect(chars[0]).toHaveClass("bg-fuchsia-500/55");
-  expect(chars[3]).toHaveClass("bg-fuchsia-500/55");
-  expect(chars[0]).toHaveClass("-mx-px");
-  expect(chars[0]).not.toHaveClass("rounded");
-  expect(chars[0]).not.toHaveClass("outline");
+  const selectedChars = screen.getAllByTestId("typing-char");
+  const marker = selectedChars[0].parentElement;
+  expect(marker?.tagName).toBe("MARK");
+  expect(marker).toHaveClass("bg-fuchsia-400/70");
+  expect(selectedChars[3].parentElement).toBe(marker);
 });
 
 test("Escape refocuses the typing surface", () => {
