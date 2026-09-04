@@ -130,10 +130,42 @@ export function TypingViewport({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [session.typedText]);
 
+  function returnToTyping() {
+    const textarea = inputRef.current;
+    if (!textarea) return;
+    textarea.focus();
+    const position = session.typedText.length;
+    textarea.setSelectionRange(position, position);
+  }
+
+  useEffect(() => {
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key !== "Escape") return;
+      tooltipOpenAtLength.current = null;
+      setTooltip(null);
+      setSelectionRange(null);
+      clear();
+      returnToTyping();
+    }
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [clear, session.typedText.length]);
+
   function handleMouseDown(e: React.MouseEvent<HTMLTextAreaElement>) {
     const idx = indexFromPoint(e.currentTarget, e.clientX, e.clientY);
     mousedownIndexRef.current = idx;
     mousedownPosRef.current = { x: e.clientX, y: e.clientY };
+    if (idx !== null) setSelectionRange({ start: idx, end: idx });
+  }
+
+  function handleMouseMove(e: React.MouseEvent<HTMLTextAreaElement>) {
+    const start = mousedownIndexRef.current;
+    const end = indexFromPoint(e.currentTarget, e.clientX, e.clientY);
+    if (start === null || end === null) return;
+    setSelectionRange({
+      start: Math.min(start, end),
+      end: Math.max(start, end)
+    });
   }
 
   function handleMouseUp(e: React.MouseEvent<HTMLTextAreaElement>) {
@@ -166,6 +198,7 @@ export function TypingViewport({
     }
 
     // Single click: word lookup.
+    setSelectionRange(null);
     if (upIdx === null) {
       tooltipOpenAtLength.current = null;
       setTooltip(null);
@@ -214,6 +247,7 @@ export function TypingViewport({
             }
           }}
           onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
           aria-label="Typing surface"
           spellCheck={false}

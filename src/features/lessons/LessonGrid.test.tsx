@@ -48,3 +48,12 @@ test("applies category filters", () => {
     screen.getByRole("button", { name: /orbital mechanics/i })
   ).toBeInTheDocument();
 });
+
+test("uses a 100% label for completed lessons", () => {
+  render(<LessonGrid lessons={lessons} completedIds={["stoic_001"]} />);
+
+  fireEvent.click(screen.getByRole("button", { name: /stoicism/i }));
+
+  expect(screen.getByText("100%")).toBeInTheDocument();
+  expect(screen.queryByLabelText("Completed")).not.toBeInTheDocument();
+});

@@ -55,3 +55,36 @@ test("each character span has a data-absolute-index attribute", () => {
     expect(span).toHaveAttribute("data-absolute-index", String(i));
   });
 });
+
+test("shows selection feedback while dragging across text", () => {
+  render(<TypingViewport text="You have power." />);
+
+  const textarea = screen.getByLabelText(/typing surface/i);
+  const chars = screen.getAllByTestId("typing-char");
+  Object.defineProperty(document, "elementFromPoint", {
+    configurable: true,
+    value: vi.fn()
+      .mockReturnValueOnce(chars[0])
+      .mockReturnValueOnce(chars[3])
+  });
+
+  fireEvent.mouseDown(textarea, { clientX: 10, clientY: 10 });
+  fireEvent.mouseMove(textarea, { clientX: 40, clientY: 10 });
+
+  expect(chars[0]).toHaveClass("bg-fuchsia-500/30");
+  expect(chars[3]).toHaveClass("bg-fuchsia-500/30");
+});
+
+test("Escape refocuses the typing surface", () => {
+  render(<TypingViewport text="You have power." />);
+
+  const textarea = screen.getByLabelText(/typing surface/i);
+  const otherElement = document.createElement("button");
+  document.body.append(otherElement);
+  otherElement.focus();
+
+  fireEvent.keyDown(window, { key: "Escape" });
+
+  expect(textarea).toHaveFocus();
+  otherElement.remove();
+});
