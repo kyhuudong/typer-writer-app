@@ -1,0 +1,255 @@
+{
+  "id": "stoicism",
+  "title": "Stoicism",
+  "description": "Practice clear, resilient thinking with Stoic ideas.",
+  "lessons": [
+    {
+      "id": "stoic_032",
+      "title": "Epictetus on Judgment",
+      "category": "Stoicism",
+      "difficulty": "Easy",
+      "image": "https://images.unsplash.com/photo-1544717305-2782549b5136",
+      "text": "What upsets people is not things themselves, but their judgments about things. Death is not inherently terrible; it is the opinion that death is terrible that creates fear. Change your judgment, and your distress vanishes."
+    },
+    {
+      "id": "stoic_033",
+      "title": "The Art of Acquiescence",
+      "category": "Stoicism",
+      "difficulty": "Medium",
+      "image": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05",
+      "text": "Fighting against unavoidable reality is like a dog tied to a moving cart barking in protest. The wise person accepts the direction of nature gracefully, focusing all energy on how to respond with dignity and reason."
+    },
+    {
+      "id": "stoic_034",
+      "title": "Seneca on Anger",
+      "category": "Stoicism",
+      "difficulty": "Medium",
+      "image": "https://images.unsplash.com/photo-1499209974431-9dddcece7f88",
+      "text": "Anger is a temporary madness that inflicts far more damage on the person experiencing it than on the target. Delay is the best remedy for anger; allow the initial emotional spark to cool before deciding how to act."
+    },
+    {
+      "id": "stoic_035",
+      "title": "The Inner Sovereign",
+      "category": "Stoicism",
+      "difficulty": "Hard",
+      "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab",
+      "text": "No man is free who is not master of himself. If external praise makes you feel superior and external criticism makes you feel worthless, you have surrendered your mental sovereignty to random strangers."
+    },
+    {
+      "id": "stoic_036",
+      "title": "Marcus Aurelius on Transience",
+      "category": "Stoicism",
+      "difficulty": "Easy",
+      "image": "https://images.unsplash.com/photo-1501139083538-0139583c060f",
+      "text": "Time is a rushing river of events. No sooner is a thing brought to sight than it is swept away and another takes its place, only to be swept away in turn. Hold tightly to virtue, for everything else is fleeting."
+    },
+    {
+      "id": "stoic_037",
+      "title": "The Discipline of Action",
+      "category": "Stoicism",
+      "difficulty": "Medium",
+      "image": "https://images.unsplash.com/photo-1544717305-2782549b5136",
+      "text": "The Discipline of Action governs how we treat other human beings. Stoicism demands that we act with justice, fairness, and unselfishness, performing our civic duties faithfully without demanding applause or public recognition."
+    },
+    {
+      "id": "stoic_038",
+      "title": "Seneca on Premeditation",
+      "category": "Stoicism",
+      "difficulty": "Hard",
+      "image": "https://images.unsplash.com/photo-1519681393784-d120267933ba",
+      "text": "He robs present ills of their power who has perceived their coming beforehand. Expected troubles strike with far less force than unexpected ones. Mentally rehearsing potential hardship arms your soul against shock when adversity arrives."
+    },
+    {
+      "id": "stoic_039",
+      "title": "Epictetus on Pure Perception",
+      "category": "Stoicism",
+      "difficulty": "Easy",
+      "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+      "text": "It is not death or pain that is fearful, but our fear of death or pain. Train your mind to separate raw sensory facts from emotional narrative. Strip away the dramatic story you tell yourself, and steady peace returns."
+    },
+    {
+      "id": "stoic_040",
+      "title": "The View from Eternity",
+      "category": "Stoicism",
+      "difficulty": "Medium",
+      "image": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa",
+      "text": "Look back at ancient empires, famous conquerors, and forgotten generations. Where are their praises, anxieties, and triumphs now? All turned to dust. Understanding how briefly you occupy the earth frees you from petty vanity."
+    },
+    {
+      "id": "stoic_041",
+      "title": "Marcus Aurelius on Unshakable Kindness",
+      "category": "Stoicism",
+      "difficulty": "Easy",
+      "image": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05",
+      "text": "Kindness is invincible, provided it is sincere and without fake affection or hostility. What harm can the most insolent person do to you if you remain consistently gentle, patient, and unshakeably good-natured in response?"
+    },
+    {
+      "id": "stoic_001",
+      "title": "Control and Perception",
+      "category": "Stoicism",
+      "difficulty": "Easy",
+      "image": "https://images.unsplash.com/photo-1544717305-2782549b5136",
+      "text": "You have power over your mind, not outside events. Realize this, and you will find strength. The world can be noisy and uncertain, but your attention remains yours to guide. Practice returning your mind to what is steady, useful, and within reach."
+    },
+    {
+      "id": "stoic_002",
+      "title": "The Dichotomy of Control",
+      "category": "Stoicism",
+      "difficulty": "Easy",
+      "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+      "text": "Some things are in our control and others not. Things in our control are opinion, pursuit, desire, aversion, and whatever are our own actions. Things not in our control are body, property, reputation, command, and whatever are not our own actions. Focus your energy solely where your influence resides."
+    },
+    {
+      "id": "stoic_003",
+      "title": "Amor Fati: Loving Your Fate",
+      "category": "Stoicism",
+      "difficulty": "Medium",
+      "image": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05",
+      "text": "Do not seek for things to happen the way you want them to; rather, wish that what happens happens the way it happens: then you will be happy. Embrace every unexpected turn and setback not merely as tolerable, but as necessary fuel for your personal growth."
+    },
+    {
+      "id": "stoic_004",
+      "title": "The Obstacle Is the Way",
+      "category": "Stoicism",
+      "difficulty": "Medium",
+      "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b",
+      "text": "The impediment to action advances action. What stands in the way becomes the way. When a wall appears before you, turn it into the stepping stone that elevates your character rather than a barrier that halts your progress."
+    },
+    {
+      "id": "stoic_005",
+      "title": "Memento Mori: Remember Death",
+      "category": "Stoicism",
+      "difficulty": "Hard",
+      "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23",
+      "text": "You could leave life right now. Let that determine what you do and say and think. Remembering your mortality strips away petty anxieties, humbles the ego, and grounds you deeply in the preciousness of the present moment."
+    },
+    {
+      "id": "stoic_006",
+      "title": "The Inner Citadel",
+      "category": "Stoicism",
+      "difficulty": "Medium",
+      "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab",
+      "text": "Nowhere can man find a quieter or more untroubled retreat than in his own soul. Build an unassailable fortress within yourself through virtue, logic, and self-restraint so that external storms cannot disturb your inner harmony."
+    },
+    {
+      "id": "stoic_007",
+      "title": "Premeditatio Malorum: Visualizing Hardship",
+      "category": "Stoicism",
+      "difficulty": "Hard",
+      "image": "https://images.unsplash.com/photo-1519681393784-d120267933ba",
+      "text": "Rehearse potential adversity in your mind before it occurs. By expecting rain, you are never caught without cover. Disarming surprise renders future misfortune far less damaging when reality arrives."
+    },
+    {
+      "id": "stoic_008",
+      "title": "The Discipline of Desire",
+      "category": "Stoicism",
+      "difficulty": "Easy",
+      "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+      "text": "Wealth consists not in having great possessions, but in having few wants. True freedom comes when you stop chasing endless external validation and find complete abundance in quiet simplicity."
+    },
+    {
+      "id": "stoic_009",
+      "title": "Responding, Not Reacting",
+      "category": "Stoicism",
+      "difficulty": "Easy",
+      "image": "https://images.unsplash.com/photo-1499209974431-9dddcece7f88",
+      "text": "Between stimulus and response there is a space. In that space lies our power to choose our response. Pause before replying in anger; grant yourself the brief gift of clarity to respond with wisdom rather than blind impulse."
+    },
+    {
+      "id": "stoic_010",
+      "title": "Sympatheia: Universal Connection",
+      "category": "Stoicism",
+      "difficulty": "Medium",
+      "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa",
+      "text": "What harms the beehive harms the bee. We are made for cooperation, like feet, hands, and rows of lower and upper teeth. Treat everyone you meet as part of the same human family, understanding that their errors stem from ignorance."
+    },
+    {
+      "id": "stoic_011",
+      "title": "Voluntary Discomfort",
+      "category": "Stoicism",
+      "difficulty": "Hard",
+      "image": "https://images.unsplash.com/photo-1469474968028-56623f02e42e",
+      "text": "Set aside a certain number of days during which you shall be content with the scantiest and cheapest fare and rough dress, saying to yourself: 'Is this the condition that I feared?' Comfort is a wonderful servant, but a cruel master."
+    },
+    {
+      "id": "stoic_012",
+      "title": "The View from Above",
+      "category": "Stoicism",
+      "difficulty": "Medium",
+      "image": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa",
+      "text": "Step back and view your life from high above the earth. See how vast the cosmos is and how temporary our daily worries are. Expanding your perspective shrinks massive obstacles down to manageable specks."
+    },
+    {
+      "id": "stoic_013",
+      "title": "Mastery Over Time",
+      "category": "Stoicism",
+      "difficulty": "Easy",
+      "image": "https://images.unsplash.com/photo-1501139083538-0139583c060f",
+      "text": "It is not that we have a short time to live, but that we waste a lot of it. Life is long enough if you know how to use it properly. Direct your fleeting moments toward what truly aligns with your core values."
+    },
+    {
+      "id": "stoic_014",
+      "title": "Silence and Mindful Listening",
+      "category": "Stoicism",
+      "difficulty": "Easy",
+      "image": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05",
+      "text": "We have two ears and one mouth so that we can listen twice as much as we speak. Practice quiet observation before offering quick judgment, for a disciplined tongue reflects an ordered mind."
+    },
+    {
+      "id": "stoic_015",
+      "title": "The Fickle Nature of Fame",
+      "category": "Stoicism",
+      "difficulty": "Medium",
+      "image": "https://images.unsplash.com/photo-1513694203232-719a280e022f",
+      "text": "How fast forgotten are all who sought short-lived glory! Approval from the crowd is fleeting, unpredictable, and outside your control. Seek instead the lasting approval of your own conscience."
+    },
+    {
+      "id": "stoic_016",
+      "title": "Unshaken Tranquility",
+      "category": "Stoicism",
+      "difficulty": "Medium",
+      "image": "https://images.unsplash.com/photo-1518837695005-2083093ee35b",
+      "text": "Be like the rocky promontory against which the waves continually break, but it stands firm while the fury of the water calms down around it. Maintain steady composure no matter how chaotic your surroundings become."
+    },
+    {
+      "id": "stoic_017",
+      "title": "Duty and Unconditional Virtue",
+      "category": "Stoicism",
+      "difficulty": "Medium",
+      "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a",
+      "text": "Just ensure that you do the right thing. The rest does not matter. Cold or warm, tired or well-rested, criticized or honored. Perform your duty faithfully without expecting applause or reward."
+    },
+    {
+      "id": "stoic_018",
+      "title": "Guarding Your Mental Sovereign",
+      "category": "Stoicism",
+      "difficulty": "Easy",
+      "image": "https://images.unsplash.com/photo-1507499739999-097706ad8914",
+      "text": "If someone handed your physical body over to a random stranger, you would be furious. Yet you hand over your mind to anyone who insults you, leaving yourself upset and distressed. Protect your peace as your most precious treasure."
+    },
+    {
+      "id": "stoic_019",
+      "title": "Continuous Self-Improvement",
+      "category": "Stoicism",
+      "difficulty": "Hard",
+      "image": "https://images.unsplash.com/photo-1461360370896-922624d12aa1",
+      "text": "As long as you live, keep learning how to live. Philosophy is not an idle theoretical exercise, but a active daily practice of refining your character, sharpening your reason, and correcting your habits."
+    },
+    {
+      "id": "stoic_020",
+      "title": "Forgiving Others' Ignorance",
+      "category": "Stoicism",
+      "difficulty": "Medium",
+      "image": "https://images.unsplash.com/photo-1516979187457-637abb4f9353",
+      "text": "When you wake up in the morning, tell yourself: The people I deal with today will be meddling, ungrateful, arrogant, dishonest, and surly. They act this way because they cannot distinguish good from evil. Do not respond with anger, but with understanding."
+    },
+    {
+      "id": "stoic_021",
+      "title": "The Essential Self",
+      "category": "Stoicism",
+      "difficulty": "Easy",
+      "image": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3",
+      "text": "Strip away your titles, your material possessions, and your public reputation. What remains is your core character. Cultivate that internal self above all else, for it is the only real wealth that stays with you."
+    }
+  ]
+}

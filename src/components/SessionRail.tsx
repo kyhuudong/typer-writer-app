@@ -1,12 +1,16 @@
-import type { Lesson } from "../types/lesson";
+import type { Lesson, LessonCollection } from "../types/lesson";
 import type { ProgressProfile } from "../types/progress";
 import { CollapsePanel } from "./CollapsePanel";
+import { CollectionPicker } from "./CollectionPicker";
 import { LoginForm } from "../features/auth/LoginForm";
 import { LessonGrid } from "../features/lessons/LessonGrid";
 import { ProgressSummary } from "./ProgressSummary";
 
 type SessionRailProps = {
   progress: ProgressProfile | null;
+  collections?: LessonCollection[];
+  selectedCollectionId?: string;
+  onSelectCollection?: (collectionId: string) => void;
   lessons: Lesson[];
   selectedLessonId: string;
   onSelectLesson: (lessonId: string) => void;
@@ -15,6 +19,9 @@ type SessionRailProps = {
 
 export function SessionRail({
   progress,
+  collections = [],
+  selectedCollectionId = "",
+  onSelectCollection = () => undefined,
   lessons,
   selectedLessonId,
   onSelectLesson,
@@ -42,6 +49,14 @@ export function SessionRail({
           : <LoginForm />}
       </CollapsePanel>
 
+      <CollapsePanel title="Collections" defaultOpen icon={<MenuIcon kind="collections" />}>
+        <CollectionPicker
+          collections={collections}
+          selectedCollectionId={selectedCollectionId}
+          onSelectCollection={onSelectCollection}
+        />
+      </CollapsePanel>
+
       <CollapsePanel title="Lessons" icon={<MenuIcon kind="lessons" />}>
         <LessonGrid
           lessons={lessons}
@@ -55,7 +70,7 @@ export function SessionRail({
   );
 }
 
-function MenuIcon({ kind }: { kind: "progress" | "lessons" }) {
+function MenuIcon({ kind }: { kind: "progress" | "lessons" | "collections" }) {
   if (kind === "progress") {
     return (
       <svg viewBox="0 0 20 20" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round">
@@ -63,6 +78,14 @@ function MenuIcon({ kind }: { kind: "progress" | "lessons" }) {
         <path d="M8 15V8" />
         <path d="M12 15V3" />
         <path d="M16 15V10" />
+      </svg>
+    );
+  }
+
+  if (kind === "collections") {
+    return (
+      <svg viewBox="0 0 20 20" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4 4h5v5H4zM11 4h5v5h-5zM4 11h5v5H4zM11 11h5v5h-5z" />
       </svg>
     );
   }

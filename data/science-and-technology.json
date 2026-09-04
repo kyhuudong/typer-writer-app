@@ -1,0 +1,23 @@
+{
+  "id": "science-and-technology",
+  "title": "Science and Technology",
+  "description": "Practice scientific and technical ideas with clear language.",
+  "lessons": [
+    {
+      "id": "sci_001",
+      "title": "Orbital Mechanics",
+      "category": "Science",
+      "difficulty": "Medium",
+      "image": "/images/space_orbit.jpg",
+      "text": "Gravitational interactions between celestial bodies maintain planetary orbits across billions of years. A small shift in velocity can change the path of a satellite, a moon, or an entire probe mission. Precision matters because even a tiny error becomes a large distance over time."
+    },
+    {
+      "id": "tech_001",
+      "title": "Reliable Systems",
+      "category": "Science & Tech",
+      "difficulty": "Medium",
+      "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97",
+      "text": "Reliable software does not appear by accident; it is built through small decisions that reduce surprise. Clear inputs, direct feedback, and predictable behavior give users confidence when they return to a system again and again. A calm interface is often a sign that many hidden details have been handled carefully."
+    }
+  ]
+}

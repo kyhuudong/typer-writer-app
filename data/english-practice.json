@@ -1,0 +1,175 @@
+{
+  "id": "english-practice",
+  "title": "English Practice",
+  "description": "Build fluent, precise English through focused typing practice.",
+  "lessons": [
+    {
+      "id": "eng_028",
+      "title": "Micro-Grammar: Could Have for Unfulfilled Past Possibilities",
+      "category": "English",
+      "difficulty": "Medium",
+      "image": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8",
+      "text": "RULE: Use 'could have' to state an ability or alternative option that existed in the past but was not taken [could have + Past Participle].\n\nEXAMPLE 1 (History): NASA could have launched the mission earlier, but safety checks took priority.\nEXAMPLE 2 (Daily): I could have taken the highway, but I selected the scenic route."
+    },
+    {
+      "id": "eng_029",
+      "title": "Micro-Grammar: Parallelism in Complex Lists",
+      "category": "English",
+      "difficulty": "Easy",
+      "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a",
+      "text": "RULE: Match grammatical structures when connecting items in a list [Verb-ing, Verb-ing, and Verb-ing].\n\nEXAMPLE 1 (Style): Good writing requires reading widely, practicing daily, and editing ruthlessly.\nEXAMPLE 2 (Daily): She enjoys hiking mountains, swimming oceans, and running trails."
+    },
+    {
+      "id": "eng_030",
+      "title": "Micro-Grammar: Unreal Past Desires with Wish",
+      "category": "English",
+      "difficulty": "Medium",
+      "image": "https://images.unsplash.com/photo-1507499739999-097706ad8914",
+      "text": "RULE: Express regret about present situations using simple past after 'wish' [Subject + wish + Subject + Simple Past].\n\nEXAMPLE 1 (Concept): Many researchers wish they had unlimited access to deep sea data.\nEXAMPLE 2 (Daily): I wish I lived closer to a quiet library."
+    },
+    {
+      "id": "eng_031",
+      "title": "Micro-Grammar: Participle Adjectives (-ed vs. -ing)",
+      "category": "English",
+      "difficulty": "Easy",
+      "image": "https://images.unsplash.com/photo-1516979187457-637abb4f9353",
+      "text": "RULE: Use '-ing' adjectives for the cause of a feeling, and '-ed' adjectives for the person experiencing the feeling.\n\nEXAMPLE 1 (Science): The astronomical discovery was fascinating, so the fascinated scientists kept studying.\nEXAMPLE 2 (Daily): The long lecture was boring, so the bored students fell asleep."
+    },
+    {
+      "id": "eng_032",
+      "title": "Micro-Grammar: Either... Or & Neither... Nor Agreement",
+      "category": "English",
+      "difficulty": "Hard",
+      "image": "https://images.unsplash.com/photo-1461360370896-922624d12aa1",
+      "text": "RULE: When connecting subjects with 'neither/nor' or 'either/or', match the verb to the subject closest to it.\n\nEXAMPLE 1 (Formal): Neither the primary researcher nor his assistants were aware of the error.\nEXAMPLE 2 (Daily): Either my brother or my parents are coming to visit this afternoon."
+    },
+    {
+      "id": "eng_033",
+      "title": "Micro-Grammar: Should Have for Past Regrets",
+      "category": "English",
+      "difficulty": "Easy",
+      "image": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8",
+      "text": "RULE: Use 'should have' to express advice or regret about a past action that did not happen [should have + Past Participle].\n\nEXAMPLE 1 (Science): Researchers should have double-checked the sensor calibration before the launch.\nEXAMPLE 2 (Daily): I should have gone to bed earlier last night."
+    },
+    {
+      "id": "eng_034",
+      "title": "Micro-Grammar: Reduced Relative Clauses",
+      "category": "English",
+      "difficulty": "Hard",
+      "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a",
+      "text": "RULE: Omit relative pronouns and 'be' verbs to streamline sentences [Noun + Past/Present Participle].\n\nEXAMPLE 1 (Science): The data gathered during the space mission revealed unexpected magnetic anomalies.\nEXAMPLE 2 (Daily): The books left on the library table belong to the instructor."
+    },
+    {
+      "id": "eng_035",
+      "title": "Micro-Grammar: Used To vs. Would for Past Habits",
+      "category": "English",
+      "difficulty": "Medium",
+      "image": "https://images.unsplash.com/photo-1507499739999-097706ad8914",
+      "text": "RULE: Use 'used to' for past states or habits. Use 'would' only for repeated past actions, not states.\n\nEXAMPLE 1 (State): She used to live near the astronomy observatory.\nEXAMPLE 2 (Repeated Action): Every summer, we would stargaze until midnight."
+    },
+    {
+      "id": "eng_036",
+      "title": "Micro-Grammar: Urgent Advice with Had Better",
+      "category": "English",
+      "difficulty": "Medium",
+      "image": "https://images.unsplash.com/photo-1516979187457-637abb4f9353",
+      "text": "RULE: Use 'had better' for strong, urgent advice with implied consequences [Subject + had better + Base Verb].\n\nEXAMPLE 1 (Urgent): The lab team had better verify the results before announcing the breakthrough.\nEXAMPLE 2 (Daily): You had better leave now if you want to catch the evening train."
+    },
+    {
+      "id": "eng_037",
+      "title": "Micro-Grammar: Dramatic Sequence with No Sooner... Than",
+      "category": "English",
+      "difficulty": "Hard",
+      "image": "https://images.unsplash.com/photo-1461360370896-922624d12aa1",
+      "text": "RULE: Use 'No sooner... than' to describe two rapid consecutive events [No sooner + had + Subject + Past Participle + than + Subject + Past Verb].\n\nEXAMPLE 1 (Science): No sooner had the satellite entered orbit than its solar arrays deployed.\nEXAMPLE 2 (Daily): No sooner had I sat down than the phone rang."
+    },
+    {
+      "id": "eng_001",
+      "title": "Mastering Present Tenses: World Facts & Current Realities",
+      "category": "English",
+      "difficulty": "Easy",
+      "image": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8",
+      "text": "Understanding present tenses becomes easy when you connect them to how the world works.\n\n1. SIMPLE PRESENT (Facts & Habits)\n- Formula: [Subject] + [Base Verb (-s/-es)]\n- Memory Trick: The Timeless Truth Machine. Use this for permanent facts, scientific laws, and daily routines.\n- Fact Example: Honey never spoils; archaeologists once found 3,000-year-old honey in Egyptian tombs that was still edible. (Spoils = Simple Present fact).\n- Daily Example: Light travels at 186,282 miles per second.\n\n2. PRESENT CONTINUOUS (Happening Right Now)\n- Formula: [Subject] + [am / is / are] + [Verb-ing]\n- Memory Trick: The Live Camera. Use this for actions in progress right at this exact moment.\n- Fact Example: Right now, Earth is orbiting the Sun at roughly 67,000 miles per hour. (Is orbiting = happening live).\n- Daily Example: You are reading this sentence right now.\n\n3. PRESENT PERFECT (Life Experience & Present Impact)\n- Formula: [Subject] + [have / has] + [Past Participle]\n- Memory Trick: The Life Bridge. Connects a past action to your current life without needing a specific date.\n- Fact Example: Humans have explored less than twenty percent of the ocean floor. (Have explored = experience up to now).\n- Daily Example: She has lived in three different countries.\n\n4. PRESENT PERFECT CONTINUOUS (Duration From Past to Now)\n- Formula: [Subject] + [have / has been] + [Verb-ing]\n- Memory Trick: The Stopwatch. Measures how long an activity has been running continuous up to this moment.\n- Fact Example: The Sun has been fusing hydrogen into helium in its core for over four billion years. (Has been fusing = ongoing duration).\n- Daily Example: I have been studying English for two hours today."
+    },
+    {
+      "id": "eng_002",
+      "title": "Mastering Past Tenses: History, Stories & Time Travel",
+      "category": "English",
+      "difficulty": "Medium",
+      "image": "https://images.unsplash.com/photo-1461360370896-922624d12aa1",
+      "text": "Mastering past tenses allows you to tell compelling stories and explain historical events clearly.\n\n1. SIMPLE PAST (Finished Action in Finished Time)\n- Formula: [Subject] + [Past Verb (-ed or Irregular)]\n- Memory Trick: The Closed Door. The action is completely finished in a specific past time frame.\n- Fact Example: In 1912, the Titanic struck an iceberg on its maiden voyage across the Atlantic. (Struck = finished past action).\n- Daily Example: I drank coffee at seven o'clock this morning.\n\n2. PAST CONTINUOUS (Background Action Interrupted)\n- Formula: [Subject] + [was / were] + [Verb-ing]\n- Memory Trick: The Movie Background. Sets the scene when a sudden event interrupted an ongoing action.\n- Fact Example: Alexander Fleming was examining bacteria plates in 1928 when he unexpectedly discovered penicillin. (Was examining = ongoing scene; discovered = interruption).\n- Daily Example: We were walking home when it suddenly started to rain.\n\n3. PAST PERFECT (The 'First' Past)\n- Formula: [Subject] + [had] + [Past Participle]\n- Memory Trick: Time Travel Step-Back. Use this when you have TWO past events and need to show which one happened FIRST.\n- Fact Example: Dinosaurs had ruled the Earth for over 150 million years before a massive asteroid struck Mexico. (Had ruled = happened before the asteroid struck).\n- Daily Example: By the time I arrived at the station, the train had already left.\n\n4. PAST PERFECT CONTINUOUS (Past Duration Before an Event)\n- Formula: [Subject] + [had been] + [Verb-ing]\n- Memory Trick: The Pre-Event Countdown. Shows how long an ongoing action lasted right up until another past moment.\n- Fact Example: Scientists had been searching for the Higgs Boson particle for nearly forty years before CERN confirmed its discovery in 2012. (Had been searching = continuous effort before discovery).\n- Daily Example: She had been practicing piano for months before her big recital."
+    },
+    {
+      "id": "eng_003",
+      "title": "Mastering Future Tenses: Horizons, Predictions & Deadlines",
+      "category": "English",
+      "difficulty": "Medium",
+      "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa",
+      "text": "Future tenses let you share dreams, make predictions, and set clear goals.\n\n1. SIMPLE FUTURE (Predictions & Spontaneous Choices)\n- Formula: [Subject] + [will] + [Base Verb]\n- Memory Trick: The Crystal Ball. Used for predictions, promises, or instant decisions made right now.\n- Fact Example: In roughly five billion years, our Sun will expand into a Red Giant star and engulf Mercury and Venus. (Will expand = scientific prediction).\n- Daily Example: Don't worry about dinner; I will cook tonight.\n\n2. FUTURE CONTINUOUS (Action in Progress Later)\n- Formula: [Subject] + [will be] + [Verb-ing]\n- Memory Trick: The Future Snapshot. Picture what you will be actively doing at a specific time tomorrow or next year.\n- Fact Example: At this time tomorrow, the International Space Station will be orbiting Earth at 17,500 miles per hour, completing its sixteenth lap of the day. (Will be orbiting = action in progress in future).\n- Daily Example: At eight o'clock tomorrow evening, I will be watching a movie.\n\n3. FUTURE PERFECT (The Future Deadline)\n- Formula: [Subject] + [will have] + [Past Participle]\n- Memory Trick: Looking Back From The Future. Pretend you stand in the future and look back at a goal that is ALREADY completed before a specific deadline.\n- Fact Example: By the year 2030, space agencies will have established permanent human habitats on the Moon. (Will have established = completed before 2030).\n- Daily Example: By ten o'clock tonight, I will have finished writing this essay.\n\n4. FUTURE PERFECT CONTINUOUS (Future Duration Landmark)\n- Formula: [Subject] + [will have been] + [Verb-ing]\n- Memory Trick: The Anniversary Marker. Measures how long an ongoing effort will total when a future point arrives.\n- Fact Example: By 2077, Voyager 1 will have been flying through interstellar space for a full century without stopping. (Will have been flying = 100 years of continuous movement calculated in 2077).\n- Daily Example: By next month, I will have been working at this company for five years."
+    },
+    {
+      "id": "eng_004",
+      "title": "Mastering Conditionals: Parallel Universes & Scientific Laws",
+      "category": "English",
+      "difficulty": "Medium",
+      "image": "https://images.unsplash.com/photo-1507499739999-097706ad8914",
+      "text": "Conditionals allow you to express scientific guarantees, future possibilities, hypothetical dreams, and past regrets.\n\n1. ZERO CONDITIONAL (Universal Laws & Facts)\n- Formula: [If / When + Simple Present], [Simple Present]\n- Memory Trick: The Fact Switch. If condition A happens, reaction B automatically and always follows.\n- Fact Example: If pure water reaches 100 degrees Celsius at sea level, it boils and turns into vapor. (Boils = guaranteed scientific truth).\n- Daily Example: If you freeze water, it expands.\n\n2. FIRST CONDITIONAL (Real Future Possibilities)\n- Formula: [If + Simple Present], [will + Base Verb]\n- Memory Trick: The Realistic Domino. A real condition in the present that creates a likely future outcome.\n- Fact Example: If global temperatures continue to rise, polar ice caps will melt at an accelerated pace. (Will melt = probable future consequence).\n- Daily Example: If it rains tomorrow, we will stay indoors.\n\n3. SECOND CONDITIONAL (Unreal Present / Dreams)\n- Formula: [If + Simple Past], [would + Base Verb]\n- Memory Trick: The Dream Machine. Use this to imagine alternate realities right now or impossible truths.\n- Fact Example: If Earth had no moon, a single day on our planet would last only six hours because there would be no lunar tides to slow our rotation. (Had/Would last = hypothetical physics scenario).\n- Daily Example: If I had a flying car, I would fly to work every morning.\n\n4. THIRD CONDITIONAL (Past Regrets & Alternate History)\n- Formula: [If + Past Perfect], [would have + Past Participle]\n- Memory Trick: The Time Travel Machine. Change a past fact to imagine how history would have turned out differently.\n- Fact Example: If the Chicxulub asteroid had missed Earth 66 million years ago, dinosaurs would not have gone extinct, and humans might never have evolved. (Had missed / Would not have gone extinct = alternate past history).\n- Daily Example: If I had studied harder, I would have passed the exam."
+    },
+    {
+      "id": "eng_005",
+      "title": "Mastering Modal Verbs: Certainty, Deduction & Mysteries",
+      "category": "English",
+      "difficulty": "Medium",
+      "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23",
+      "text": "Modal verbs alter the mood of a sentence, showing how certain, obligated, or capable you feel about an event.\n\n1. MODALS OF CERTAINTY (Must / Can't)\n- Formula: [Subject] + [must / can't] + [Base Verb]\n- Memory Trick: The Logic Sherlock. Use 'must' when logic points to 99% certainty, and 'can't' when something is logically impossible.\n- Fact Example: Light from Alpha Centauri takes four years to reach us, so the star light we see tonight must be four years old. (Must be = logical certainty).\n- Daily Example: You have been working for twelve hours; you must be exhausted.\n\n2. MODALS OF POSSIBILITY (May / Might / Could)\n- Formula: [Subject] + [may / might / could] + [Base Verb]\n- Memory Trick: The Open Door. Expresses a 30% to 50% chance that something is true or will happen.\n- Fact Example: Deep beneath the icy shell of Jupiter's moon Europa, a vast liquid ocean might harbor extraterrestrial life. (Might harbor = plausible scientific possibility).\n- Daily Example: Bring an umbrella; it might rain later.\n\n3. PAST MODALS OF SPECULATION (Must have / Could have / Should have)\n- Formula: [Subject] + [modal + have] + [Past Participle]\n- Memory Trick: The Forensic Detective. Reconstructing past events based on clues left behind.\n- Fact Example: Ancient builders at Göbekli Tepe must have organized hundreds of workers 11,000 years ago, long before the invention of the wheel. (Must have organized = strong deduction about the past).\n- Daily Example: I lost my keys; I must have dropped them in the car."
+    },
+    {
+      "id": "eng_006",
+      "title": "Mastering Active vs. Passive Voice: Focus & Perspective",
+      "category": "English",
+      "difficulty": "Hard",
+      "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa",
+      "text": "Changing voice shifts the focus of your sentence between WHO did the action and WHAT happened.\n\n1. ACTIVE VOICE (Agent in Focus)\n- Formula: [Doer of Action] + [Verb] + [Receiver of Action]\n- Memory Trick: The Spotlight on the Actor. Use active voice when the person or thing performing the action is the most important element.\n- Fact Example: Alexander Fleming discovered penicillin inside a messy Petri dish in 1928. (Focus is on Fleming, the discoverer).\n- Daily Example: The chef prepared a delicious dinner.\n\n2. PASSIVE VOICE (Action or Result in Focus)\n- Formula: [Receiver of Action] + [be verb in correct tense] + [Past Participle] + (by Doer)\n- Memory Trick: The Spotlight on the Result. Use passive voice when the result matters more than who performed it, or when the doer is unknown.\n- Fact Example: The Great Pyramid of Giza was constructed using over two million limestone blocks over four thousand years ago. (Focus is on the pyramid, not the individual builders).\n- Daily Example: The window was broken during the storm.\n\n3. SCIENTIFIC PASSIVE (Objective Truth)\n- Formula: [Object/Data] + [was / were + Past Participle]\n- Memory Trick: The Neutral Lab Coat. Science uses passive voice to show that results are objective and reproducible by anyone.\n- Fact Example: Radioactivity was first observed by Henri Becquerel, but its full nature was decoded by Marie Curie. (Focus stays on the scientific phenomena)."
+    },
+    {
+      "id": "eng_007",
+      "title": "Mastering Relative Clauses: Connecting Ideas & Flow",
+      "category": "English",
+      "difficulty": "Medium",
+      "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a",
+      "text": "Relative clauses combine separate thoughts into smooth, sophisticated sentences using who, which, that, where, and whose.\n\n1. DEFINING RELATIVE CLAUSES (Essential Information)\n- Formula: [Noun] + [who / that / which] + [Rest of Clause]\n- Memory Trick: The Key Identifier. Without this clause, the sentence loses its core meaning. No commas needed!\n- Fact Example: Stars that contain high amounts of heavy elements are more likely to form rocky planets around them. ('That contain high amounts...' identifies WHICH stars).\n- Daily Example: The person who called you earlier left a message.\n\n2. NON-DEFINING RELATIVE CLAUSES (Extra Bonus Information)\n- Formula: [Noun] + , [who / which] + [Extra Detail] , + [Verb]\n- Memory Trick: The Side Note. The main sentence makes complete sense on its own; the clause is just extra interesting detail trapped between commas.\n- Fact Example: Albert Einstein, who failed his first college entrance exam, went on to revolutionize modern physics with his theory of relativity. ('Who failed...' adds bonus context; commas are required).\n- Daily Example: My brother, who lives in New York, is visiting this weekend.\n\n3. RELATIVE ADVERBS (Time & Place Anchors)\n- Formula: [Place/Time Noun] + [where / when / whose]\n- Memory Trick: The GPS Tag. Connects actions directly to moments in time or physical locations.\n- Fact Example: 1969 was the historic year when Neil Armstrong became the first human to walk on the Moon. ('When Neil Armstrong...' anchors the year 1969)."
+    },
+    {
+      "id": "eng_008",
+      "title": "Mastering Reported Speech: Historical Quotes & Communication",
+      "category": "English",
+      "difficulty": "Medium",
+      "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a",
+      "text": "Reported speech lets you relay messages, scientific discoveries, and historical statements accurately across time.\n\n1. TENSE BACKSHIFTING (The Time Slide)\n- Formula: Direct Present -> Reported Past\n- Memory Trick: The Echo Machine. When reporting past statements, shift the verb tense one step into the past to match the new perspective.\n- Fact Example: In 1969, Neil Armstrong announced, 'That's one small step for man.' In reported speech: Neil Armstrong announced that it was one small step for man. (Is -> Was).\n- Daily Example: 'I am tired,' he said. -> He said that he was tired.\n\n2. REPORTING QUESTIONS (Statement Order)\n- Formula: [Asked + Subject + Verb] (No 'do/did' auxiliary verbs!)\n- Memory Trick: The Question Flip. Turn the question back into a normal declarative sentence order (Subject before Verb).\n- Fact Example: Journalists asked NASA whether astronauts would return to the Moon by the end of the decade. (Not 'would astronauts return').\n- Daily Example: 'Where do you live?' -> She asked me where I lived.\n\n3. UNCHANGING TRUTHS (The Fact Exception)\n- Formula: [Reported Verb] + [Simple Present for Universal Truths]\n- Memory Trick: The Immutable Law. If the statement is a permanent law of nature, you do not backshift the tense.\n- Fact Example: Galileo argued in 1632 that the Earth revolves around the Sun. (Revolves remains Simple Present because it remains true today)."
+    },
+    {
+      "id": "eng_009",
+      "title": "Mastering Gerunds & Infinitives: Actions, Intentions & Habits",
+      "category": "English",
+      "difficulty": "Medium",
+      "image": "https://images.unsplash.com/photo-1516979187457-637abb4f9353",
+      "text": "Choosing between a gerund (verb-ing) and an infinitive (to + verb) changes whether an action is treated as a real experience or a future goal.\n\n1. GERUNDS AS EXPERIENCES (-ING)\n- Formula: [Verb] + [Verb-ing]\n- Memory Trick: The Movie Reel. Use gerunds when referring to ongoing activities, real habits, or past experiences you enjoy.\n- Fact Example: Blue whales spend their entire lives roaming icy polar oceans, consuming up to four tons of tiny krill every day. (Roaming / consuming = actual continuous actions).\n- Daily Example: I enjoy reading classical literature in the morning.\n\n2. INFINITIVES AS GOALS (TO + VERB)\n- Formula: [Verb] + [to + Base Verb]\n- Memory Trick: The Target Arrow. Use infinitives when aiming toward a future objective, intention, or decision.\n- Fact Example: International space agencies aim to establish permanent human outposts on Mars before mid-century. (To establish = future goal).\n- Daily Example: She decided to study computer science.\n\n3. MEANING-SHIFT VERBS (Remember / Stop)\n- Formula: [Verb + -ing = Past Memory] vs. [Verb + to = Future Duty]\n- Memory Trick: The Timeline Fork. Gerunds look backward to past events; infinitives look forward to tasks to complete.\n- Fact Example: Scientists remembered discovering ancient bacterial fossils in meteorites, prompting humanity to stop viewing Earth as isolated. (Remembered discovering = past memory; Stop viewing = cease action)."
+    },
+    {
+      "id": "eng_010",
+      "title": "Mastering Articles & Nouns: Precision, Specificity & Scope",
+      "category": "English",
+      "difficulty": "Easy",
+      "image": "https://images.unsplash.com/photo-1507499739999-097706ad8914",
+      "text": "Articles (A, An, The) act as navigational signs, telling your reader whether an idea is brand new, specific, or universal.\n\n1. INDEFINITE ARTICLES (A / An - Any Single One)\n- Formula: [a + consonant sound] / [an + vowel sound]\n- Memory Trick: The First Encounter. Use 'a/an' when introducing a singular item for the first time without pointing to a specific one.\n- Fact Example: An astronomer discovering a new asteroid must calculate its orbit immediately to verify its path. (An astronomer / a new asteroid = any single instance).\n- Daily Example: I bought a new laptop yesterday.\n\n2. DEFINITE ARTICLE (The - The Unique or Specific One)\n- Formula: [the + Specific Noun]\n- Memory Trick: The Laser Pointer. Use 'the' when both speaker and listener know precisely which unique object is being discussed.\n- Fact Example: The Pacific Ocean contains the Mariana Trench, which is the deepest point on Earth. (The Pacific Ocean / The Mariana Trench = specific, unique geographical landmarks).\n- Daily Example: Please pass the salt from the counter.\n\n3. ZERO ARTICLE (General Universals & Uncountables)\n- Formula: [No Article] + [Plural or Uncountable Noun]\n- Memory Trick: The Universal Concept. Drop articles completely when referring to whole concepts or materials in general.\n- Fact Example: Water is essential for organic life to flourish across galaxy systems. (Water / life = general substances, no articles needed)."
+    },
+    {
+      "id": "eng_011",
+      "title": "Mastering Inversion: Rhetorical Power & Dramatic Flair",
+      "category": "English",
+      "difficulty": "Hard",
+      "image": "https://images.unsplash.com/photo-1461360370896-922624d12aa1",
+      "text": "Inversion flips normal word order to create dramatic emphasis, formal elegance, and persuasive authority.\n\n1. NEGATIVE ADVERB INVERSION (Rarely, Seldom, Never)\n- Formula: [Negative Adverb] + [Auxiliary Verb] + [Subject] + [Main Verb]\n- Memory Trick: The Stage Spotlight. Placing a negative word first forces the helper verb before the subject, demanding immediate attention.\n- Fact Example: Rarely have scientists observed a celestial collision as energetic as two merging black holes. (Rarely have scientists observed... = powerful emphasis).\n- Daily Example: Never have I heard such an inspiring presentation.\n\n2. HARDLY... WHEN (Immediate Sequence)\n- Formula: [Hardly + had + Subject + Past Participle] + [when + Subject + Past Verb]\n- Memory Trick: The Domino Snap. Use this to describe two events happening almost simultaneously with high suspense.\n- Fact Example: Hardly had the space shuttle cleared the atmosphere when ground command confirmed stable orbital trajectory.\n- Daily Example: Hardly had I stepped outside when the thunder erupted.\n\n3. NOT ONLY... BUT ALSO (Amplified Dual Impact)\n- Formula: [Not only + Auxiliary + Subject + Verb], [but Subject + also + Verb]\n- Memory Trick: The Double Impact. Inverting the first clause elevates both parts of your sentence equally.\n- Fact Example: Not only does the Sun illuminate our solar system, but it also generates the gravitational pull that holds every planet in orbit."
+    }
+  ]
+}
