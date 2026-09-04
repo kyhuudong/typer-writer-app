@@ -10,10 +10,13 @@ export function loadLessons(input: Lesson[]): Lesson[] {
       lesson.id === "philo_long_001"
         ? buildLongPhilosophyLesson()
         : lesson.text;
-    // Normalize all whitespace to single spaces so users never need to press
-    // Enter and isComplete (typedText === targetText) fires reliably.
-    const text = raw.replace(/\s+/g, " ").trim();
-    return { ...lesson, text };
+    // Keep every whitespace run at one character so indexes stay aligned.
+    // Newlines are display-only; the typing target uses a normal space there.
+    const displayText = raw.trim().replace(/\s+/g, (whitespace) =>
+      whitespace.includes("\n") ? "\n" : " "
+    );
+    const text = displayText.replace(/\n/g, " ");
+    return { ...lesson, text, displayText };
   });
 }
 

@@ -7,6 +7,7 @@ export type Lesson = {
   difficulty: LessonDifficulty;
   image: string;
   text: string;
+  displayText?: string;
 };
 
 export type LessonFilters = {
