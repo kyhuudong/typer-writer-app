@@ -41,9 +41,13 @@ function indexFromPoint(
   clientY: number
 ): number | null {
   const prev = textarea.style.pointerEvents;
-  textarea.style.pointerEvents = "none";
-  const el = document.elementFromPoint(clientX, clientY);
-  textarea.style.pointerEvents = prev;
+  let el: Element | null;
+  try {
+    textarea.style.pointerEvents = "none";
+    el = document.elementFromPoint(clientX, clientY);
+  } finally {
+    textarea.style.pointerEvents = prev;
+  }
   if (!(el instanceof HTMLElement)) return null;
   const raw = el.getAttribute("data-absolute-index");
   return raw !== null ? parseInt(raw, 10) : null;
@@ -64,8 +68,8 @@ export function TypingViewport({
   const [tooltip, setTooltip] = useState<TooltipState>(null);
   const [selectionRange, setSelectionRange] = useState<SelectionRange>(null);
   const tooltipOpenAtLength = useRef<number | null>(null);
-  const mousedownIndexRef = useRef<number | null>(null);
-  const mousedownPosRef = useRef<{ x: number; y: number } | null>(null);
+  const selectionStartRef = useRef<number | null>(null);
+  const selectionStartPositionRef = useRef<{ x: number; y: number } | null>(null);
   // Ensure onComplete fires exactly once per session lifecycle.
   const completionFiredRef = useRef(false);
 
@@ -151,15 +155,18 @@ export function TypingViewport({
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [clear, session.typedText.length]);
 
-  function handleMouseDown(e: React.MouseEvent<HTMLTextAreaElement>) {
+  function handlePointerDown(e: React.PointerEvent<HTMLTextAreaElement>) {
+    if (e.button !== undefined && e.button !== 0) return;
+    e.preventDefault();
     const idx = indexFromPoint(e.currentTarget, e.clientX, e.clientY);
-    mousedownIndexRef.current = idx;
-    mousedownPosRef.current = { x: e.clientX, y: e.clientY };
+    selectionStartRef.current = idx;
+    selectionStartPositionRef.current = { x: e.clientX, y: e.clientY };
+    e.currentTarget.setPointerCapture?.(e.pointerId);
     if (idx !== null) setSelectionRange({ start: idx, end: idx });
   }
 
-  function handleMouseMove(e: React.MouseEvent<HTMLTextAreaElement>) {
-    const start = mousedownIndexRef.current;
+  function handlePointerMove(e: React.PointerEvent<HTMLTextAreaElement>) {
+    const start = selectionStartRef.current;
     const end = indexFromPoint(e.currentTarget, e.clientX, e.clientY);
     if (start === null || end === null) return;
     setSelectionRange({
@@ -168,13 +175,14 @@ export function TypingViewport({
     });
   }
 
-  function handleMouseUp(e: React.MouseEvent<HTMLTextAreaElement>) {
+  function handlePointerUp(e: React.PointerEvent<HTMLTextAreaElement>) {
     const textarea = e.currentTarget;
     const upIdx = indexFromPoint(textarea, e.clientX, e.clientY);
-    const downIdx = mousedownIndexRef.current;
-    const downPos = mousedownPosRef.current;
-    mousedownIndexRef.current = null;
-    mousedownPosRef.current = null;
+    const downIdx = selectionStartRef.current;
+    const downPos = selectionStartPositionRef.current;
+    selectionStartRef.current = null;
+    selectionStartPositionRef.current = null;
+    textarea.releasePointerCapture?.(e.pointerId);
 
     // Determine if this was a drag (moved ≥4px) or a click.
     const isDrag =
@@ -229,6 +237,13 @@ export function TypingViewport({
     textarea.focus();
   }
 
+  function handlePointerCancel(e: React.PointerEvent<HTMLTextAreaElement>) {
+    selectionStartRef.current = null;
+    selectionStartPositionRef.current = null;
+    e.currentTarget.releasePointerCapture?.(e.pointerId);
+    setSelectionRange(null);
+  }
+
   return (
     <div
       ref={viewportRef}
@@ -246,9 +261,10 @@ export function TypingViewport({
               session.setTypedText((prev) => prev.slice(0, -1));
             }
           }}
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUp}
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerUp}
+          onPointerCancel={handlePointerCancel}
           aria-label="Typing surface"
           spellCheck={false}
           autoCapitalize="off"
