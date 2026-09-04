@@ -29,7 +29,7 @@ test("shows the typing stage first with slide sidebar hidden by default", () => 
     "aria-expanded",
     "false"
   );
-  expect(screen.getByRole("button", { name: /lessons/i })).toHaveAttribute(
+  expect(screen.getByRole("button", { name: "Lessons" })).toHaveAttribute(
     "aria-expanded",
     "false"
   );

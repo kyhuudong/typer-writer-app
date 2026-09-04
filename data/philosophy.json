@@ -1,0 +1,103 @@
+{
+  "id": "philosophy",
+  "title": "Philosophy",
+  "description": "Practice ideas from ethics, reason, and the examined life.",
+  "lessons": [
+    {
+      "id": "philo_012",
+      "title": "Solipsism and Mind",
+      "category": "Philosophy",
+      "difficulty": "Hard",
+      "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23",
+      "text": "Solipsism is the philosophical idea that only one's own mind is sure to exist. It argues that knowledge of anything outside your own conscious experience is unprovable, raising fundamental questions about reality and perception."
+    },
+    {
+      "id": "philo_013",
+      "title": "Rawls' Veil of Ignorance",
+      "category": "Philosophy",
+      "difficulty": "Medium",
+      "image": "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620",
+      "text": "To design a truly fair society, John Rawls suggested imagining yourself behind a Veil of Ignorance where you do not know your future wealth, intelligence, or social status. Justice is what you would choose when designing society from that neutral position."
+    },
+    {
+      "id": "philo_014",
+      "title": "Nozick's Experience Machine",
+      "category": "Philosophy",
+      "difficulty": "Medium",
+      "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97",
+      "text": "Suppose a machine could plug into your brain and give you any pleasant experience you desire, completely indistinguishable from real life. Would you plug in permanently? Robert Nozick argued most people refuse because we value actually doing things over merely feeling we did them."
+    },
+    {
+      "id": "philo_015",
+      "title": "Utilitarianism vs. Deontology",
+      "category": "Philosophy",
+      "difficulty": "Hard",
+      "image": "https://images.unsplash.com/photo-1461360370896-922624d12aa1",
+      "text": "Utilitarianism measures morality by consequences, aiming to maximize overall well-being. Deontology argues that certain actions are inherently right or wrong, regardless of the outcome. Balancing duties against results remains ethics' core challenge."
+    },
+    {
+      "id": "philo_016",
+      "title": "Hard Determinism",
+      "category": "Philosophy",
+      "difficulty": "Hard",
+      "image": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3",
+      "text": "Hard determinism asserts that every human action is completely caused by prior physical events and natural laws. Under this view, human free will is an illusion created by our inability to track every microscopic cause behind our choices."
+    },
+    {
+      "id": "philo_017",
+      "title": "David Hume and the Problem of Induction",
+      "category": "Philosophy",
+      "difficulty": "Hard",
+      "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23",
+      "text": "David Hume observed that just because the sun has risen every morning in the past does not logically guarantee it will rise tomorrow. We rely on habit and custom to predict the future, not pure logical necessity."
+    },
+    {
+      "id": "philo_018",
+      "title": "Stoicism vs. Epicureanism",
+      "category": "Philosophy",
+      "difficulty": "Medium",
+      "image": "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620",
+      "text": "While Stoicism emphasizes duty, virtue, and mastery over internal reactions, Epicureanism focuses on eliminating mental anxiety and physical pain through simple living, deep friendship, and modest desires. Both seek tranquility through different paths."
+    },
+    {
+      "id": "philo_019",
+      "title": "The Weight of Existential Freedom",
+      "category": "Philosophy",
+      "difficulty": "Medium",
+      "image": "https://images.unsplash.com/photo-1461360370896-922624d12aa1",
+      "text": "Existentialism argues that freedom brings existential dread. Because no external blueprint dictates your purpose, every choice you make is entirely your responsibility. We are, as Jean-Paul Sartre wrote, condemned to be free."
+    },
+    {
+      "id": "philo_020",
+      "title": "Plato's Ship of State",
+      "category": "Philosophy",
+      "difficulty": "Medium",
+      "image": "https://images.unsplash.com/photo-1469474968028-56623f02e42e",
+      "text": "Plato compared governing a nation to steering a ship. A captain needs knowledge of navigation, wind, and stars, not just popularity among the crew. Democratic systems risk disaster when voters choose charismatic flatterers over skilled, knowledgeable leaders."
+    },
+    {
+      "id": "philo_021",
+      "title": "Spinoza's Universal Substance",
+      "category": "Philosophy",
+      "difficulty": "Hard",
+      "image": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3",
+      "text": "Baruch Spinoza proposed that God and Nature are one single, infinite substance. Everything in the cosmos—stars, thoughts, bodies—is an expression of this universal system. True freedom comes from understanding your place within nature's necessity."
+    },
+    {
+      "id": "philo_001",
+      "title": "The Shape of Thought",
+      "category": "Philosophy",
+      "difficulty": "Hard",
+      "image": "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620",
+      "text": "A thought is rarely born complete; it begins as a question, then gathers shape through attention and doubt. We learn by revisiting what we think we know, not by defending every first impression. Careful thinking is slow, but it often reveals the hidden structure beneath a simple belief."
+    },
+    {
+      "id": "philo_long_001",
+      "title": "The Long Argument",
+      "category": "Philosophy",
+      "difficulty": "Hard",
+      "image": "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620",
+      "text": "This lesson is generated in code so the catalog stays compact."
+    }
+  ]
+}

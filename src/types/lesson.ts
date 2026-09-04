@@ -10,6 +10,13 @@ export type Lesson = {
   displayText?: string;
 };
 
+export type LessonCollection = {
+  id: string;
+  title: string;
+  description: string;
+  lessons: Lesson[];
+};
+
 export type LessonFilters = {
   category?: string;
   difficulty?: LessonDifficulty;
