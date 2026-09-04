@@ -47,7 +47,7 @@ export function CharacterTape({ characters, variant = "surface", selectionRange 
             data-testid="typing-char"
             data-state={state}
             data-absolute-index={key}
-            className={`${stateClasses[state]} ${isSelected ? "rounded bg-fuchsia-500/45 text-white outline outline-1 outline-fuchsia-300/60" : ""}`}
+            className={`${stateClasses[state]} ${isSelected ? "-mx-px bg-fuchsia-500/55 px-px text-fuchsia-50" : ""}`}
           >
             {character}
           </span>

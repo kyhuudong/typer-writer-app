@@ -75,8 +75,11 @@ test("shows selection feedback before pointer release while dragging across text
   fireEvent.pointerDown(textarea, { button: 0, clientX: 10, clientY: 10, pointerId: 1 });
   fireEvent.pointerMove(textarea, { clientX: 40, clientY: 10, pointerId: 1 });
 
-  expect(chars[0]).toHaveClass("bg-fuchsia-500/45");
-  expect(chars[3]).toHaveClass("bg-fuchsia-500/45");
+  expect(chars[0]).toHaveClass("bg-fuchsia-500/55");
+  expect(chars[3]).toHaveClass("bg-fuchsia-500/55");
+  expect(chars[0]).toHaveClass("-mx-px");
+  expect(chars[0]).not.toHaveClass("rounded");
+  expect(chars[0]).not.toHaveClass("outline");
 });
 
 test("Escape refocuses the typing surface", () => {
