@@ -9,6 +9,7 @@ import { TopBar } from "./TopBar";
 import { SessionRail } from "./SessionRail";
 import { SlideSidebar } from "./SlideSidebar";
 import { InputStage } from "./InputStage";
+import { LessonNavigator } from "./LessonNavigator";
 
 const COLLECTION_PREFERENCE_KEY = "minimal_typer_collection";
 
@@ -48,6 +49,19 @@ export function AppShell() {
     selectedCollection?.lessons.find((lesson) => lesson.id === selectedLessonId) ??
     selectedCollection?.lessons[0] ??
     null;
+  const categoryLessons = selectedLesson
+    ? selectedCollection?.lessons.filter(
+      (lesson) => lesson.category === selectedLesson.category
+    ) ?? []
+    : [];
+  const currentCategoryIndex = selectedLesson
+    ? categoryLessons.findIndex((lesson) => lesson.id === selectedLesson.id)
+    : -1;
+  const previousLesson = categoryLessons[currentCategoryIndex - 1];
+  const nextLesson = categoryLessons[currentCategoryIndex + 1];
+  const isCurrentLessonComplete = selectedLesson
+    ? progress?.completedLessonIds.includes(selectedLesson.id) ?? false
+    : false;
 
   function handleSelectLesson(id: string) {
     setSelectedLessonId(id);
@@ -85,6 +99,19 @@ export function AppShell() {
 
       {/* Full-width typing area */}
       <section className="mx-auto max-w-[1400px] px-6 py-5">
+        {selectedLesson && selectedCollection && currentCategoryIndex >= 0 && (
+          <LessonNavigator
+            collectionTitle={selectedCollection.title}
+            category={selectedLesson.category}
+            currentIndex={currentCategoryIndex}
+            totalLessons={categoryLessons.length}
+            hasPrevious={previousLesson !== undefined}
+            hasNext={nextLesson !== undefined}
+            isCurrentLessonComplete={isCurrentLessonComplete}
+            onPrevious={() => previousLesson && handleSelectLesson(previousLesson.id)}
+            onNext={() => nextLesson && handleSelectLesson(nextLesson.id)}
+          />
+        )}
         <InputStage lesson={selectedLesson} />
       </section>
     </main>

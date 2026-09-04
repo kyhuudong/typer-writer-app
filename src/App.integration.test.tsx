@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import App from "./App";
-import { lessonCatalog } from "./lib/lessonCatalog";
+import { lessonCatalog, lessonCollections } from "./lib/lessonCatalog";
 
 test("shows the typing stage first with slide sidebar hidden by default", () => {
   render(<App />);
@@ -45,4 +45,25 @@ test("shows the typing stage first with slide sidebar hidden by default", () => 
   expect(
     lessonCatalog.find((lesson) => lesson.id === "philo_long_001")
   ).toBeDefined();
+});
+
+test("moves to the next lesson within the active category", () => {
+  localStorage.clear();
+  const collection = lessonCollections[0];
+  const categoryLessons = collection.lessons.filter(
+    (lesson) => lesson.category === collection.lessons[0].category
+  );
+  render(<App />);
+
+  expect(screen.getByText(
+    `${collection.title} · ${categoryLessons[0].category} · 1 of ${categoryLessons.length}`
+  )).toBeInTheDocument();
+  expect(screen.getByText(categoryLessons[0].title)).toBeInTheDocument();
+
+  fireEvent.click(screen.getByRole("button", { name: /next lesson/i }));
+
+  expect(screen.getByText(
+    `${collection.title} · ${categoryLessons[1].category} · 2 of ${categoryLessons.length}`
+  )).toBeInTheDocument();
+  expect(screen.getByText(categoryLessons[1].title)).toBeInTheDocument();
 });
