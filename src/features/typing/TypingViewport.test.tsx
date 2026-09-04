@@ -56,7 +56,7 @@ test("each character span has a data-absolute-index attribute", () => {
   });
 });
 
-test("shows selection feedback while dragging across text", () => {
+test("shows selection feedback before pointer release while dragging across text", () => {
   render(<TypingViewport text="You have power." />);
 
   const textarea = screen.getByLabelText(/typing surface/i);
@@ -67,12 +67,16 @@ test("shows selection feedback while dragging across text", () => {
       .mockReturnValueOnce(chars[0])
       .mockReturnValueOnce(chars[3])
   });
+  Object.defineProperty(textarea, "setPointerCapture", {
+    configurable: true,
+    value: vi.fn()
+  });
 
-  fireEvent.mouseDown(textarea, { clientX: 10, clientY: 10 });
-  fireEvent.mouseMove(textarea, { clientX: 40, clientY: 10 });
+  fireEvent.pointerDown(textarea, { button: 0, clientX: 10, clientY: 10, pointerId: 1 });
+  fireEvent.pointerMove(textarea, { clientX: 40, clientY: 10, pointerId: 1 });
 
-  expect(chars[0]).toHaveClass("bg-fuchsia-500/30");
-  expect(chars[3]).toHaveClass("bg-fuchsia-500/30");
+  expect(chars[0]).toHaveClass("bg-fuchsia-500/45");
+  expect(chars[3]).toHaveClass("bg-fuchsia-500/45");
 });
 
 test("Escape refocuses the typing surface", () => {
