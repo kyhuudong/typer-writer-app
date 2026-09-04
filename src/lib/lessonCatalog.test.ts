@@ -2,6 +2,7 @@ import {
   filterLessons,
   findLessonCollection,
   lessonCatalog,
+  lessonCollections,
   loadLessonCollections,
   loadLessons
 } from "./lessonCatalog";
@@ -185,4 +186,29 @@ test("finds the collection owning a saved last lesson", () => {
 
   expect(findLessonCollection(collections, "science_001")?.id).toBe("science");
   expect(findLessonCollection(collections, "missing")).toBeUndefined();
+});
+
+test("includes twelve A2-B1 everyday English practice lessons", () => {
+  const englishCollection = lessonCollections.find(
+    (collection) => collection.id === "english-practice"
+  );
+  const expectedIds = Array.from(
+    { length: 12 },
+    (_, index) => `eng_${String(index + 38).padStart(3, "0")}`
+  );
+
+  expect(englishCollection).toBeDefined();
+  const lessons = englishCollection?.lessons ?? [];
+  expect(lessons.filter((lesson) => expectedIds.includes(lesson.id)))
+    .toHaveLength(12);
+  expect(new Set(lessons.map((lesson) => lesson.id)).size).toBe(lessons.length);
+  expect(
+    lessons
+      .filter((lesson) => expectedIds.includes(lesson.id))
+      .every(
+        (lesson) =>
+          lesson.category === "English" &&
+          lesson.text.trim().split(/\s+/).length >= 70
+      )
+  ).toBe(true);
 });
