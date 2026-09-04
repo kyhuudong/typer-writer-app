@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
 type TranslationTooltipProps = {
   word: string;
@@ -20,15 +20,6 @@ export function TranslationTooltip({
   onDismiss
 }: TranslationTooltipProps) {
   const ref = useRef<HTMLDivElement>(null);
-
-  // Dismiss on Escape key.
-  useEffect(() => {
-    function handleKey(e: KeyboardEvent) {
-      if (e.key === "Escape") onDismiss();
-    }
-    window.addEventListener("keydown", handleKey);
-    return () => window.removeEventListener("keydown", handleKey);
-  }, [onDismiss]);
 
   // Keep tooltip inside the viewport horizontally.
   const tooltipWidth = 180;

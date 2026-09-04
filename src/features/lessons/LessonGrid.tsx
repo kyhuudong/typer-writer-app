@@ -93,7 +93,7 @@ export function LessonGrid({
                     onSelect={onSelectLesson}
                     selected={lesson.id === selectedLessonId}
                     isCompleted={completedIds.includes(lesson.id)}
-                    progressPercent={inProgressMap[lesson.id]}
+                    progressPercent={completedIds.includes(lesson.id) ? 100 : inProgressMap[lesson.id]}
                   />
                 ))}
               </div>

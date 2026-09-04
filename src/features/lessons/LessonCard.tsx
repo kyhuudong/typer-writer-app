@@ -23,8 +23,9 @@ export function LessonCard({
   isCompleted = false,
   progressPercent
 }: LessonCardProps) {
-  const inProgress = !isCompleted && progressPercent !== undefined && progressPercent > 0;
-  const isFullyTyped = inProgress && progressPercent >= 100;
+  const displayPercent = isCompleted ? 100 : progressPercent;
+  const hasProgress = displayPercent !== undefined && displayPercent > 0;
+  const isFullyTyped = displayPercent === 100;
 
   return (
     <button
@@ -36,18 +37,13 @@ export function LessonCard({
       }`}
     >
       <div className="flex min-w-0 items-center gap-2">
-        {isCompleted && (
-          <svg viewBox="0 0 12 12" width="11" height="11" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 text-emerald-400" aria-label="Completed">
-            <path d="M1.5 6l3 3 6-6" />
-          </svg>
-        )}
-        {inProgress && (
+        {hasProgress && (
           <span className={`shrink-0 rounded px-1 py-0.5 text-[9px] font-semibold uppercase tracking-wider ${
             isFullyTyped
               ? "bg-emerald-500/15 text-emerald-400"
               : "bg-amber-500/15 text-amber-400"
           }`}>
-            {progressPercent}%
+            {displayPercent}%
           </span>
         )}
         <h3 className={`truncate text-sm font-medium ${isCompleted ? "text-zinc-400" : "text-zinc-100"}`}>
