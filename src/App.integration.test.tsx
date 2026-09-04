@@ -67,3 +67,22 @@ test("moves to the next lesson within the active category", () => {
   )).toBeInTheDocument();
   expect(screen.getByText(categoryLessons[1].title)).toBeInTheDocument();
 });
+
+test("uses Alt+Arrow keys for category lesson navigation", () => {
+  localStorage.clear();
+  const collection = lessonCollections[0];
+  const categoryLessons = collection.lessons.filter(
+    (lesson) => lesson.category === collection.lessons[0].category
+  );
+  render(<App />);
+
+  expect(
+    fireEvent.keyDown(window, { key: "ArrowLeft", altKey: true, cancelable: true })
+  ).toBe(true);
+  expect(screen.getByText(categoryLessons[0].title)).toBeInTheDocument();
+
+  expect(
+    fireEvent.keyDown(window, { key: "ArrowRight", altKey: true, cancelable: true })
+  ).toBe(false);
+  expect(screen.getByText(categoryLessons[1].title)).toBeInTheDocument();
+});

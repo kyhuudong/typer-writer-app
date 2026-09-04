@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import {
   findLessonCollection,
   lessonCatalog,
@@ -63,11 +63,11 @@ export function AppShell() {
     ? progress?.completedLessonIds.includes(selectedLesson.id) ?? false
     : false;
 
-  function handleSelectLesson(id: string) {
+  const handleSelectLesson = useCallback((id: string) => {
     setSelectedLessonId(id);
     setLastLesson(id);
     setSidebarOpen(false);
-  }
+  }, [setLastLesson]);
 
   function handleSelectCollection(id: string) {
     const collection = lessonCollections.find((entry) => entry.id === id);
@@ -78,6 +78,25 @@ export function AppShell() {
     setSelectedLessonId(firstLesson.id);
     setLastLesson(firstLesson.id);
   }
+
+  useEffect(() => {
+    function handleKeyDown(event: KeyboardEvent) {
+      if (!event.altKey) return;
+
+      if (event.key === "ArrowLeft" && previousLesson) {
+        event.preventDefault();
+        handleSelectLesson(previousLesson.id);
+      }
+
+      if (event.key === "ArrowRight" && nextLesson) {
+        event.preventDefault();
+        handleSelectLesson(nextLesson.id);
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [handleSelectLesson, nextLesson, previousLesson]);
 
   return (
     <main className="min-h-screen bg-surface-950 text-zinc-50">
