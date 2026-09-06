@@ -124,9 +124,12 @@ export function InputStage({ lesson }: InputStageProps) {
             type="button"
             onClick={handleClearTyped}
             disabled={!hasTypedText && !isCompleted}
-            className="rounded-lg border border-white/10 px-2.5 py-1.5 text-[10px] font-medium uppercase tracking-[0.2em] text-zinc-400 transition hover:border-fuchsia-400/40 hover:text-zinc-100 disabled:cursor-not-allowed disabled:opacity-30"
+            aria-label="Clear typed text (⌘ Delete)"
+            title="Clear typed text (⌘ Delete)"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 px-2.5 py-1 text-xs text-zinc-400 transition hover:border-fuchsia-400/40 hover:text-zinc-100 disabled:cursor-not-allowed disabled:opacity-30"
           >
-            Clear typed
+            <kbd className="rounded bg-white/10 px-1 py-0.5 text-[10px] font-sans text-zinc-300">⌘</kbd>
+            <span className="text-[11px] font-medium">Delete</span>
           </button>
           <p
             className={`text-[10px] uppercase tracking-[0.28em] transition-opacity duration-500 ${

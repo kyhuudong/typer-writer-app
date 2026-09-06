@@ -25,7 +25,8 @@ test("renders an empty state when no lesson is provided", () => {
   expect(screen.getByText(/choose a lesson to begin/i)).toBeInTheDocument();
 });
 
-test("clears saved and completed progress for the current lesson", () => {
+test("clears saved and completed progress for the current lesson only, keeping other lessons and history", () => {
+  const otherLessonId = "stoic_002";
   useAppStore.setState({
     currentUser: "dong",
     authStatus: "signed-in",
@@ -33,14 +34,18 @@ test("clears saved and completed progress for the current lesson", () => {
       username: "dong",
       lastLessonId: lesson.id,
       lessonSaveStates: {
-        [lesson.id]: { typedText: "You", savedAt: "now" }
+        [lesson.id]: { typedText: "You", savedAt: "now" },
+        [otherLessonId]: { typedText: "Some other draft", savedAt: "now" }
       },
       streak: 3,
       totalWordsTyped: 200,
       highestWpm: 70,
       averageAccuracy: 95,
-      completedLessonIds: [lesson.id],
-      history: [{ lessonId: lesson.id, timestamp: "now", wpm: 70, accuracy: 95 }]
+      completedLessonIds: [lesson.id, otherLessonId],
+      history: [
+        { lessonId: lesson.id, timestamp: "now", wpm: 70, accuracy: 95 },
+        { lessonId: otherLessonId, timestamp: "earlier", wpm: 80, accuracy: 98 }
+      ]
     }
   });
 
@@ -48,11 +53,30 @@ test("clears saved and completed progress for the current lesson", () => {
 
   expect(screen.getByLabelText(/typing surface/i)).toHaveValue(lesson.text);
 
-  fireEvent.click(screen.getByRole("button", { name: /clear typed/i }));
+  const clearButton = screen.getByRole("button", { name: /delete/i });
+  expect(clearButton).toHaveTextContent("⌘");
+  expect(clearButton).toHaveTextContent("Delete");
+
+  fireEvent.click(clearButton);
 
   expect(screen.getByLabelText(/typing surface/i)).toHaveValue("");
-  expect(useAppStore.getState().progress?.lessonSaveStates[lesson.id]).toBeUndefined();
-  expect(useAppStore.getState().progress?.completedLessonIds).not.toContain(lesson.id);
-  expect(useAppStore.getState().progress?.totalWordsTyped).toBe(200);
-  expect(useAppStore.getState().progress?.history).toHaveLength(1);
+
+  const progress = useAppStore.getState().progress;
+  // Current lesson draft and completion cleared
+  expect(progress?.lessonSaveStates[lesson.id]).toBeUndefined();
+  expect(progress?.completedLessonIds).not.toContain(lesson.id);
+
+  // Other lesson draft and completion preserved
+  expect(progress?.lessonSaveStates[otherLessonId]).toEqual({
+    typedText: "Some other draft",
+    savedAt: "now"
+  });
+  expect(progress?.completedLessonIds).toContain(otherLessonId);
+
+  // Lifetime statistics and full history preserved
+  expect(progress?.streak).toBe(3);
+  expect(progress?.totalWordsTyped).toBe(200);
+  expect(progress?.highestWpm).toBe(70);
+  expect(progress?.averageAccuracy).toBe(95);
+  expect(progress?.history).toHaveLength(2);
 });
