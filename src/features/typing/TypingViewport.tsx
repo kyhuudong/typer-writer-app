@@ -9,9 +9,11 @@ type TypingViewportProps = {
   text: string;
   displayText?: string;
   initialTypedText?: string;
+  resetToken?: number;
   onSummaryChange?: (summary: TypingSessionSummary) => void;
   onComplete?: (summary: TypingSessionSummary) => void;
   onTypedTextChange?: (typedText: string) => void;
+  onClearRequest?: () => void;
   onSpeak?: () => void;
 };
 
@@ -58,9 +60,11 @@ export function TypingViewport({
   text,
   displayText,
   initialTypedText = "",
+  resetToken = 0,
   onSummaryChange,
   onComplete,
-  onTypedTextChange
+  onTypedTextChange,
+  onClearRequest
 }: TypingViewportProps) {
   const viewportRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -72,6 +76,7 @@ export function TypingViewport({
   const tooltipOpenAtLength = useRef<number | null>(null);
   const selectionStartRef = useRef<number | null>(null);
   const selectionStartPositionRef = useRef<{ x: number; y: number } | null>(null);
+  const didMountRef = useRef(false);
   // Ensure onComplete fires exactly once per session lifecycle.
   const completionFiredRef = useRef(false);
 
@@ -146,6 +151,12 @@ export function TypingViewport({
 
   useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
+      if (event.metaKey && (event.key === "Backspace" || event.key === "Delete")) {
+        event.preventDefault();
+        onClearRequest?.();
+        return;
+      }
+
       if (event.key !== "Escape") return;
       tooltipOpenAtLength.current = null;
       setTooltip(null);
@@ -155,7 +166,23 @@ export function TypingViewport({
     }
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [clear, session.typedText.length]);
+  }, [clear, onClearRequest, session.typedText.length]);
+
+  useEffect(() => {
+    if (!didMountRef.current) {
+      didMountRef.current = true;
+      return;
+    }
+    session.reset();
+    tooltipOpenAtLength.current = null;
+    setTooltip(null);
+    setSelectionRange(null);
+    clear();
+    const textarea = inputRef.current;
+    if (!textarea) return;
+    textarea.focus();
+    textarea.setSelectionRange(0, 0);
+  }, [clear, resetToken, session.reset]);
 
   function handlePointerDown(e: React.PointerEvent<HTMLTextAreaElement>) {
     if (e.button !== undefined && e.button !== 0) return;
@@ -258,7 +285,7 @@ export function TypingViewport({
           value={session.typedText}
           onChange={(event) => session.setTypedText(event.target.value)}
           onKeyDown={(e) => {
-            if (e.key === "Backspace") {
+            if (e.key === "Backspace" && !e.metaKey) {
               e.preventDefault();
               session.setTypedText((prev) => prev.slice(0, -1));
             }

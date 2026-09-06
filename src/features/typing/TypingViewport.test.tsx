@@ -126,3 +126,36 @@ test("Escape refocuses the typing surface", () => {
   expect(textarea).toHaveFocus();
   otherElement.remove();
 });
+
+test("Command+Delete requests clearing typed text and prevents browser default", () => {
+  const onClearRequest = vi.fn();
+  render(
+    <TypingViewport
+      text="You have power."
+      initialTypedText="You"
+      onClearRequest={onClearRequest}
+    />
+  );
+
+  expect(
+    fireEvent.keyDown(window, { key: "Delete", metaKey: true, cancelable: true })
+  ).toBe(false);
+  expect(onClearRequest).toHaveBeenCalledTimes(1);
+});
+
+test("reset token clears typed text and returns the caret to the beginning", () => {
+  const { rerender } = render(
+    <TypingViewport text="You have power." initialTypedText="You" resetToken={0} />
+  );
+
+  const textarea = screen.getByLabelText(/typing surface/i) as HTMLTextAreaElement;
+  expect(textarea.value).toBe("You");
+
+  rerender(
+    <TypingViewport text="You have power." initialTypedText="You" resetToken={1} />
+  );
+
+  expect(textarea.value).toBe("");
+  expect(textarea.selectionStart).toBe(0);
+  expect(textarea).toHaveFocus();
+});

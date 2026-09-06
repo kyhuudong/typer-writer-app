@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   calculateCompletionPercent,
   calculateAccuracy,
@@ -29,9 +29,9 @@ export function useTypingSession(
   // Wrong characters are preserved and shown red; that is correct behavior.
   // key={lesson.id} on TypingViewport guarantees remount on lesson change,
   // so a reset useEffect([targetText]) is not needed and was causing races.
-  const [typedText, setTypedText] = useState(() =>
-    initialTypedText.slice(0, targetText.length)
-  );
+  const safeInitialText = initialTypedText.slice(0, targetText.length);
+  const initialTextRef = useRef(safeInitialText);
+  const [typedText, setTypedText] = useState(() => safeInitialText);
   // Always start the timer as null — even when restoring from saved text.
   // The timer begins on the first new keystroke, not on mount.
   const [startedAt, setStartedAt] = useState<number | null>(null);
@@ -64,10 +64,14 @@ export function useTypingSession(
   const isComplete = typedText === targetText && targetText.length > 0;
 
   useEffect(() => {
-    if (typedText.length > 0 && startedAt === null) {
+    if (
+      typedText.length > 0 &&
+      typedText !== initialTextRef.current &&
+      startedAt === null
+    ) {
       setStartedAt(Date.now());
     }
-  }, [startedAt, typedText.length]);
+  }, [startedAt, typedText]);
 
   useEffect(() => {
     if (isComplete && finishedAt === null) {
@@ -76,6 +80,7 @@ export function useTypingSession(
   }, [finishedAt, isComplete]);
 
   const reset = useCallback(() => {
+    initialTextRef.current = "";
     setTypedText("");
     setStartedAt(null);
     setFinishedAt(null);

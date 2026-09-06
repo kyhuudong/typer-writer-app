@@ -22,8 +22,10 @@ const emptySummary: TypingSessionSummary = {
 export function InputStage({ lesson }: InputStageProps) {
   const [summary, setSummary] = useState<TypingSessionSummary>(emptySummary);
   const [saveStatus, setSaveStatus] = useState<"idle" | "saved">("idle");
+  const [resetToken, setResetToken] = useState(0);
   const recordLessonComplete = useAppStore((state) => state.recordLessonComplete);
   const saveLessonProgress = useAppStore((state) => state.saveLessonProgress);
+  const clearLessonProgress = useAppStore((state) => state.clearLessonProgress);
   const completedLessonIds = useAppStore((state) => state.progress?.completedLessonIds ?? []);
   const progress = useAppStore((state) => state.progress);
   const isCompleted = lesson ? completedLessonIds.includes(lesson.id) : false;
@@ -100,26 +102,50 @@ export function InputStage({ lesson }: InputStageProps) {
   // Restore saved text capped to lesson length. Wrong chars show as red —
   // that is intentional. No content-based validation to avoid false discards.
   const savedTypedText = isCompleted ? lesson.text : raw.slice(0, lesson.text.length);
+  const hasTypedText = typedTextRef.current.length > 0 || savedTypedText.length > 0;
+
+  function handleClearTyped() {
+    if (!lesson) return;
+    if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
+    typedTextRef.current = "";
+    lastSavedTextRef.current = "";
+    clearLessonProgress(lesson.id);
+    setSummary(emptySummary);
+    setSaveStatus("idle");
+    setResetToken((value) => value + 1);
+  }
 
   return (
     <section className="space-y-4 xl:max-w-[1400px]">
       <div className="flex items-end justify-between gap-4">
         <TypingStats summary={summary} />
-        <p
-          className={`shrink-0 pb-2.5 text-[10px] uppercase tracking-[0.28em] transition-opacity duration-500 ${
-            saveStatus === "saved" ? "text-emerald-500 opacity-100" : "opacity-0"
-          }`}
-          aria-live="polite"
-        >
-          Saved ✓
-        </p>
+        <div className="flex shrink-0 items-center gap-3 pb-2.5">
+          <button
+            type="button"
+            onClick={handleClearTyped}
+            disabled={!hasTypedText && !isCompleted}
+            className="rounded-lg border border-white/10 px-2.5 py-1.5 text-[10px] font-medium uppercase tracking-[0.2em] text-zinc-400 transition hover:border-fuchsia-400/40 hover:text-zinc-100 disabled:cursor-not-allowed disabled:opacity-30"
+          >
+            Clear typed
+          </button>
+          <p
+            className={`text-[10px] uppercase tracking-[0.28em] transition-opacity duration-500 ${
+              saveStatus === "saved" ? "text-emerald-500 opacity-100" : "opacity-0"
+            }`}
+            aria-live="polite"
+          >
+            Saved ✓
+          </p>
+        </div>
       </div>
       <TypingViewport
         key={lesson.id}
         text={lesson.text}
         displayText={lesson.displayText}
         initialTypedText={savedTypedText}
+        resetToken={resetToken}
         onSummaryChange={setSummary}
+        onClearRequest={handleClearTyped}
         onTypedTextChange={(t) => {
           typedTextRef.current = t;
           if (lesson.id) scheduleSave(lesson.id);

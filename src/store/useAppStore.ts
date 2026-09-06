@@ -32,6 +32,7 @@ type AppState = {
   setLastLesson: (lessonId: string) => void;
   recordLessonComplete: (lessonId: string, summary: TypingSessionSummary) => void;
   saveLessonProgress: (lessonId: string, typedText: string) => void;
+  clearLessonProgress: (lessonId: string) => void;
 };
 
 export const useAppStore = create<AppState>((set, get) => {
@@ -241,6 +242,20 @@ export const useAppStore = create<AppState>((set, get) => {
         ...progress.lessonSaveStates,
         [lessonId]: { typedText, savedAt: new Date().toISOString() }
       }
+    };
+    saveProgressToLocalStorage(updated);
+    set({ progress: updated });
+  },
+
+  clearLessonProgress: (lessonId) => {
+    const { progress } = get();
+    if (!progress) return;
+    const lessonSaveStates = { ...progress.lessonSaveStates };
+    delete lessonSaveStates[lessonId];
+    const updated: ProgressProfile = {
+      ...progress,
+      lessonSaveStates,
+      completedLessonIds: progress.completedLessonIds.filter((id) => id !== lessonId)
     };
     saveProgressToLocalStorage(updated);
     set({ progress: updated });
