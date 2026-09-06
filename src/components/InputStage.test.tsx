@@ -19,6 +19,12 @@ test("renders the input surface and transparent stats", () => {
   expect(screen.getByText(/wpm/i)).toBeInTheDocument();
 });
 
+test("keeps typing stats and actions sticky while page content scrolls", () => {
+  render(<InputStage lesson={lesson} />);
+
+  expect(screen.getByTestId("typing-session-toolbar")).toHaveClass("sticky");
+});
+
 test("renders an empty state when no lesson is provided", () => {
   render(<InputStage lesson={null} />);
 

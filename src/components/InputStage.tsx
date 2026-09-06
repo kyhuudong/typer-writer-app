@@ -117,7 +117,10 @@ export function InputStage({ lesson }: InputStageProps) {
 
   return (
     <section className="space-y-4 xl:max-w-[1400px]">
-      <div className="flex items-end justify-between gap-4">
+      <div
+        data-testid="typing-session-toolbar"
+        className="sticky top-[58px] z-20 flex items-end justify-between gap-4 border-b border-white/10 bg-surface-950/90 py-3 backdrop-blur"
+      >
         <TypingStats summary={summary} />
         <div className="flex shrink-0 items-center gap-3 pb-2.5">
           <button

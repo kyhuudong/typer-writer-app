@@ -106,19 +106,16 @@ export function TypingViewport({
   }, [onComplete, session.status, session.summary]);
 
   useEffect(() => {
-    const viewport = viewportRef.current;
-    if (!viewport) return;
-    const current = viewport.querySelector<HTMLElement>('[data-state="current"]');
+    const current = viewportRef.current?.querySelector<HTMLElement>('[data-state="current"]');
     if (!current || typeof current.scrollIntoView !== "function") return;
     // Only scroll when the current char is near the edge of the visible area.
-    // Firing scrollIntoView on every keystroke (even "instant") re-centers the
-    // viewport constantly, causing visible up/down jitter.
+    // The page is the only scroll container; creating a nested typing scroll
+    // causes two scrollbars on long lessons.
     const rect = current.getBoundingClientRect();
-    const containerRect = viewport.getBoundingClientRect();
     const margin = 120;
     const isVisible =
-      rect.top >= containerRect.top + margin &&
-      rect.bottom <= containerRect.bottom - margin;
+      rect.top >= margin &&
+      rect.bottom <= window.innerHeight - margin;
     if (!isVisible) {
       current.scrollIntoView({ block: "center", inline: "nearest", behavior: "instant" });
     }
@@ -276,7 +273,7 @@ export function TypingViewport({
   return (
     <div
       ref={viewportRef}
-      className="min-h-[52rem] max-h-[88vh] overflow-auto bg-transparent"
+      className="min-h-[52rem] bg-transparent"
     >
       <div className="relative">
         <CharacterTape characters={deferredVisible} variant="layer" selectionRange={selectionRange} />

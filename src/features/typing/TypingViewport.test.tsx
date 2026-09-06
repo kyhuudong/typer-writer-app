@@ -9,9 +9,11 @@ vi.mock("../helpers/useTextToSpeech", () => ({
 }));
 
 test("renders a single typing surface", () => {
-  render(<TypingViewport text="You have power." />);
+  const { container } = render(<TypingViewport text="You have power." />);
 
   expect(screen.getByLabelText(/typing surface/i)).toBeInTheDocument();
+  expect(container.firstElementChild).not.toHaveClass("overflow-auto");
+  expect(container.firstElementChild?.className).not.toContain("max-h-");
 });
 
 test("updates the live text surface as typing changes", () => {
